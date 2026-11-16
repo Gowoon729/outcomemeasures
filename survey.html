@@ -11,6 +11,7 @@
 <body>
 <div class="wrap">
   <h1>📝 물리치료 설문</h1>
+  <div id="previewBanner" class="note" style="display:none;margin-bottom:12px">👀 <b>미리보기</b>입니다. 작성해도 결과가 저장되거나 전송되지 않아요.</div>
 
   <div id="v-start" class="view">
     <div class="card">
@@ -22,27 +23,10 @@
     </div>
   </div>
 
-  <div id="v-fill" class="view">
-    <div class="card">
-      <div class="sub" id="fillStep"></div>
-      <div class="progress"><div id="bar"></div></div>
-      <h2 id="fillTitle" style="margin-top:8px"></h2>
-      <div id="fillSrc"></div>
-      <p class="sub" id="fillIntro"></p>
-      <div id="fillBody"></div>
-      <button class="btn btn-main" id="nextBtn" onclick="next()">다음</button>
-      <button class="btn btn-line" id="prevBtn" onclick="prev()">이전</button>
-    </div>
-  </div>
+  <div id="v-fill" class="view"><div class="card" id="fillRoot"></div></div>
 
   <div id="v-done" class="view">
-    <div class="card">
-      <h2>설문을 마쳤어요 🎉</h2>
-      <p>아래 버튼을 눌러 카카오톡이나 문자로 <b>치료사에게 결과를 보내 주세요.</b></p>
-      <button class="btn btn-main" onclick="sendResult()">📤 치료사에게 보내기</button>
-      <button class="btn btn-line" onclick="copyResult()">📋 복사만 하기</button>
-      <p class="sub" style="margin-top:12px">보내기 전에 답을 고치려면 <button class="link-btn" onclick="goEdit()">처음부터 다시 보기</button></p>
-    </div>
+    <div class="card" id="doneBox"></div>
   </div>
 
   <div id="v-error" class="view">
@@ -52,96 +36,49 @@
 </div>
 
 <script src="common.js"></script>
+<script src="survey-engine.js"></script>
 <script>
-let P = null, QIDS = [], QS = [], step = 0, answers = {}, resultCode = null;
+let P = null, QIDS = [], QS = [], answers = {}, resultCode = null;
+const PREVIEW = () => P === 'PREVIEW';
 const draftKey = () => 'om_draft_' + P + '_' + QIDS.join(',');
 
 function show(v){ document.querySelectorAll('.view').forEach(e => e.classList.toggle('active', e.id === 'v-' + v)); window.scrollTo(0,0); }
-function saveDraft(){ try { localStorage.setItem(draftKey(), JSON.stringify({ answers, step, at: Date.now() })); } catch(e){} }
 
 async function init(){
   const h = new URLSearchParams(location.hash.slice(1));
   P = h.get('p'); QIDS = (h.get('q') || '').split(',').filter(Boolean);
   if (!P || !QIDS.length) { document.getElementById('errMsg').innerText = '링크가 잘못되었어요. 치료사에게 링크를 다시 받아 주세요.'; show('error'); return; }
+  if (PREVIEW()) document.getElementById('previewBanner').style.display = '';
   try { QS = await Promise.all(QIDS.map(OM.loadQ)); }
   catch(e) { document.getElementById('errMsg').innerText = '설문지를 불러오지 못했어요. 인터넷 연결을 확인하고 다시 열어 주세요.'; show('error'); return; }
-  QIDS.forEach(id => answers[id] = {});
-  try { const d = JSON.parse(localStorage.getItem(draftKey()) || 'null'); if (d && Date.now() - d.at < 7*864e5) { answers = Object.assign(answers, d.answers); } } catch(e){}
+  if (!PREVIEW()) { try { const d = JSON.parse(localStorage.getItem(draftKey()) || 'null'); if (d && Date.now() - d.at < 7*864e5) answers = d.answers || {}; } catch(e){} }
   document.getElementById('qCount').innerText = QS.length;
   document.getElementById('qList').innerHTML = QS.map((q,i) => `${i+1}. ${OM.esc(q.name)} (${OM.allItems(q).length}문항)`).join('<br>');
   show('start');
 }
-function begin(){ step = 0; render(); show('fill'); }
-function goEdit(){ step = 0; render(); show('fill'); }
-
-function render(){
-  const q = QS[step], a = answers[q.id];
-  document.getElementById('fillStep').innerText = `설문 ${step+1} / ${QS.length}`;
-  document.getElementById('bar').style.width = (step / QS.length * 100) + '%';
-  document.getElementById('fillTitle').innerText = q.name;
-  document.getElementById('fillIntro').innerText = q.intro || '';
-  document.getElementById('fillSrc').innerHTML = OM.qSourceHtml(q);
-  let html = '';
-  q.sections.forEach(sec => {
-    if (sec.title) html += `<div class="sec-title">${OM.esc(sec.title)}</div>`;
-    sec.items.forEach(it => {
-      html += `<div class="q" id="q_${it.id}">${OM.esc(it.q)}</div>`;
-      if (it.options) {
-        html += `<div class="opts">` + it.options.map((o,j) => `<button type="button" class="${a[it.id] === j ? 'on' : ''}" onclick="pick('${it.id}',${j},this)">${OM.esc(o.label)}</button>`).join('') + `</div>`;
-      } else {
-        let b = ''; for (let v = it.scale.min; v <= it.scale.max; v++) b += `<button type="button" class="${a[it.id] === v ? 'on' : ''}" onclick="pick('${it.id}',${v},this)">${v}</button>`;
-        html += `<div class="scale">${b}</div><div class="scale-labels"><span>${OM.esc(it.scale.minLabel || '')}</span><span>${OM.esc(it.scale.maxLabel || '')}</span></div>`;
-      }
-      if (it.optional) html += `<button class="skip" type="button" onclick="skipItem('${it.id}')">${a[it.id] === null ? '✔ 해당 없음으로 표시됨' : '해당 없음 (건너뛰기)'}</button>`;
-    });
+function begin(){
+  OM.runSurvey({
+    root: document.getElementById('fillRoot'), qs: QS, answers,
+    onChange: a => { if (!PREVIEW()) try { localStorage.setItem(draftKey(), JSON.stringify({ answers: a, at: Date.now() })); } catch(e){} },
+    onFinish: (results, date) => finish(results, date)
   });
-  document.getElementById('fillBody').innerHTML = html;
-  document.getElementById('prevBtn').style.display = step === 0 ? 'none' : '';
-  document.getElementById('nextBtn').innerText = step === QS.length - 1 ? '완료' : '다음';
+  show('fill');
 }
-// 보기형은 선택한 보기 번호를, 숫자형은 숫자를 저장
-function pick(id, v, btn){
-  btn.parentElement.querySelectorAll('button').forEach(b => b.classList.toggle('on', b === btn));
-  answers[QS[step].id][id] = v; document.getElementById('q_' + id).classList.remove('missing'); saveDraft();
-  const sk = btn.parentElement.nextElementSibling; if (sk && sk.classList.contains('skip')) sk.innerText = '해당 없음 (건너뛰기)';
-}
-function skipItem(id){ answers[QS[step].id][id] = null; saveDraft(); render(); document.getElementById('q_' + id).scrollIntoView({ block: 'center' }); }
-
-function next(){
-  const q = QS[step], a = answers[q.id];
-  const miss = OM.allItems(q).filter(it => a[it.id] === undefined);
-  if (miss.length) {
-    miss.forEach(it => document.getElementById('q_' + it.id).classList.add('missing'));
-    document.getElementById('q_' + miss[0].id).scrollIntoView({ behavior: 'smooth', block: 'center' });
-    OM.alertBox(`답하지 않은 문항이 ${miss.length}개 있어요. 빨간 글씨 문항을 확인해 주세요.`);
-    return;
+function finish(results, date){
+  const box = document.getElementById('doneBox');
+  if (PREVIEW()) {
+    box.innerHTML = `<h2>미리보기 끝 👀</h2><p>환자는 이 화면에서 <b>치료사에게 보내기</b> 버튼을 누르게 됩니다.</p>
+      <div class="note">미리보기 결과는 저장되지 않아요. 계산된 점수만 확인용으로 보여 드려요.</div>
+      ${results.map(r => { const q = QS.find(x => x.id === r.q); return `<p style="margin-top:8px"><b>${OM.esc(q.short || q.name)}</b>: ${q.scoring ? OM.fmt(q, r.s) : '점수 계산 안 함'}</p>`; }).join('')}
+      <button class="btn btn-line" onclick="location.reload()">처음부터 다시</button>`;
+    show('done'); return;
   }
-  if (step < QS.length - 1) { step++; render(); window.scrollTo(0,0); saveDraft(); return; }
-  finish();
-}
-function prev(){ if (step > 0) { step--; render(); window.scrollTo(0,0); } }
-
-function toValues(q, a){
-  // 보기 번호 → 점수로 변환 (점수 없는 보기는 번호 그대로 보관)
-  const vals = {}, picks = {};
-  OM.allItems(q).forEach(it => {
-    const v = a[it.id];
-    if (v === null || v === undefined) { vals[it.id] = null; return; }
-    if (it.options) { picks[it.id] = v; vals[it.id] = it.options[v].score ?? null; }
-    else vals[it.id] = v;
-  });
-  return { vals, picks };
-}
-function finish(){
-  const date = OM.nowStr();
-  const r = QS.map(q => {
-    const { vals, picks } = toValues(q, answers[q.id]);
-    const s = OM.score(q, vals);
-    return { q: q.id, a: picks, v: vals, s: s.score };
-  });
-  resultCode = OM.encodeResult({ v: 1, p: P, d: date, r });
+  resultCode = OM.encodeResult({ v: 1, p: P, d: date, r: results });
   try { localStorage.removeItem(draftKey()); localStorage.setItem('om_last_result', resultCode); } catch(e){}
-  document.getElementById('bar').style.width = '100%';
+  box.innerHTML = `<h2>설문을 마쳤어요 🎉</h2>
+    <p>아래 버튼을 눌러 카카오톡이나 문자로 <b>치료사에게 결과를 보내 주세요.</b></p>
+    <button class="btn btn-main" onclick="sendResult()">📤 치료사에게 보내기</button>
+    <button class="btn btn-line" onclick="copyResult()">📋 복사만 하기</button>`;
   show('done');
 }
 function message(){

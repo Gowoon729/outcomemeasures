@@ -23,6 +23,12 @@ const OM = (() => {
     return it.scale.max;
   }
   const r1 = n => Math.round(n * 10) / 10;
+  // 문항 하나의 점수 (숫자척도 역채점 지원). 답이 없으면 null
+  function itemScore(it, val) {
+    if (val === null || val === undefined) return null;
+    if (it.scale && it.reverse) return it.scale.min + it.scale.max - val;
+    return val;
+  }
 
   // answers: { itemId: value }
   function score(q, answers) {
@@ -31,20 +37,22 @@ const OM = (() => {
     allItems(q).filter(it => it.scored === false).forEach(it => { if (answers[it.id] !== undefined) extras[it.id] = answers[it.id]; });
     if (!sc) return { score: null, extras };
     const items = scoredItems(q);
-    const answered = items.filter(it => answers[it.id] !== undefined && answers[it.id] !== null);
-    const raw = answered.reduce((a, it) => a + answers[it.id], 0);
+    const answered = items.filter(it => itemScore(it, answers[it.id]) !== null);
+    const val = it => itemScore(it, answers[it.id]);
+    const raw = answered.reduce((a, it) => a + val(it), 0);
     let s = null;
     if (sc.method === 'sum') s = raw;
+    else if (sc.method === 'mean') s = answered.length ? r1(raw / answered.length) : null;
     else if (sc.method === 'percent') {
       const maxAns = answered.reduce((a, it) => a + itemMax(it), 0);
       s = maxAns ? r1(raw / maxAns * 100) : null;
     } else if (sc.method === 'weighted') {
       const w = sc.weights || {};
-      s = r1(answered.reduce((a, it) => a + (w[it.id] ?? 1) * answers[it.id], 0) / (sc.divisor || 1));
+      s = r1(answered.reduce((a, it) => a + (w[it.id] ?? 1) * val(it), 0) / (sc.divisor || 1));
     }
     const subs = (sc.subscales || []).map(sub => ({
       name: sub.name, max: sub.max,
-      score: sub.items.reduce((a, id) => a + (answers[id] ?? 0), 0)
+      score: sub.items.reduce((a, id) => { const it = items.find(x => x.id === id); return a + ((it ? itemScore(it, answers[id]) : answers[id]) ?? 0); }, 0)
     }));
     return { score: s, raw, answeredCount: answered.length, subs, extras };
   }
@@ -121,5 +129,5 @@ const OM = (() => {
   function qSourceHtml(q) {
     return `<div class="qsrc">출처: ${esc(q.source || '')}${(q.refs || []).length ? '<br>원저: ' + q.refs.map(esc).join('<br>') : ''}</div>`;
   }
-  return { renderCredit, qSourceHtml, loadCatalog, loadQ, allItems, scoredItems, itemMax, score, fmt, encodeResult, decodeResult, findCodes, nowStr, esc, baseUrl, isKakao, dialog, alertBox, confirmBox, copyText, shareText };
+  return { itemScore, renderCredit, qSourceHtml, loadCatalog, loadQ, allItems, scoredItems, itemMax, score, fmt, encodeResult, decodeResult, findCodes, nowStr, esc, baseUrl, isKakao, dialog, alertBox, confirmBox, copyText, shareText };
 })();

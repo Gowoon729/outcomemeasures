@@ -14,37 +14,57 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" id="app">
   <h1>📊 아웃컴 메저</h1>
-  <nav class="tabs">
-    <button class="tab" id="t-patients" onclick="go('patients')">👥 환자</button>
-    <button class="tab" id="t-send" onclick="go('send')">📨 보내기</button>
-    <button class="tab" id="t-import" onclick="go('import')">📥 가져오기</button>
-    <button class="tab" id="t-settings" onclick="go('settings')">⚙️ 설정</button>
+  <nav class="tabs tabs5">
+    <button class="tab" id="t-patients" onclick="go('patients')">👥<br>환자</button>
+    <button class="tab" id="t-records" onclick="go('records')">🗂<br>기록관리</button>
+    <button class="tab" id="t-send" onclick="go('send')">📨<br>보내기</button>
+    <button class="tab" id="t-forms" onclick="go('forms')">📋<br>설문지</button>
+    <button class="tab" id="t-settings" onclick="go('settings')">⚙️<br>설정</button>
   </nav>
 
   <!-- 환자 목록 -->
   <div id="v-patients" class="view">
+    <div id="pendingCard"></div>
     <div class="card">
       <h2>환자 목록</h2>
       <p class="sub">이름은 이 기기에만 저장되고, 환자에게 보내는 링크에는 코드만 들어갑니다.</p>
+      <input type="text" id="pSearch" placeholder="🔍 이름·코드·메모 검색" oninput="renderPatients()" style="margin-top:8px">
       <div id="patientList"></div>
       <button class="btn btn-main" onclick="addPatient()">＋ 새 환자 등록</button>
     </div>
   </div>
 
-  <!-- 환자 상세 -->
-  <div id="v-detail" class="view">
+  <!-- 환자 한 명 -->
+  <div id="v-patient" class="view">
     <div class="card">
       <button class="link-btn" onclick="go('patients')">← 환자 목록</button>
-      <h2 id="dName" style="margin-top:6px"></h2>
-      <div class="sub" id="dMeta"></div>
-      <div class="row" style="margin-top:4px">
+      <h2 id="pName" style="margin-top:6px"></h2>
+      <div class="sub" id="pMeta"></div>
+      <div class="grid2">
+        <button class="btn btn-main" onclick="startOnsitePick(curP)">📝 지금 여기서 작성</button>
         <button class="btn btn-main" onclick="sendFor(curP)">📨 설문 보내기</button>
-        <button class="btn btn-line" onclick="editPatient()">✏️ 수정</button>
+        <button class="btn btn-line" onclick="openRecords(curP)">🗂 기록 보기</button>
+        <button class="btn btn-line" onclick="newEpisode()">🔄 새 치료 시작</button>
       </div>
+      <button class="btn btn-line" onclick="editPatient()">✏️ 환자 정보 수정 · 삭제</button>
     </div>
-    <div id="dResults"></div>
+    <div id="pPending"></div>
+  </div>
+
+  <!-- 기록관리 -->
+  <div id="v-records" class="view">
+    <div class="row" style="margin-bottom:10px">
+      <button class="btn btn-main btn-sm" style="flex:1;padding:12px" onclick="openImport()">📥 결과 가져오기</button>
+      <button class="btn btn-line btn-sm" style="flex:1;padding:12px" onclick="go('patients')">⏳ 미응답 <span id="pendCount">0</span></button>
+    </div>
+    <div class="card">
+      <select id="recPatient" onchange="recP=this.value;recEp=null;renderRecords()"></select>
+      <div class="chips" id="recEps"></div>
+      <div class="chips" id="recModes"></div>
+    </div>
+    <div id="recBody"></div>
   </div>
 
   <!-- 보내기 -->
@@ -58,36 +78,42 @@
       <div id="catalogList"></div>
     </div>
     <div class="card">
-      <h2>3. 링크 보내기</h2>
+      <h2>3. 작성 방법</h2>
       <div id="sendSummary" class="sub"></div>
-      <button class="btn btn-main" onclick="makeLink(true)">📤 카카오톡·문자로 보내기</button>
+      <button class="btn btn-main" onclick="startOnsiteFromSend()">📝 지금 여기서 작성 (폰·태블릿 건네기)</button>
+      <button class="btn btn-main" onclick="makeLink(true)">📤 카카오톡·문자로 링크 보내기</button>
       <button class="btn btn-line" onclick="makeLink(false)">📋 링크만 복사</button>
-      <button class="btn btn-line" onclick="previewSurvey()">👀 환자 화면 미리보기</button>
+      <button class="btn btn-line" onclick="previewSurvey()">👀 환자 화면 미리보기 (저장 안 됨)</button>
     </div>
   </div>
 
-  <!-- 가져오기 -->
-  <div id="v-import" class="view">
+  <!-- 설문지 -->
+  <div id="v-forms" class="view">
     <div class="card">
-      <h2>설문 결과 가져오기</h2>
-      <p class="sub">환자가 보낸 메시지를 길게 눌러 <b>전체 복사</b>한 뒤 아래에 붙여넣으세요. 여러 개를 한꺼번에 붙여넣어도 됩니다.</p>
-      <button class="btn btn-line" onclick="pasteClipboard()">📋 클립보드에서 붙여넣기</button>
-      <textarea id="importText" placeholder="[물리치료 설문 결과] ... 메시지 붙여넣기" style="margin-top:10px"></textarea>
-      <button class="btn btn-main" onclick="importFromText()">가져오기</button>
-      <div id="kakaoTip"></div>
+      <h2>설문지 목록</h2>
+      <p class="sub">설문지 편집기(직접 추가, AI 변환 붙여넣기)는 다음 단계에서 이 탭에 들어갑니다.</p>
+      <div id="formsList"></div>
     </div>
   </div>
 
   <!-- 설정 -->
   <div id="v-settings" class="view">
     <div class="card">
+      <h2>🔒 현장 작성 PIN</h2>
+      <p class="sub">환자에게 기기를 건넸을 때, 설문 화면을 빠져나오거나 결과를 저장하려면 이 번호가 필요합니다.</p>
+      <div id="pinState" class="sub" style="margin-top:6px"></div>
+      <button class="btn btn-line" onclick="setPin()">PIN 설정 · 변경</button>
+    </div>
+    <div class="card">
       <h2>해석 기준</h2>
       <p class="sub">설문지별로 MCID·MDC와 점수 구간 해석을 입력하면, 전후 비교에서 의미 있는 변화인지 표시합니다. 비워 두면 변화량만 보여 줍니다.</p>
       <div id="interpList"></div>
     </div>
     <div class="card">
-      <h2>출처</h2>
-      <div class="sub" id="creditFull"></div>
+      <h2>📄 CSV 내보내기 (엑셀)</h2>
+      <p class="sub">모든 결과를 엑셀에서 열 수 있는 표로 저장합니다. 케이스 리포트나 발표 자료에 쓸 수 있어요.</p>
+      <label class="list-item" style="cursor:pointer"><input type="checkbox" id="csvNames"><div class="grow">환자 이름 포함 <div class="sub">끄면 환자 코드로만 내보냅니다 (권장)</div></div></label>
+      <button class="btn btn-main" onclick="exportCSV()">⬇️ CSV 내보내기</button>
     </div>
     <div class="card">
       <h2>백업</h2>
@@ -97,28 +123,58 @@
         <label class="btn btn-line">⬆️ 불러오기<input type="file" accept=".json,application/json" style="display:none" onchange="importBackup(event)"></label>
       </div>
     </div>
+    <div class="card">
+      <h2>출처</h2>
+      <div class="sub" id="creditFull"></div>
+    </div>
   </div>
   <div class="credit" id="credit"></div>
 </div>
 
+<!-- 현장 작성 화면 (환자에게 건네는 화면) -->
+<div id="onsite" class="onsite">
+  <div class="wrap">
+    <div class="onsite-top"><h1>📝 설문 작성</h1><button class="icon-btn" onclick="onsiteExit()" aria-label="치료사 메뉴">🔒</button></div>
+    <div id="onsiteBody"></div>
+  </div>
+</div>
+
 <script src="common.js"></script>
+<script src="survey-engine.js"></script>
 <script>
 const KEY = 'om_therapist_v1';
-let S = null, CAT = null, curP = null, curJoint = null, selected = new Set();
-const QMETA = {}; // 사용 가능한 설문지 정의 (id → json)
-
-function load(){ try { S = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e){} if (!S) S = { patients: {}, results: [], settings: { interp: {} } }; S.settings = S.settings || { interp: {} }; S.settings.interp = S.settings.interp || {}; return S; }
-function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){ OM.alertBox('저장 공간이 부족해 저장하지 못했습니다.'); } }
+let S = null, CAT = null, curP = null, recP = null, recEp = null, recMode = 'q', curJoint = null;
+let selected = new Set();
+const QMETA = {};
 const esc = OM.esc;
+const uid = p => p + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const today = () => OM.nowStr().slice(0, 10);
 
+// ---------- 저장소 ----------
+function load(){
+  try { S = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e){}
+  if (!S) S = {};
+  S.patients = S.patients || {}; S.results = S.results || []; S.notes = S.notes || []; S.sent = S.sent || [];
+  S.settings = S.settings || {}; S.settings.interp = S.settings.interp || {};
+  // 이전 버전 기록 → 에피소드 1로
+  Object.values(S.patients).forEach(p => { if (!p.ep) { p.ep = 1; p.eps = { 1: { start: (p.created || today()).slice(0,10), label: '' } }; } });
+  S.results.forEach(r => { if (!r.ep) r.ep = 1; });
+  S.v = 2; return S;
+}
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){ OM.alertBox('저장 공간이 부족해 저장하지 못했습니다. 백업 후 오래된 기록을 정리해 주세요.'); } }
+
+async function ensureCatalog(){ if (!CAT) CAT = await OM.loadCatalog(); return CAT; }
+async function ensureQ(ids){ await Promise.all([...new Set(ids)].filter(id => !QMETA[id]).map(id => OM.loadQ(id).then(q => QMETA[id] = q).catch(() => {}))); }
+function readyIds(){ return CAT ? CAT.joints.flatMap(j => j.items).filter(it => it.id && it.status !== 'pending').map(it => it.id) : []; }
+
+// ---------- 화면 이동 ----------
 function go(v){
-  document.querySelectorAll('.view').forEach(e => e.classList.toggle('active', e.id === 'v-' + v));
-  ['patients','send','import','settings'].forEach(t => document.getElementById('t-' + t).classList.toggle('on', t === v || (v === 'detail' && t === 'patients')));
-  if (v === 'patients') renderPatients();
-  if (v === 'send') renderSend();
-  if (v === 'settings') renderSettings();
-  if (v === 'detail') renderDetail();
-  window.scrollTo(0,0);
+  document.querySelectorAll('#app > .view').forEach(e => e.classList.toggle('active', e.id === 'v-' + v));
+  const tab = v === 'patient' ? 'patients' : v;
+  ['patients','records','send','forms','settings'].forEach(t => document.getElementById('t-' + t).classList.toggle('on', t === tab));
+  ({ patients: renderPatients, patient: renderPatient, records: renderRecords, send: renderSend, forms: renderForms, settings: renderSettings }[v] || (() => {}))();
+  document.getElementById('pendCount').innerText = pendingList().length;
+  window.scrollTo(0, 0);
 }
 
 // ---------- 환자 ----------
@@ -128,14 +184,13 @@ function newCode(){
   return c;
 }
 async function addPatient(presetCode){
-  const ok = await OM.dialog(presetCode ? `새 환자 코드 ${presetCode}의 결과입니다.\n누구인지 이름을 입력해 주세요.` : '새 환자 등록', { cancel: true, html:
+  const ok = await OM.dialog(presetCode ? `처음 보는 환자 코드 ${presetCode}의 결과입니다.\n누구인지 이름을 입력해 주세요.` : '새 환자 등록', { cancel: true, okText: '등록', html:
     `<label class="field" for="npName">이름</label><input id="npName" type="text" autocomplete="off" placeholder="예: 홍길동">
-     <label class="field" for="npMemo">메모 (선택)</label><input id="npMemo" type="text" autocomplete="off" placeholder="예: 우측 무릎 ACL 재건술 후">` , okText: '등록' });
+     <label class="field" for="npMemo">메모 (선택)</label><input id="npMemo" type="text" autocomplete="off" placeholder="예: 우측 무릎 ACL 재건술 후">` });
   if (!ok) return null;
-  const name = document.getElementById('npName').value.trim() || '이름 없음';
   const code = presetCode || newCode();
-  S.patients[code] = { code, name, memo: document.getElementById('npMemo').value.trim(), created: OM.nowStr() };
-  save(); if (!presetCode) { curP = code; go('detail'); }
+  S.patients[code] = { code, name: document.getElementById('npName').value.trim() || '이름 없음', memo: document.getElementById('npMemo').value.trim(), created: OM.nowStr(), ep: 1, eps: { 1: { start: today(), label: '' } } };
+  save(); if (!presetCode) { curP = code; go('patient'); }
   return code;
 }
 async function editPatient(){
@@ -145,27 +200,67 @@ async function editPatient(){
      <label class="field" for="npMemo">메모</label><input id="npMemo" type="text" value="${esc(p.memo || '')}">
      <button class="btn btn-danger" style="margin-top:16px" onclick="deletePatient()">🗑 이 환자와 모든 기록 삭제</button>` });
   if (!ok) return;
-  p.name = document.getElementById('npName').value.trim() || p.name; p.memo = document.getElementById('npMemo').value.trim(); save(); renderDetail();
+  p.name = document.getElementById('npName').value.trim() || p.name; p.memo = document.getElementById('npMemo').value.trim(); save(); renderPatient();
 }
 async function deletePatient(){
   document.getElementById('omModal').classList.remove('show');
   const n = S.results.filter(r => r.p === curP).length;
-  if (!await OM.confirmBox(`${S.patients[curP].name} (${curP})와 결과 ${n}건을 모두 삭제할까요?\n되돌릴 수 없습니다.`)) return;
-  delete S.patients[curP]; S.results = S.results.filter(r => r.p !== curP); save(); go('patients');
+  if (!await OM.confirmBox(`${S.patients[curP].name} (${curP})와 결과 ${n}건, 메모를 모두 삭제할까요?\n되돌릴 수 없습니다.`)) return;
+  delete S.patients[curP];
+  S.results = S.results.filter(r => r.p !== curP); S.notes = S.notes.filter(n => n.p !== curP); S.sent = S.sent.filter(s => s.p !== curP);
+  save(); go('patients');
 }
-function renderPatients(){
-  const ps = Object.values(S.patients).sort((a,b) => lastDate(b.code).localeCompare(lastDate(a.code)));
-  document.getElementById('patientList').innerHTML = ps.length ? ps.map(p => {
-    const n = S.results.filter(r => r.p === p.code).length;
-    return `<div class="list-item" onclick="curP='${p.code}';go('detail')"><div class="grow"><b>${esc(p.name)}</b> <span class="sub code">${p.code}</span><div class="sub">${esc(p.memo || '')}</div></div><div class="sub" style="text-align:right">결과 ${n}건<br>${lastDate(p.code).slice(0,10) || '-'}</div></div>`;
-  }).join('') : '<p class="sub" style="margin-top:10px">등록된 환자가 없습니다.</p>';
+async function newEpisode(){
+  const p = S.patients[curP];
+  const ok = await OM.dialog(`새 치료를 시작할까요?\n지금까지 기록은 "${p.ep}번째 치료"로 보관되고, 다음 결과부터 새 치료 전 기준으로 비교합니다.`, { cancel: true, okText: '새 치료 시작', html:
+    `<label class="field" for="epLabel">이번 치료 이름 (선택)</label><input id="epLabel" type="text" placeholder="예: 요통, 우측 어깨">` });
+  if (!ok) return;
+  p.ep = Math.max(...Object.keys(p.eps).map(Number)) + 1;
+  p.eps[p.ep] = { start: today(), label: document.getElementById('epLabel').value.trim() };
+  save(); renderPatient(); OM.alertBox(`${p.ep}번째 치료를 시작했습니다.`);
 }
+const epName = (p, n) => `${n}번째 치료${p.eps[n] && p.eps[n].label ? ' · ' + p.eps[n].label : ''}`;
 function lastDate(code){ return S.results.filter(r => r.p === code).map(r => r.d).sort().pop() || ''; }
+function renderPatients(){
+  const kw = (document.getElementById('pSearch').value || '').trim().toLowerCase();
+  const pend = pendingList();
+  const ps = Object.values(S.patients).filter(p => !kw || (p.name + p.code + (p.memo || '')).toLowerCase().includes(kw))
+    .sort((a,b) => (lastDate(b.code) || b.created).localeCompare(lastDate(a.code) || a.created));
+  document.getElementById('patientList').innerHTML = ps.length ? ps.map(p => {
+    const n = S.results.filter(r => r.p === p.code && r.ep === p.ep).length;
+    const pd = pend.filter(s => s.p === p.code).length;
+    return `<div class="list-item" onclick="curP='${p.code}';go('patient')"><div class="grow"><b>${esc(p.name)}</b> <span class="sub code">${p.code}</span>${pd ? ' <span class="tag answers">⏳ 미응답</span>' : ''}<div class="sub">${esc(p.memo || '')}${p.ep > 1 ? ` · ${p.ep}번째 치료` : ''}</div></div><div class="sub" style="text-align:right">결과 ${n}건<br>${lastDate(p.code).slice(0,10) || '-'}</div></div>`;
+  }).join('') : `<p class="sub" style="margin-top:10px">${kw ? '검색 결과가 없습니다.' : '등록된 환자가 없습니다.'}</p>`;
+  document.getElementById('pendingCard').innerHTML = pend.length ? `<div class="card"><h2>⏳ 응답 기다리는 중 ${pend.length}건</h2>${pendingHtml(pend)}</div>` : '';
+}
+function renderPatient(){
+  const p = S.patients[curP]; if (!p) { go('patients'); return; }
+  document.getElementById('pName').innerText = p.name;
+  document.getElementById('pMeta').innerHTML = `코드 <span class="code">${p.code}</span>${p.memo ? ' · ' + esc(p.memo) : ''}<br>현재: ${esc(epName(p, p.ep))} (시작 ${p.eps[p.ep].start})`;
+  const pend = pendingList().filter(s => s.p === curP);
+  document.getElementById('pPending').innerHTML = pend.length ? `<div class="card"><h2>⏳ 응답 기다리는 중</h2>${pendingHtml(pend)}</div>` : '';
+}
+
+// ---------- 미응답 ----------
+function pendingList(){
+  return S.sent.filter(s => !s.closed && S.patients[s.p] && !s.q.every(q => S.results.some(r => r.p === s.p && r.q === q && r.d >= s.d)));
+}
+function daysSince(d){ return Math.floor((new Date(today()) - new Date(d.slice(0,10))) / 864e5); }
+function pendingHtml(list){
+  return list.map(s => {
+    const p = S.patients[s.p]; const left = s.q.filter(q => !S.results.some(r => r.p === s.p && r.q === q && r.d >= s.d));
+    const dd = daysSince(s.d);
+    return `<div class="list-item" style="cursor:default"><div class="grow"><b>${esc(p.name)}</b> <span class="sub code">${p.code}</span>
+      <div class="sub">${s.d.slice(5,16)} 보냄 · ${dd === 0 ? '오늘' : dd + '일째'} · 남은 설문 ${left.map(qName).map(esc).join(', ')}</div>
+      <div class="row" style="margin-top:6px"><button class="btn btn-line btn-sm" onclick="resend('${s.id}')">📤 다시 보내기</button><button class="btn btn-line btn-sm" onclick="closeSent('${s.id}')">응답 안 받음 처리</button></div></div></div>`;
+  }).join('');
+}
+function resend(id){ const s = S.sent.find(x => x.id === id); OM.shareText(linkMessage(surveyLink(s.p, s.q)), '물리치료 설문'); }
+async function closeSent(id){ if (!await OM.confirmBox('이 설문은 응답을 받지 않은 것으로 처리할까요?\n(미응답 목록에서 사라집니다)')) return; S.sent.find(x => x.id === id).closed = true; save(); go(document.getElementById('v-patient').classList.contains('active') ? 'patient' : 'patients'); }
 
 // ---------- 해석 ----------
 function interpFor(qid){
-  const q = QMETA[qid] || {}; const user = S.settings.interp[qid] || {};
-  const def = q.interpretation || {};
+  const q = QMETA[qid] || {}; const user = S.settings.interp[qid] || {}; const def = q.interpretation || {};
   const num = v => (v === '' || v === undefined || v === null || isNaN(+v)) ? null : +v;
   return {
     mcid: num(user.mcid !== undefined ? user.mcid : def.mcid && def.mcid.value),
@@ -173,10 +268,8 @@ function interpFor(qid){
     bands: parseBands(user.bands !== undefined ? user.bands : (def.bands || []).map(b => `${b.min}-${b.max}: ${b.label}`).join('\n'))
   };
 }
-function parseBands(text){
-  return String(text || '').split('\n').map(l => l.match(/^\s*(-?[\d.]+)\s*[-~]\s*(-?[\d.]+)\s*[:：]\s*(.+)$/)).filter(Boolean).map(m => ({ min: +m[1], max: +m[2], label: m[3].trim() }));
-}
-function bandOf(qid, s){ if (s === null) return ''; const b = interpFor(qid).bands.find(b => s >= b.min && s <= b.max); return b ? b.label : ''; }
+function parseBands(text){ return String(text || '').split('\n').map(l => l.match(/^\s*(-?[\d.]+)\s*[-~]\s*(-?[\d.]+)\s*[:：]\s*(.+)$/)).filter(Boolean).map(m => ({ min: +m[1], max: +m[2], label: m[3].trim() })); }
+function bandOf(qid, s){ if (s === null || s === undefined) return ''; const b = interpFor(qid).bands.find(b => s >= b.min && s <= b.max); return b ? b.label : ''; }
 function verdict(q, base, cur){
   const hb = q.scoring.higherIsBetter; const d = Math.round((cur - base) * 10) / 10;
   const imp = hb ? d : -d; const { mcid, mdc } = interpFor(q.id);
@@ -191,141 +284,316 @@ function verdict(q, base, cur){
   return { cls: 'none', txt: `${dirTxt} ${dTxt} · ${mdc !== null ? `MDC ${mdc} 미만: 측정오차 범위` : `MCID ${mcid} 미만`}` };
 }
 
-// ---------- 환자 상세 ----------
-async function renderDetail(){
-  const p = S.patients[curP]; if (!p) { go('patients'); return; }
-  document.getElementById('dName').innerText = p.name;
-  document.getElementById('dMeta').innerHTML = `코드 <span class="code">${p.code}</span>${p.memo ? ' · ' + esc(p.memo) : ''}`;
-  const rs = S.results.filter(r => r.p === curP);
-  const box = document.getElementById('dResults');
-  if (!rs.length) { box.innerHTML = '<div class="card"><p class="sub">아직 결과가 없습니다. [설문 보내기]로 링크를 보내 보세요.</p></div>'; return; }
+// ---------- 기록관리 ----------
+function openRecords(code){ recP = code; recEp = null; go('records'); }
+async function renderRecords(){
+  const sel = document.getElementById('recPatient');
+  const ps = Object.values(S.patients).sort((a,b) => a.name.localeCompare(b.name, 'ko'));
+  if (!ps.length) { sel.innerHTML = '<option value="">등록된 환자가 없습니다</option>'; document.getElementById('recBody').innerHTML = ''; document.getElementById('recEps').innerHTML = ''; document.getElementById('recModes').innerHTML = ''; return; }
+  if (!recP || !S.patients[recP]) recP = curP && S.patients[curP] ? curP : ps[0].code;
+  sel.innerHTML = ps.map(p => `<option value="${p.code}">${esc(p.name)} (${p.code})</option>`).join(''); sel.value = recP;
+  const p = S.patients[recP];
+  if (!recEp || !p.eps[recEp]) recEp = p.ep;
+  const epKeys = Object.keys(p.eps).map(Number).sort((a,b) => b - a);
+  document.getElementById('recEps').innerHTML = epKeys.length > 1 ? epKeys.map(n => `<button class="chip${n === recEp ? ' on' : ''}" onclick="recEp=${n};renderRecords()">${esc(epName(p, n))}${n === p.ep ? ' (현재)' : ''}</button>`).join('') : '';
+  document.getElementById('recModes').innerHTML = [['q','설문지별'],['date','회차(방문일)별']].map(([k,l]) => `<button class="chip${recMode === k ? ' on' : ''}" onclick="recMode='${k}';renderRecords()">${l}</button>`).join('');
+  const rs = S.results.filter(r => r.p === recP && r.ep === recEp);
+  const box = document.getElementById('recBody');
+  if (!rs.length) { box.innerHTML = `<div class="card"><p class="sub">이 치료에는 아직 결과가 없습니다.</p><button class="btn btn-main" onclick="curP='${recP}';go('patient')">📝 설문 받으러 가기</button></div>`; return; }
+  await ensureQ(rs.map(r => r.q));
+  box.innerHTML = recMode === 'q' ? renderByQ(rs) : renderByDate(rs);
+}
+function renderByQ(rs){
   const qids = [...new Set(rs.map(r => r.q))];
-  await Promise.all(qids.map(id => OM.loadQ(id).then(q => QMETA[id] = q).catch(() => {})));
-  box.innerHTML = qids.map(id => {
+  return qids.map(id => {
     const q = QMETA[id]; const list = rs.filter(r => r.q === id).sort((a,b) => a.d.localeCompare(b.d));
     if (!q) return `<div class="card"><h2>${esc(id)}</h2><p class="sub">설문지 정의를 찾을 수 없습니다.</p></div>`;
     const base = list[0], last = list[list.length - 1]; const scored = !!q.scoring;
     let h = `<div class="card"><h2>${esc(q.name)} <span class="tag">${esc(q.short)}</span></h2>${OM.qSourceHtml(q)}`;
-    if (!scored) h += `<div class="note">채점법이 원문에 없어 점수를 계산하지 않습니다. 답변 보기로 확인하세요.</div>`;
-    else if (list.length === 1) h += `<p class="sub">첫 결과 ${OM.fmt(q, base.s)} (${base.d.slice(0,10)})${bandOf(id, base.s) ? ' · ' + esc(bandOf(id, base.s)) : ''}. 한 번 더 받으면 전후 비교가 나옵니다.</p>`;
+    if (!scored) h += `<div class="note">채점법이 원문에 없어 점수를 계산하지 않습니다. 아래 문항별 비교로 확인하세요.</div>`;
+    else if (list.length === 1) h += `<p class="sub">첫 결과 <b>${OM.fmt(q, base.s)}</b> (${base.d.slice(0,10)})${bandOf(id, base.s) ? ' · ' + esc(bandOf(id, base.s)) : ''}. 한 번 더 받으면 전후 비교가 나옵니다.</p>`;
     else {
       const v = verdict(q, base.s, last.s);
       h += `<div class="pp"><div><div class="lbl">치료 전 · ${base.d.slice(5,10)}</div><div class="val">${OM.fmt(q, base.s)}</div><div class="lbl">${esc(bandOf(id, base.s))}</div></div><div class="arrow">→</div><div><div class="lbl">최근 · ${last.d.slice(5,10)}</div><div class="val">${OM.fmt(q, last.s)}</div><div class="lbl">${esc(bandOf(id, last.s))}</div></div></div>
         <div class="sub" style="text-align:center">${q.scoring.higherIsBetter ? '높을수록 좋음' : '낮을수록 좋음'}</div><div class="verdict ${v.cls}">${v.txt}</div>`;
       if (q.scoring.subscales) h += `<table class="hist"><tr><th>영역</th><th>전</th><th>최근</th><th>변화</th></tr>` + q.scoring.subscales.map(sub => {
-        const a = subScore(sub, base), b = subScore(sub, last); return `<tr><td>${esc(sub.name)}</td><td>${a}/${sub.max}</td><td>${b}/${sub.max}</td><td>${b - a > 0 ? '+' : ''}${b - a}</td></tr>`; }).join('') + `</table>`;
+        const a = subScore(q, sub, base), b = subScore(q, sub, last); return `<tr><td>${esc(sub.name)}</td><td>${a}/${sub.max}</td><td>${b}/${sub.max}</td><td>${b - a > 0 ? '+' : ''}${b - a}</td></tr>`; }).join('') + `</table>`;
+      if (list.filter(r => r.s !== null).length >= 2) h += chartHtml(q, list.filter(r => r.s !== null));
     }
-    h += `<table class="hist"><tr><th>날짜</th><th>점수</th><th></th><th></th></tr>` + list.map((r,i) => `<tr><td>${r.d.slice(0,16)}${i === 0 ? ' (전)' : ''}</td><td>${scored ? OM.fmt(q, r.s) : '-'}</td><td><button class="link-btn" onclick="showAnswers('${r.id}')">답변</button></td><td><button class="del" onclick="delResult('${r.id}')">✕</button></td></tr>`).join('') + `</table>`;
+    h += `<table class="hist"><tr><th>날짜</th><th>점수</th><th></th><th></th></tr>` + list.map((r,i) => `<tr><td>${r.d.slice(0,16)}${i === 0 ? ' (전)' : ''}${r.src === 'onsite' ? ' 📝' : ''}</td><td>${scored ? OM.fmt(q, r.s) : '-'}</td><td><button class="link-btn" onclick="showAnswers('${r.id}')">답변</button></td><td><button class="del" onclick="delResult('${r.id}')" aria-label="삭제">✕</button></td></tr>`).join('') + `</table>`;
+    if (list.length >= 1) h += `<button class="btn btn-line" onclick="toggleCmp('${id}')">🔍 문항별 비교 ${list.length >= 2 ? '' : '· 메모'}</button><div id="cmp_${id}" class="cmp" style="display:none"></div>`;
     return h + `</div>`;
   }).join('');
 }
-function subScore(sub, r){ return sub.items.reduce((a, id) => a + (r.v[id] ?? 0), 0); }
+function renderByDate(rs){
+  const days = [...new Set(rs.map(r => r.d.slice(0,10)))].sort().reverse();
+  return days.map(day => `<div class="card"><h2>📅 ${day}</h2>` + rs.filter(r => r.d.startsWith(day)).sort((a,b) => a.d.localeCompare(b.d)).map(r => {
+    const q = QMETA[r.q]; if (!q) return '';
+    return `<div class="list-item" style="cursor:default"><div class="grow"><b>${esc(q.name)}</b> <span class="tag">${esc(q.short)}</span><div class="sub">${r.d.slice(11,16)}${r.src === 'onsite' ? ' · 현장 작성' : ''}${q.scoring ? ' · ' + OM.fmt(q, r.s) + (bandOf(r.q, r.s) ? ' · ' + esc(bandOf(r.q, r.s)) : '') : ''}</div></div><button class="link-btn" onclick="showAnswers('${r.id}')">답변</button><button class="del" onclick="delResult('${r.id}')" aria-label="삭제">✕</button></div>`;
+  }).join('') + `</div>`).join('');
+}
+function subScore(q, sub, r){ return sub.items.reduce((a, id) => { const it = OM.allItems(q).find(x => x.id === id); return a + ((it ? OM.itemScore(it, r.v[id]) : r.v[id]) ?? 0); }, 0); }
+
+// 문항별 비교
+const cmpState = {};
+function toggleCmp(qid){
+  const el = document.getElementById('cmp_' + qid);
+  if (el.style.display === 'none') { el.style.display = ''; renderCmp(qid); } else el.style.display = 'none';
+}
+function answerText(it, r){
+  if (!r) return { t: '-', s: null };
+  if (it.options) { const i = r.a[it.id]; if (i === undefined) return { t: '해당 없음', s: null }; const o = it.options[i]; return { t: o.label, s: o.score ?? null, i }; }
+  const v = r.v[it.id]; if (v === null || v === undefined) return { t: '해당 없음', s: null };
+  const sc = OM.itemScore(it, v); return { t: String(v) + (it.reverse ? ` (역채점 ${sc})` : ''), s: sc, i: v };
+}
+function renderCmp(qid){
+  const q = QMETA[qid]; const list = S.results.filter(r => r.p === recP && r.ep === recEp && r.q === qid).sort((a,b) => a.d.localeCompare(b.d));
+  const st = cmpState[qid] = cmpState[qid] || {};
+  if (!list.find(r => r.id === st.a)) st.a = list[0].id;
+  if (!list.find(r => r.id === st.b)) st.b = list[list.length - 1].id;
+  const A = list.find(r => r.id === st.a), B = list.find(r => r.id === st.b);
+  const two = list.length >= 2 && A.id !== B.id;
+  const opts = sel => list.map((r,i) => `<option value="${r.id}" ${r.id === sel ? 'selected' : ''}>${r.d.slice(2,16)}${i === 0 ? ' (전)' : ''}</option>`).join('');
+  const hb = q.scoring ? q.scoring.higherIsBetter : true;
+  let changed = 0;
+  const rows = OM.allItems(q).map(it => {
+    const a = answerText(it, A), b = answerText(it, B);
+    let cls = 'same', badge = '';
+    if (two) {
+      if (a.s !== null && b.s !== null && a.s !== b.s) { const d = b.s - a.s; cls = (hb ? d > 0 : d < 0) ? 'good' : 'bad'; badge = `${d > 0 ? '+' : ''}${d}`; }
+      else if (a.i !== b.i) { cls = 'diff'; badge = '변경'; }
+    }
+    if (cls !== 'same') changed++;
+    if (st.onlyChanged && two && cls === 'same') return '';
+    const note = S.notes.filter(n => n.p === recP && n.ep === recEp && n.q === qid && n.item === it.id).pop();
+    return `<div class="item-row ${two ? cls : ''}"><div class="item-q">${esc(it.q)}</div>
+      ${two ? `<div class="item-ans"><span class="sub">전</span> ${esc(a.t)}${a.s !== null && it.options ? ` <b>(${a.s})</b>` : ''}</div><div class="item-ans"><span class="sub">후</span> ${esc(b.t)}${b.s !== null && it.options ? ` <b>(${b.s})</b>` : ''} ${badge ? `<span class="chg ${cls}">${badge}</span>` : ''}</div>`
+           : `<div class="item-ans">${esc(b.t)}${b.s !== null && it.options ? ` <b>(${b.s})</b>` : ''}</div>`}
+      ${note && note.text ? `<div class="item-note">📝 ${esc(note.text)} <span class="sub">(${note.d.slice(5,10)})</span></div>` : ''}
+      <button class="link-btn" onclick="editNote('${qid}','${it.id}')">${note && note.text ? '메모 수정' : '+ 메모'}</button></div>`;
+  }).join('');
+  document.getElementById('cmp_' + qid).innerHTML = (list.length >= 2 ? `
+    <div class="row" style="margin-top:10px"><div style="flex:1"><label class="field">전</label><select onchange="cmpState['${qid}'].a=this.value;renderCmp('${qid}')">${opts(st.a)}</select></div>
+    <div style="flex:1"><label class="field">후</label><select onchange="cmpState['${qid}'].b=this.value;renderCmp('${qid}')">${opts(st.b)}</select></div></div>
+    <label class="list-item" style="cursor:pointer"><input type="checkbox" ${st.onlyChanged ? 'checked' : ''} onchange="cmpState['${qid}'].onlyChanged=this.checked;renderCmp('${qid}')"><div class="grow">바뀐 문항만 보기 <span class="sub">(${changed}개 바뀜)</span></div></label>` : `<p class="sub" style="margin-top:8px">결과가 1회뿐이라 이번 답변만 보여 줍니다.</p>`)
+    + (rows || `<p class="sub" style="margin-top:8px">바뀐 문항이 없습니다.</p>`);
+}
+async function editNote(qid, itemId){
+  const prev = S.notes.filter(n => n.p === recP && n.ep === recEp && n.q === qid && n.item === itemId).pop();
+  const it = OM.allItems(QMETA[qid]).find(x => x.id === itemId);
+  const ok = await OM.dialog(`메모: ${it.q}`, { cancel: true, okText: '저장', html: `<textarea id="noteText" style="margin-top:10px;min-height:90px" placeholder="예: 계단은 여전히 3점, 원심성 훈련 추가">${esc(prev ? prev.text : '')}</textarea>` });
+  if (!ok) return;
+  const text = document.getElementById('noteText').value.trim();
+  S.notes = S.notes.filter(n => !(n.p === recP && n.ep === recEp && n.q === qid && n.item === itemId));
+  if (text) S.notes.push({ id: uid('n'), p: recP, ep: recEp, q: qid, item: itemId, text, d: OM.nowStr() });
+  save(); renderCmp(qid);
+}
+
+// 점수 추이 그래프 (단일 계열 선그래프, 눌러서 값 보기)
+function chartHtml(q, list){
+  const W = 320, H = 150, L = 34, R = 12, T = 14, B = 26;
+  const lo = q.scoring.min ?? Math.min(...list.map(r => r.s)), hi = q.scoring.max ?? Math.max(...list.map(r => r.s));
+  const x = i => list.length === 1 ? (L + W - R) / 2 : L + i * (W - L - R) / (list.length - 1);
+  const y = v => T + (1 - (v - lo) / ((hi - lo) || 1)) * (H - T - B);
+  const ticks = [lo, (lo + hi) / 2, hi].map(v => Math.round(v * 10) / 10);
+  const grid = ticks.map(v => `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="#e2e8f0" stroke-width="1"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end" font-size="10" fill="#64748b">${v}</text>`).join('');
+  const path = list.map((r,i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(r.s).toFixed(1)}`).join(' ');
+  const showX = i => list.length <= 6 || i === 0 || i === list.length - 1;
+  const xl = list.map((r,i) => showX(i) ? `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" font-size="10" fill="#64748b">${r.d.slice(5,10).replace('-','/')}</text>` : '').join('');
+  const pts = list.map((r,i) => `<circle cx="${x(i)}" cy="${y(r.s)}" r="4" fill="#2a78d6" stroke="#fff" stroke-width="2"/>`).join('');
+  const lab = [0, list.length - 1].map(i => `<text x="${x(i)}" y="${y(list[i].s) - 9}" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">${list[i].s}</text>`).join('');
+  const hits = list.map((r,i) => `<rect x="${x(i) - 14}" y="${T}" width="28" height="${H - T - B}" fill="transparent" tabindex="0" data-tip="${r.d.slice(0,16)} · ${esc(OM.fmt(q, r.s))}" onclick="chartTip(this)" onfocus="chartTip(this)"/>`).join('');
+  return `<div class="chart"><div class="sub" style="margin-top:12px">점수 추이 (${q.scoring.higherIsBetter ? '위로 갈수록 좋음' : '아래로 갈수록 좋음'})</div>
+    <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(q.short)} 점수 추이">${grid}<path d="${path}" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round"/>${pts}${lab}${xl}${hits}</svg><div class="chart-tip sub"></div></div>`;
+}
+function chartTip(el){ const tip = el.closest('.chart').querySelector('.chart-tip'); tip.textContent = '👆 ' + el.dataset.tip; }
+
 function showAnswers(rid){
   const r = S.results.find(x => x.id === rid); const q = QMETA[r.q];
-  const html = OM.allItems(q).map(it => {
-    let ans;
-    if (it.options) ans = r.a[it.id] !== undefined ? it.options[r.a[it.id]].label + (it.options[r.a[it.id]].score !== null && it.options[r.a[it.id]].score !== undefined ? ` (${it.options[r.a[it.id]].score}점)` : '') : '해당 없음';
-    else ans = r.v[it.id] ?? '해당 없음';
-    return `<div style="margin-top:8px;font-size:.88rem"><b>${esc(it.q)}</b><br>${esc(ans)}</div>`;
-  }).join('');
+  const html = OM.allItems(q).map(it => { const a = answerText(it, r); return `<div style="margin-top:8px;font-size:.88rem"><b>${esc(it.q)}</b><br>${esc(a.t)}${a.s !== null && it.options ? ` (${a.s}점)` : ''}</div>`; }).join('');
   OM.alertBox(`${q.name}\n${r.d}${q.scoring ? ' · ' + OM.fmt(q, r.s) : ''}`, html);
 }
 async function delResult(rid){
   if (!await OM.confirmBox('이 결과를 삭제할까요?')) return;
-  S.results = S.results.filter(r => r.id !== rid); save(); renderDetail();
+  S.results = S.results.filter(r => r.id !== rid); save(); renderRecords();
+}
+
+// ---------- 결과 저장 (가져오기 · 현장 작성 공통) ----------
+async function storeResults(code, date, results, src){
+  const p = S.patients[code]; let added = 0, dup = 0;
+  await ensureQ(results.map(r => r.q));
+  for (const r of results) {
+    if (S.results.some(x => x.p === code && x.d === date && x.q === r.q)) { dup++; continue; }
+    const q = QMETA[r.q]; const s = q ? OM.score(q, r.v || {}).score : r.s;
+    S.results.push({ id: uid('r'), p: code, ep: p.ep, d: date, q: r.q, a: r.a || {}, v: r.v || {}, s, src, saved: OM.nowStr() });
+    added++;
+  }
+  save(); return { added, dup };
+}
+async function openImport(prefill){
+  const ok = await OM.dialog('설문 결과 가져오기', { cancel: true, okText: '가져오기', html:
+    `<p class="sub">환자가 보낸 메시지를 길게 눌러 <b>전체 복사</b>한 뒤 붙여넣으세요. 여러 개를 한꺼번에 붙여넣어도 됩니다.</p>
+     <button class="btn btn-line" onclick="pasteClipboard()">📋 클립보드에서 붙여넣기</button>
+     <textarea id="importText" placeholder="[물리치료 설문 결과] ... 메시지 붙여넣기" style="margin-top:10px">${esc(prefill || '')}</textarea>` });
+  if (!ok) return;
+  await importCodes(OM.findCodes(document.getElementById('importText').value));
+}
+async function pasteClipboard(){
+  try { document.getElementById('importText').value = await navigator.clipboard.readText(); }
+  catch(e) { const t = document.getElementById('importText'); t.placeholder = '클립보드를 읽을 수 없어요. 여기를 길게 눌러 직접 붙여넣어 주세요.'; t.focus(); }
+}
+async function importCodes(codes){
+  if (!codes.length) { await OM.alertBox('결과 코드를 찾지 못했습니다. 환자가 보낸 메시지 전체를 붙여넣어 주세요.'); return; }
+  let added = 0, dup = 0, bad = 0, preview = 0, lastP = null;
+  for (const c of codes) {
+    let obj; try { obj = OM.decodeResult(c); } catch(e) { bad++; continue; }
+    if (!obj || !obj.p || !Array.isArray(obj.r)) { bad++; continue; }
+    if (obj.p === 'PREVIEW') { preview++; continue; }
+    if (!S.patients[obj.p]) { const made = await addPatient(obj.p); if (!made) continue; }
+    const res = await storeResults(obj.p, obj.d, obj.r, 'link'); added += res.added; dup += res.dup; lastP = obj.p;
+  }
+  await OM.alertBox(`결과 ${added}건을 저장했습니다.${dup ? `\n이미 있던 결과 ${dup}건은 건너뛰었습니다.` : ''}${preview ? `\n미리보기로 작성한 결과 ${preview}건은 저장하지 않았습니다.` : ''}${bad ? `\n읽을 수 없는 코드 ${bad}개가 있었습니다.` : ''}`);
+  if (lastP) openRecords(lastP);
+}
+async function handleHash(){
+  const m = location.hash.match(/r=(OMR1\.[A-Za-z0-9_-]+)/); if (!m) return false;
+  history.replaceState(null, '', location.pathname);
+  go('records');
+  if (OM.isKakao()) {
+    await OM.alertBox('카카오톡 안에서 열렸습니다.\n여기 저장하면 평소 쓰는 앱(홈 화면 앱·크롬·사파리)에서는 보이지 않아요.\n\n메시지를 복사해서 평소 쓰는 앱의 [📥 결과 가져오기]에 붙여넣어 주세요.',
+      `<button class="btn btn-line" onclick="OM.copyText('${m[1]}','결과 코드를 복사했습니다.')">📋 결과 코드 복사</button>`);
+    return true;
+  }
+  await importCodes([m[1]]); return true;
 }
 
 // ---------- 보내기 ----------
 function sendFor(code){ go('send'); document.getElementById('sendPatient').value = code; renderSendSummary(); }
 async function renderSend(){
-  const sel = document.getElementById('sendPatient'); const cur = sel.value;
-  const ps = Object.values(S.patients);
+  const sel = document.getElementById('sendPatient'); const cur = sel.value || curP;
+  const ps = Object.values(S.patients).sort((a,b) => a.name.localeCompare(b.name, 'ko'));
   sel.innerHTML = ps.length ? ps.map(p => `<option value="${p.code}">${esc(p.name)} (${p.code})</option>`).join('') : '<option value="">먼저 [환자]에서 환자를 등록하세요</option>';
   if (cur && S.patients[cur]) sel.value = cur;
-  if (!CAT) { try { CAT = await OM.loadCatalog(); } catch(e) { OM.alertBox('설문지 목록을 불러오지 못했습니다.'); return; } }
+  try { await ensureCatalog(); } catch(e) { OM.alertBox('설문지 목록을 불러오지 못했습니다.'); return; }
   if (!curJoint) curJoint = CAT.joints[0].id;
   document.getElementById('jointChips').innerHTML = CAT.joints.map(j => {
     const n = j.items.filter(it => it.id && selected.has(it.id)).length;
     return `<button class="chip${j.id === curJoint ? ' on' : ''}" onclick="curJoint='${j.id}';renderSend()">${esc(j.name)}${n ? ` · ${n}` : ''}</button>`;
   }).join('');
   const j = CAT.joints.find(j => j.id === curJoint);
-  document.getElementById('catalogList').innerHTML = j.items.map(it => {
-    const ok = it.status !== 'pending';
-    const tag = it.status === 'ready' ? '<span class="tag">사용 가능</span>' : it.status === 'answers' ? '<span class="tag answers">답변만</span>' : '<span class="tag pending">준비 중</span>';
-    return `<label class="list-item${ok ? '' : ' disabled'}">${ok ? `<input type="checkbox" ${selected.has(it.id) ? 'checked' : ''} onchange="toggleQ('${it.id}',this.checked)">` : '<span style="width:22px"></span>'}<div class="grow"><b>${esc(it.name)}</b> ${tag}${it.note ? `<div class="sub">${esc(it.note)}</div>` : ''}</div></label>`;
-  }).join('');
+  document.getElementById('catalogList').innerHTML = j.items.map(catItemHtml(true)).join('');
   renderSendSummary();
 }
+const catItemHtml = selectable => it => {
+  const ok = it.status !== 'pending';
+  const tag = it.status === 'ready' ? '<span class="tag">사용 가능</span>' : it.status === 'answers' ? '<span class="tag answers">답변만</span>' : '<span class="tag pending">준비 중</span>';
+  const box = selectable && ok ? `<input type="checkbox" ${selected.has(it.id) ? 'checked' : ''} onchange="toggleQ('${it.id}',this.checked)">` : selectable ? '<span style="width:22px"></span>' : '';
+  return `<label class="list-item${ok ? '' : ' disabled'}">${box}<div class="grow"><b>${esc(it.name)}</b> ${tag}${it.note ? `<div class="sub">${esc(it.note)}</div>` : ''}</div></label>`;
+};
 function toggleQ(id, on){ on ? selected.add(id) : selected.delete(id); renderSend(); }
-function qName(id){ for (const j of CAT.joints) { const it = j.items.find(x => x.id === id); if (it) return it.name; } return id; }
+function qName(id){ if (QMETA[id]) return QMETA[id].short || QMETA[id].name; if (CAT) for (const j of CAT.joints) { const it = j.items.find(x => x.id === id); if (it) return it.name; } return id; }
 function renderSendSummary(){
   if (!CAT) return;
   const code = document.getElementById('sendPatient').value;
   document.getElementById('sendSummary').innerHTML = selected.size
-    ? `<b>${code ? esc(S.patients[code].name) : '환자 미선택'}</b>에게 보낼 설문 ${selected.size}개<br>${[...selected].map(qName).map(esc).join('<br>')}`
+    ? `<b>${code ? esc(S.patients[code].name) : '환자 미선택'}</b> · 설문 ${selected.size}개<br>${[...selected].map(qName).map(esc).join(', ')}`
     : '설문지를 하나 이상 고르세요.';
 }
-function surveyLink(code){ return OM.baseUrl() + 'survey.html#p=' + encodeURIComponent(code) + '&q=' + [...selected].join(','); }
-function makeLink(share){
+function surveyLink(code, qids){ return OM.baseUrl() + 'survey.html#p=' + encodeURIComponent(code) + '&q=' + qids.join(','); }
+const linkMessage = link => `[물리치료 설문]\n안녕하세요. 아래 링크를 눌러 설문을 작성해 주세요.\n다 작성한 뒤 [치료사에게 보내기]를 눌러 결과를 보내 주시면 됩니다.\n${link}`;
+function checkSend(){
   const code = document.getElementById('sendPatient').value;
-  if (!code) { OM.alertBox('먼저 [환자] 탭에서 환자를 등록해 주세요.'); return; }
-  if (!selected.size) { OM.alertBox('보낼 설문지를 하나 이상 골라 주세요.'); return; }
-  const link = surveyLink(code);
-  if (!share) { OM.copyText(link, '링크를 복사했습니다.'); return; }
-  OM.shareText(`[물리치료 설문]\n안녕하세요. 아래 링크를 눌러 설문을 작성해 주세요.\n다 작성한 뒤 [치료사에게 보내기]를 눌러 결과를 보내 주시면 됩니다.\n${link}`, '물리치료 설문');
+  if (!code) { OM.alertBox('먼저 [환자] 탭에서 환자를 등록해 주세요.'); return null; }
+  if (!selected.size) { OM.alertBox('설문지를 하나 이상 골라 주세요.'); return null; }
+  return code;
+}
+async function makeLink(share){
+  const code = checkSend(); if (!code) return;
+  const qids = [...selected]; const link = surveyLink(code, qids);
+  const sent = share ? await OM.shareText(linkMessage(link), '물리치료 설문') : (await OM.copyText(link, '링크를 복사했습니다.'), true);
+  if (sent !== false) { S.sent.push({ id: uid('s'), p: code, q: qids, d: OM.nowStr(), ep: S.patients[code].ep }); save(); }
 }
 function previewSurvey(){
   if (!selected.size) { OM.alertBox('설문지를 먼저 골라 주세요.'); return; }
   window.open(OM.baseUrl() + 'survey.html#p=PREVIEW&q=' + [...selected].join(','), '_blank');
 }
 
-// ---------- 가져오기 ----------
-async function pasteClipboard(){
-  try { document.getElementById('importText').value = await navigator.clipboard.readText(); }
-  catch(e) { OM.alertBox('클립보드를 읽을 수 없습니다. 입력칸을 길게 눌러 직접 붙여넣어 주세요.'); }
+// ---------- 현장 작성 ----------
+async function sha(t){ const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('om-pin:' + t)); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2,'0')).join(''); }
+async function setPin(){
+  const ok = await OM.dialog('현장 작성 PIN 설정', { cancel: true, okText: '저장', html:
+    `<label class="field" for="pin1">새 PIN (숫자 4~6자리)</label><input id="pin1" type="password" inputmode="numeric" maxlength="6" autocomplete="off">
+     <label class="field" for="pin2">한 번 더</label><input id="pin2" type="password" inputmode="numeric" maxlength="6" autocomplete="off">` });
+  if (!ok) return false;
+  const a = document.getElementById('pin1').value, b = document.getElementById('pin2').value;
+  if (!/^\d{4,6}$/.test(a)) { await OM.alertBox('PIN은 숫자 4~6자리로 정해 주세요.'); return false; }
+  if (a !== b) { await OM.alertBox('두 번 입력한 PIN이 다릅니다.'); return false; }
+  S.settings.pinHash = await sha(a); save(); renderSettingsPin(); await OM.alertBox('PIN을 저장했습니다.'); return true;
 }
-function importFromText(){ importCodes(OM.findCodes(document.getElementById('importText').value)); }
-async function importCodes(codes){
-  if (!codes.length) { OM.alertBox('결과 코드를 찾지 못했습니다. 환자가 보낸 메시지 전체를 붙여넣어 주세요.'); return; }
-  let added = 0, dup = 0, bad = 0;
-  for (const c of codes) {
-    let obj; try { obj = OM.decodeResult(c); } catch(e) { bad++; continue; }
-    if (!obj || !obj.p || !Array.isArray(obj.r)) { bad++; continue; }
-    if (obj.p === 'PREVIEW') { bad++; continue; }
-    if (!S.patients[obj.p]) { const made = await addPatient(obj.p); if (!made) continue; }
-    for (const r of obj.r) {
-      if (S.results.some(x => x.p === obj.p && x.d === obj.d && x.q === r.q)) { dup++; continue; }
-      // 점수는 현재 설문 정의로 다시 계산해 일치시킴
-      let s = r.s; try { const q = await OM.loadQ(r.q); QMETA[r.q] = q; s = OM.score(q, r.v || {}).score; } catch(e){}
-      S.results.push({ id: 'r' + Date.now().toString(36) + Math.random().toString(36).slice(2,6), p: obj.p, d: obj.d, q: r.q, a: r.a || {}, v: r.v || {}, s, imported: OM.nowStr() });
-      added++;
-    }
-  }
-  save();
-  document.getElementById('importText').value = '';
-  await OM.alertBox(`결과 ${added}건을 저장했습니다.${dup ? `\n이미 있던 결과 ${dup}건은 건너뛰었습니다.` : ''}${bad ? `\n읽을 수 없는 코드 ${bad}개가 있었습니다.` : ''}`);
-  if (added) { const last = OM.decodeResult(codes[codes.length - 1]); curP = last.p; go('detail'); }
+async function askPin(msg){
+  const ok = await OM.dialog(msg || '치료사 PIN을 입력하세요', { cancel: true, html: `<input id="pinIn" type="password" inputmode="numeric" maxlength="6" autocomplete="off" style="margin-top:10px;font-size:1.4rem;text-align:center;letter-spacing:8px">` });
+  if (!ok) return false;
+  if (await sha(document.getElementById('pinIn').value) === S.settings.pinHash) return true;
+  await OM.alertBox('PIN이 맞지 않습니다.'); return false;
 }
-async function handleHash(){
-  const m = location.hash.match(/r=(OMR1\.[A-Za-z0-9_-]+)/); if (!m) return false;
-  history.replaceState(null, '', location.pathname);
-  if (OM.isKakao()) {
-    go('import');
-    document.getElementById('importText').value = m[1];
-    document.getElementById('kakaoTip').innerHTML = `<div class="note">카카오톡 안에서 열렸습니다. 여기 저장하면 평소 쓰는 앱(홈 화면 앱·크롬·사파리)에서는 보이지 않아요.<br><br>평소 쓰는 앱을 열어 <b>📥 가져오기</b>에 메시지를 붙여넣어 주세요.</div><button class="btn btn-line" onclick="OM.copyText('${m[1]}','결과 코드를 복사했습니다. 평소 쓰는 앱의 가져오기에 붙여넣으세요.')">📋 결과 코드 복사</button>`;
-    return true;
-  }
-  go('import'); await importCodes([m[1]]); return true;
+let onsite = null;
+async function startOnsitePick(code){ go('send'); document.getElementById('sendPatient').value = code; renderSendSummary(); OM.alertBox('작성할 설문지를 고른 뒤 [📝 지금 여기서 작성]을 눌러 주세요.'); }
+async function startOnsiteFromSend(){
+  const code = checkSend(); if (!code) return;
+  if (!S.settings.pinHash) { await OM.alertBox('환자에게 기기를 건네기 전에, 화면을 잠글 PIN을 먼저 정해 주세요.'); if (!(await setPin())) return; }
+  await ensureQ([...selected]);
+  const qs = [...selected].map(id => QMETA[id]).filter(Boolean);
+  if (!qs.length) { OM.alertBox('설문지를 불러오지 못했습니다.'); return; }
+  onsite = { code, qs, answers: {} };
+  document.body.classList.add('onsite-on');
+  history.pushState({ onsite: 1 }, '');
+  document.getElementById('onsiteBody').innerHTML = `<div class="card"><h2>안녕하세요 👋</h2><p>설문 <b>${qs.length}</b>개입니다. 지금 상태를 떠올리며 편하게 답해 주세요.</p>
+    <div class="sub" style="margin-top:8px">${qs.map((q,i) => `${i+1}. ${esc(q.name)} (${OM.allItems(q).length}문항)`).join('<br>')}</div>
+    <button class="btn btn-main" onclick="onsiteBegin()">시작하기</button></div>`;
+  window.scrollTo(0,0);
+}
+function onsiteBegin(){
+  const root = document.createElement('div'); root.className = 'card';
+  const body = document.getElementById('onsiteBody'); body.innerHTML = ''; body.appendChild(root);
+  OM.runSurvey({ root, qs: onsite.qs, answers: onsite.answers, onFinish: (results, date) => { onsite.results = results; onsite.date = date; onsiteDone(); } });
+}
+function onsiteDone(){
+  document.getElementById('onsiteBody').innerHTML = `<div class="card" style="text-align:center"><h2 style="font-size:1.3rem">작성 완료 🎉</h2><p style="margin-top:8px">수고하셨습니다.<br><b>기기를 치료사에게 돌려주세요.</b></p>
+    <button class="btn btn-main" onclick="onsiteSave()">🔒 치료사 확인 (PIN)</button></div>`;
+  window.scrollTo(0,0);
+}
+async function onsiteSave(){
+  if (!(await askPin('결과를 저장하려면 치료사 PIN을 입력하세요'))) return;
+  const { code, date, results } = onsite;
+  const res = await storeResults(code, date, results, 'onsite');
+  closeOnsite(); await OM.alertBox(`현장 작성 결과 ${res.added}건을 저장했습니다.`); openRecords(code);
+}
+async function onsiteExit(){
+  if (!(await askPin('설문을 중단하려면 치료사 PIN을 입력하세요'))) return;
+  if (onsite.results) { if (await OM.confirmBox('작성이 끝난 결과가 있습니다. 저장할까요?')) { const res = await storeResults(onsite.code, onsite.date, onsite.results, 'onsite'); closeOnsite(); await OM.alertBox(`결과 ${res.added}건을 저장했습니다.`); openRecords(onsite.code); return; } }
+  else if (!(await OM.confirmBox('작성 중인 답변은 저장되지 않습니다. 중단할까요?'))) return;
+  closeOnsite();
+}
+function closeOnsite(){ document.body.classList.remove('onsite-on'); document.getElementById('onsiteBody').innerHTML = ''; const c = onsite && onsite.code; onsite = null; if (c) curP = c; }
+window.addEventListener('popstate', () => { if (onsite) history.pushState({ onsite: 1 }, ''); });
+window.addEventListener('beforeunload', e => { if (onsite) { e.preventDefault(); e.returnValue = ''; } });
+
+// ---------- 설문지 탭 ----------
+async function renderForms(){
+  try { await ensureCatalog(); } catch(e) { return; }
+  document.getElementById('formsList').innerHTML = CAT.joints.map(j => `<h3>${esc(j.name)}</h3>` + j.items.map(catItemHtml(false)).join('')).join('');
 }
 
 // ---------- 설정 ----------
+function renderSettingsPin(){ document.getElementById('pinState').innerText = S.settings.pinHash ? '✅ PIN이 설정되어 있습니다.' : '⚠️ 아직 PIN이 없습니다. 현장 작성 전에 설정해 주세요.'; }
 async function renderSettings(){
-  if (!CAT) { try { CAT = await OM.loadCatalog(); } catch(e) { return; } }
+  renderSettingsPin();
+  try { await ensureCatalog(); } catch(e) { return; }
   const ids = CAT.joints.flatMap(j => j.items).filter(it => it.status === 'ready').map(it => it.id);
-  await Promise.all(ids.map(id => OM.loadQ(id).then(q => QMETA[id] = q).catch(() => {})));
-  document.getElementById('interpList').innerHTML = ids.filter(id => QMETA[id]).map(id => {
+  await ensureQ(ids);
+  document.getElementById('interpList').innerHTML = ids.filter(id => QMETA[id] && QMETA[id].scoring).map(id => {
     const q = QMETA[id], u = S.settings.interp[id] || {}, def = q.interpretation || {};
-    const val = (k) => u[k] !== undefined ? u[k] : (def[k] ? def[k].value : '');
+    const val = k => u[k] !== undefined ? u[k] : (def[k] ? def[k].value : '');
     const bandsTxt = u.bands !== undefined ? u.bands : (def.bands || []).map(b => `${b.min}-${b.max}: ${b.label}`).join('\n');
     const src = ['mcid','mdc'].filter(k => def[k] && def[k].note).map(k => `<div class="sub">📄 ${esc(def[k].note)}</div>`).join('');
     return `<div style="border-top:1px solid var(--line);padding-top:12px;margin-top:12px"><b>${esc(q.name)}</b> <span class="tag">${esc(q.short)}</span>
@@ -337,32 +605,46 @@ async function renderSettings(){
 }
 function setInterp(id, k, v){ S.settings.interp[id] = S.settings.interp[id] || {}; S.settings.interp[id][k] = v; save(); }
 
-function exportData(){
-  const blob = new Blob([JSON.stringify({ app: 'om-therapist', exported: OM.nowStr(), data: S }, null, 1)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob), a = document.createElement('a');
-  a.href = url; a.download = `아웃컴메저_백업_${OM.nowStr().slice(0,10)}.json`; document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 30000);
+function download(name, text, type){
+  const blob = new Blob([text], { type }); const url = URL.createObjectURL(blob), a = document.createElement('a');
+  a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 30000);
 }
+async function exportCSV(){
+  if (!S.results.length) { OM.alertBox('내보낼 결과가 없습니다.'); return; }
+  const names = document.getElementById('csvNames').checked;
+  await ensureQ(S.results.map(r => r.q));
+  const cell = v => { const t = String(v ?? ''); return /[",\n]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; };
+  const head = ['환자코드', ...(names ? ['이름'] : []), '치료회차', '작성일시', '작성방법', '설문지', '점수', '단위', '해석구간', '영역점수', '문항별 답변'];
+  const rows = S.results.slice().sort((a,b) => (a.p + a.d).localeCompare(b.p + b.d)).map(r => {
+    const q = QMETA[r.q], p = S.patients[r.p] || {};
+    const subs = q && q.scoring && q.scoring.subscales ? q.scoring.subscales.map(sb => `${sb.name} ${subScore(q, sb, r)}/${sb.max}`).join('; ') : '';
+    const ans = q ? OM.allItems(q).map(it => { const a = answerText(it, r); return `${it.q}=${a.t}${a.s !== null && it.options ? `(${a.s})` : ''}`; }).join(' | ') : '';
+    return [r.p, ...(names ? [p.name] : []), r.ep, r.d, { link: '링크', onsite: '현장' }[r.src] || '', q ? q.short : r.q, r.s ?? '', q && q.scoring ? q.scoring.unit : '', bandOf(r.q, r.s), subs, ans].map(cell).join(',');
+  });
+  download(`아웃컴메저_결과_${today()}.csv`, '﻿' + [head.join(','), ...rows].join('\n'), 'text/csv;charset=utf-8');
+}
+function exportData(){ download(`아웃컴메저_백업_${today()}.json`, JSON.stringify({ app: 'om-therapist', exported: OM.nowStr(), data: S }, null, 1), 'application/json'); }
 function importBackup(e){
   const f = e.target.files && e.target.files[0]; e.target.value = ''; if (!f) return;
   const rd = new FileReader();
   rd.onload = async () => {
     let o; try { o = JSON.parse(rd.result); } catch(err) { OM.alertBox('백업 파일을 읽지 못했습니다.'); return; }
     const d = o && o.app === 'om-therapist' && o.data; if (!d) { OM.alertBox('아웃컴 메저 백업 파일이 아닙니다.'); return; }
-    Object.assign(S.patients, Object.fromEntries(Object.entries(d.patients || {}).filter(([k]) => !S.patients[k])));
-    const ids = new Set(S.results.map(r => r.id)); let n = 0;
-    (d.results || []).forEach(r => { if (!ids.has(r.id)) { S.results.push(r); n++; } });
+    Object.entries(d.patients || {}).forEach(([k, v]) => { if (!S.patients[k]) S.patients[k] = v; });
+    const merge = (key) => { const ids = new Set(S[key].map(x => x.id)); let n = 0; (d[key] || []).forEach(x => { if (!ids.has(x.id)) { S[key].push(x); n++; } }); return n; };
+    const n = merge('results'); merge('notes'); merge('sent');
     Object.entries((d.settings || {}).interp || {}).forEach(([k, v]) => { if (!S.settings.interp[k]) S.settings.interp[k] = v; });
-    save(); await OM.alertBox(`결과 ${n}건을 불러왔습니다.`); go('patients');
+    load(); save(); await OM.alertBox(`결과 ${n}건을 불러왔습니다.`); go('patients');
   };
   rd.readAsText(f);
 }
 
 // ---------- 시작 ----------
 (async () => {
-  load();
+  load(); save();
   OM.renderCredit(document.getElementById('credit'), false);
   OM.renderCredit(document.getElementById('creditFull'), true);
+  ensureCatalog().catch(() => {});
   if (!(await handleHash())) go('patients');
 })();
 window.addEventListener('hashchange', handleHash);
