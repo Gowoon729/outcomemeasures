@@ -1,0 +1,224 @@
+{
+ "credit": {
+  "short": "설문지 출처: 피티에듀(PTEdu) · APPI",
+  "lines": [
+   "피티에듀(PTEdu) 「근골격계, 골반건강 물리치료 평가지」 (2021.12.23), www.ptedu.kr",
+   "PTEdu-Musculoskeletal (APPI)",
+   "각 설문지의 원저작권은 원저자에게 있습니다."
+  ]
+ },
+ "joints": [
+  {
+   "id": "neck",
+   "name": "목",
+   "items": [
+    {
+     "id": "ndi",
+     "name": "경부 기능 제한 지수 (NDI)",
+     "status": "ready"
+    },
+    {
+     "id": null,
+     "name": "채찍질 손상 기능 제한 설문",
+     "status": "pending",
+     "note": "문항 입력 전"
+    }
+   ]
+  },
+  {
+   "id": "back",
+   "name": "허리",
+   "items": [
+    {
+     "id": null,
+     "name": "론랜드 모리스 허리통증·기능제한 설문 (RMQ)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "스타트 백 설문 (STarT Back)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "두려움 회피 양상 설문 (FABQ)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    }
+   ]
+  },
+  {
+   "id": "hip",
+   "name": "고관절",
+   "items": [
+    {
+     "id": null,
+     "name": "후스 고관절 설문 (HOOS)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "국제 고관절 회복 설문 (iHOT)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "변경된 하리스 고관절 점수 (mHHS)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    }
+   ]
+  },
+  {
+   "id": "knee",
+   "name": "무릎",
+   "items": [
+    {
+     "id": "cincinnati_func",
+     "name": "신시네티 무릎 관절 기능 평가",
+     "status": "ready"
+    },
+    {
+     "id": "cincinnati_sym",
+     "name": "신시네티 무릎 증상 측정표",
+     "status": "ready"
+    },
+    {
+     "id": "womac",
+     "name": "WOMAC",
+     "status": "ready"
+    },
+    {
+     "id": "kujala",
+     "name": "쿠잘라 점수 설문",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
+    },
+    {
+     "id": null,
+     "name": "빅토리안 스포츠 기관 설문 (VISA-P)",
+     "status": "pending",
+     "note": "8b 보기 점수 문서에 없음: 확인 필요"
+    }
+   ]
+  },
+  {
+   "id": "ankle",
+   "name": "발목·발",
+   "items": [
+    {
+     "id": null,
+     "name": "FAAM 일상생활 (ADL)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "FAAM 스포츠 (Sports)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    }
+   ]
+  },
+  {
+   "id": "general",
+   "name": "공통·심리",
+   "items": [
+    {
+     "id": null,
+     "name": "SF-36",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "탐파 움직임 두려움 지수 (TSK)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "쿼브로 근골격계 검사 설문 (OMSQ-12)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    }
+   ]
+  },
+  {
+   "id": "pelvic",
+   "name": "골반건강",
+   "items": [
+    {
+     "id": null,
+     "name": "골반저근 기능부전 스크리닝",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "코진 골반기능이상 스크리닝",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "골반저근 기능부전 관련질환 스크리닝",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "만성 전립선염 증상 설문지 (NIH-CPSI)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "배뇨 기능 관련 스트레스 설문지 (UDI-6)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "요실금 영향 설문지 (IIQ-7)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "외음부 통증 기능성 검사지",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "골반저근 통증 조사지 (PFDI-20)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "골반저근 영향 설문지 (PFIQ-7)",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "중추 감작 조사지 A",
+     "status": "pending",
+     "note": "문항 입력 전"
+    },
+    {
+     "id": null,
+     "name": "중추 감작 조사지 B",
+     "status": "pending",
+     "note": "문항 입력 전"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,158 @@
+{
+ "id": "cincinnati_func",
+ "name": "신시네티 무릎 관절 기능 평가",
+ "short": "Cincinnati 기능",
+ "source": "피티에듀(PTEdu) 물리치료 평가지 p36-37",
+ "intro": "스포츠 참여에 필요한 6가지 능력에 대해, 현재 가장 가까운 것을 하나씩 골라 주세요.",
+ "sections": [
+  {
+   "items": [
+    {
+     "id": "walk",
+     "q": "걷기",
+     "options": [
+      {
+       "label": "정상, 제한 없음",
+       "score": 40
+      },
+      {
+       "label": "약간의 제한",
+       "score": 30
+      },
+      {
+       "label": "3 – 4개의 블록만 가능",
+       "score": 20
+      },
+      {
+       "label": "1개 이하의 블록만 가능",
+       "score": 0
+      }
+     ]
+    },
+    {
+     "id": "stairs",
+     "q": "계단 오르고 내리기",
+     "options": [
+      {
+       "label": "정상, 제한 없음",
+       "score": 40
+      },
+      {
+       "label": "약간의 제한",
+       "score": 30
+      },
+      {
+       "label": "계단 11~30개 가능",
+       "score": 20
+      },
+      {
+       "label": "계단 1~10개 가능",
+       "score": 0
+      }
+     ]
+    },
+    {
+     "id": "squat",
+     "q": "쪼그려 앉기와 무릎 꿇기",
+     "options": [
+      {
+       "label": "정상, 제한 없음",
+       "score": 40
+      },
+      {
+       "label": "약간의 제한",
+       "score": 30
+      },
+      {
+       "label": "6~10개 가능",
+       "score": 20
+      },
+      {
+       "label": "0~5개 가능",
+       "score": 0
+      }
+     ]
+    },
+    {
+     "id": "run",
+     "q": "일직선으로 달리기",
+     "options": [
+      {
+       "label": "경쟁하며 수행 가능",
+       "score": 100
+      },
+      {
+       "label": "약간의 제한, 보호하려함",
+       "score": 80
+      },
+      {
+       "label": "분명한 제한, 절반의 속도만 가능",
+       "score": 60
+      },
+      {
+       "label": "불가능",
+       "score": 40
+      }
+     ]
+    },
+    {
+     "id": "jump",
+     "q": "점프와 착지하기",
+     "options": [
+      {
+       "label": "경쟁하며 수행 가능",
+       "score": 100
+      },
+      {
+       "label": "약간의 제한, 보호하려함",
+       "score": 80
+      },
+      {
+       "label": "분명한 제한, 절반의 속도만 가능",
+       "score": 60
+      },
+      {
+       "label": "불가능",
+       "score": 40
+      }
+     ]
+    },
+    {
+     "id": "twist",
+     "q": "강하게 비틀며 회전하기",
+     "options": [
+      {
+       "label": "경쟁하며 수행 가능",
+       "score": 100
+      },
+      {
+       "label": "약간의 제한, 보호하려함",
+       "score": 80
+      },
+      {
+       "label": "분명한 제한, 절반의 속도만 가능",
+       "score": 60
+      },
+      {
+       "label": "불가능",
+       "score": 40
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "scoring": {
+  "method": "sum",
+  "min": 120,
+  "max": 420,
+  "unit": "점",
+  "higherIsBetter": true,
+  "text": "기능 평가 점수 = 6개 항목 점수의 합 (최소 120, 최고 420)"
+ },
+ "interpretation": {},
+ "refs": [
+  "Barber-Westin SD, Noyes FR. Assessment of sports participation levels following knee injuries. Sports Med. 1999;28:1-10.",
+  "Noyes FR, Barber SD, Mooar LA. A rationale for assessing sports activity levels and limitations in knee disorders. Clin Orthop Relat Res. 1989;246:238-249."
+ ]
+}

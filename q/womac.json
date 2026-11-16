@@ -1,0 +1,704 @@
+{
+ "id": "womac",
+ "name": "서부 온타리오와 맥마스터 관절염 지수",
+ "short": "WOMAC",
+ "source": "피티에듀(PTEdu) 물리치료 평가지 p49",
+ "intro": "각 문항에 해당하는 정도를 골라 주세요.",
+ "sections": [
+  {
+   "title": "통증의 정도",
+   "items": [
+    {
+     "id": "w_p1",
+     "q": "걸을 때",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간",
+       "score": 2
+      },
+      {
+       "label": "심함",
+       "score": 3
+      },
+      {
+       "label": "매우 심함",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_p2",
+     "q": "계단 오를 때",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간",
+       "score": 2
+      },
+      {
+       "label": "심함",
+       "score": 3
+      },
+      {
+       "label": "매우 심함",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_p3",
+     "q": "밤에 잠잘 때",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간",
+       "score": 2
+      },
+      {
+       "label": "심함",
+       "score": 3
+      },
+      {
+       "label": "매우 심함",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_p4",
+     "q": "쉴 때",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간",
+       "score": 2
+      },
+      {
+       "label": "심함",
+       "score": 3
+      },
+      {
+       "label": "매우 심함",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_p5",
+     "q": "서 있을 때",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간",
+       "score": 2
+      },
+      {
+       "label": "심함",
+       "score": 3
+      },
+      {
+       "label": "매우 심함",
+       "score": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "뻣뻣함의 정도",
+   "items": [
+    {
+     "id": "w_s1",
+     "q": "아침",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간",
+       "score": 2
+      },
+      {
+       "label": "심함",
+       "score": 3
+      },
+      {
+       "label": "매우 심함",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_s2",
+     "q": "저녁",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간",
+       "score": 2
+      },
+      {
+       "label": "심함",
+       "score": 3
+      },
+      {
+       "label": "매우 심함",
+       "score": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "어려움의 정도",
+   "items": [
+    {
+     "id": "w_f1",
+     "q": "계단 내려가기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f2",
+     "q": "계단 올라가기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f3",
+     "q": "앉은 상태에서 일어나기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f4",
+     "q": "서기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f5",
+     "q": "허리 굽혀 바닥에 손 닿기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f6",
+     "q": "평평한 바닥에서 걷기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f7",
+     "q": "차에 타기/차에서 내리기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f8",
+     "q": "쇼핑하기(장보기)",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f9",
+     "q": "양말 신기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f10",
+     "q": "잠자리에서 일어나기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f11",
+     "q": "양말 벗기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f12",
+     "q": "잠자리에 눕기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f13",
+     "q": "욕조 들어가기/욕조에서 나오기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f14",
+     "q": "앉기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f15",
+     "q": "변기에 앉기/일어나기",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f16",
+     "q": "가벼운 집안일 (요리, 청소 등)",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "w_f17",
+     "q": "힘든 집안일 (가구 옮기기)",
+     "options": [
+      {
+       "label": "없음",
+       "score": 0
+      },
+      {
+       "label": "약간 어려움",
+       "score": 1
+      },
+      {
+       "label": "어려움",
+       "score": 2
+      },
+      {
+       "label": "많이 어려움",
+       "score": 3
+      },
+      {
+       "label": "매우 어려움",
+       "score": 4
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "scoring": {
+  "method": "sum",
+  "min": 0,
+  "max": 96,
+  "unit": "점",
+  "higherIsBetter": false,
+  "text": "각 영역 점수 합, 총 점수 /96",
+  "subscales": [
+   {
+    "name": "통증",
+    "items": [
+     "w_p1",
+     "w_p2",
+     "w_p3",
+     "w_p4",
+     "w_p5"
+    ],
+    "max": 20
+   },
+   {
+    "name": "뻣뻣함",
+    "items": [
+     "w_s1",
+     "w_s2"
+    ],
+    "max": 8
+   },
+   {
+    "name": "기능",
+    "items": [
+     "w_f1",
+     "w_f2",
+     "w_f3",
+     "w_f4",
+     "w_f5",
+     "w_f6",
+     "w_f7",
+     "w_f8",
+     "w_f9",
+     "w_f10",
+     "w_f11",
+     "w_f12",
+     "w_f13",
+     "w_f14",
+     "w_f15",
+     "w_f16",
+     "w_f17"
+    ],
+    "max": 68
+   }
+  ]
+ },
+ "interpretation": {},
+ "refs": [
+  "WOMAC-Yavapai Regional Medical Center 양식"
+ ]
+}
