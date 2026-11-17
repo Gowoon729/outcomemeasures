@@ -1,0 +1,315 @@
+{
+ "id": "faam_sports",
+ "name": "발과 발목 기능 측정 – 스포츠",
+ "short": "FAAM Sports",
+ "source": "대한스포츠의학회지(KJSM) Supplementary Materials 4 – FAAM Sports 한국어판",
+ "refs": [
+  "Martin R, Irrgang J, Burdett R, Conti S, VanSwearingen J. Evidence of Validity for the Foot and Ankle Ability Measure. Foot Ankle Int. 2005;26(11):968-983."
+ ],
+ "intro": "지난 1주일간의 상태를 가장 잘 나타내는 답을 하나만 골라 주세요. 해당 활동이 발이나 발목이 아닌 다른 이유로 제약받고 있으면 '해당 없음'을 골라 주세요.",
+ "sections": [
+  {
+   "title": "발 또는 발목의 증상으로 인하여, 다음 활동에 어느 정도의 어려움을 겪고 있는지 골라 주세요.",
+   "items": [
+    {
+     "id": "fs1",
+     "q": "달리기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fs2",
+     "q": "점프",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fs3",
+     "q": "착지",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fs4",
+     "q": "빠르게 달리기 시작했다가 급하게 멈추기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fs5",
+     "q": "횡보/측면으로 움직이기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fs_low",
+     "q": "작은 충격이 가해지는 활동",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fs6",
+     "q": "보통의 기술 수준으로 활동을 수행",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fs7",
+     "q": "원하는 스포츠 활동하고 싶은 만큼 할 수 있음",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "items": [
+    {
+     "id": "fs_self",
+     "q": "발과 발목의 증상이 발생하기 이전 스포츠활동을 100, 일상생활 활동을 전혀 할 수 없는 상태를 0이라고 할 때, 현재 스포츠활동 수준은? (0~100)",
+     "input": {
+      "type": "number",
+      "unit": "%",
+      "placeholder": "0~100",
+      "min": 0,
+      "max": 100
+     },
+     "scored": false
+    },
+    {
+     "id": "fs_overall",
+     "q": "전체적으로, 현재의 기능 수준을 어느 정도로 평가하겠습니까?",
+     "options": [
+      {
+       "label": "정상이다",
+       "score": null
+      },
+      {
+       "label": "거의 정상이다",
+       "score": null
+      },
+      {
+       "label": "이상이 있다",
+       "score": null
+      },
+      {
+       "label": "매우 심각한 비정상이다",
+       "score": null
+      }
+     ],
+     "scored": false
+    }
+   ]
+  }
+ ],
+ "scoring": {
+  "method": "percent",
+  "min": 0,
+  "max": 100,
+  "unit": "%",
+  "higherIsBetter": true,
+  "text": "어려움 없음 4 ~ 할 수 없음 0점, 해당 없음 제외. (얻은 점수 ÷ 가능한 최고 점수) × 100 (8문항, 최고 32점)"
+ },
+ "higherIsBetter": null,
+ "notes": [
+  "점수 자료(orca)는 Sports를 8문항으로 설명하는데 피티에듀 평가지는 7문항이라, 8문항인 KJSM 한국어판으로 바꿨습니다 ('작은 충격이 가해지는 활동' 추가).",
+  "점수 계산 출처: @orca_physio FAAM 해석 자료 (문항별 4~0점, 해당 없음 제외, 얻은 점수 ÷ 가능한 최고 점수 × 100)."
+ ],
+ "interpretation": {
+  "mcid": {
+   "value": 9,
+   "note": "orca 자료: Sports 약 9점 이상의 변화 → 임상적으로 유의미"
+  }
+ }
+}

@@ -31,31 +31,61 @@ const OM = (() => {
   }
 
   // answers: { itemId: value }
+  // scoring.method: sum | mean | percent | weighted | subsum(영역 점수의 합) | subscales(영역 점수만)
+  // subscale.calc: sum(기본) | mean, subscale.multiplier / scoring.multiplier: 곱할 값
   function score(q, answers) {
     const sc = q.scoring;
     const extras = {};
     allItems(q).filter(it => it.scored === false).forEach(it => { if (answers[it.id] !== undefined) extras[it.id] = answers[it.id]; });
-    if (!sc) return { score: null, extras };
-    const items = scoredItems(q);
-    const answered = items.filter(it => itemScore(it, answers[it.id]) !== null);
+    if (!sc) return { score: null, extras, subs: [] };
+    const all = scoredItems(q);
+    const byId = Object.fromEntries(all.map(it => [it.id, it]));
+    const items = sc.items ? sc.items.map(id => byId[id]).filter(Boolean) : all;   // 총점에 쓰는 문항
     const val = it => itemScore(it, answers[it.id]);
+    const answered = items.filter(it => val(it) !== null);
+    const missing = items.length - answered.length;
     const raw = answered.reduce((a, it) => a + val(it), 0);
+    const subs = (sc.subscales || []).map(sub => {
+      const subItems = sub.items.map(id => byId[id]).filter(Boolean);
+      const its = subItems.filter(it => val(it) !== null);
+      if (sub.requireAll && its.length < subItems.length) return { name: sub.name, max: sub.max, score: null, raw: null, answered: its.length };
+      const sum = its.reduce((a, it) => a + val(it), 0);
+      let v = sub.calc === 'mean' ? (its.length ? sum / its.length : null) : sum;
+      if (v !== null && sub.offset) v = v + sub.offset;
+      if (v !== null && sub.multiplier) v = v * sub.multiplier;
+      return { name: sub.name, max: sub.max, score: v === null ? null : r1(v), raw: v, answered: its.length };
+    });
     let s = null;
-    if (sc.method === 'sum') s = raw;
-    else if (sc.method === 'mean') s = answered.length ? r1(raw / answered.length) : null;
+    if (sc.maxMissing !== undefined && missing > sc.maxMissing) s = null;
+    else if (sc.method === 'sum') s = raw;
+    else if (sc.method === 'mean') s = answered.length ? r1((raw / answered.length + (sc.offset || 0)) * (sc.multiplier || 1)) : null;
     else if (sc.method === 'percent') {
       const maxAns = answered.reduce((a, it) => a + itemMax(it), 0);
       s = maxAns ? r1(raw / maxAns * 100) : null;
     } else if (sc.method === 'weighted') {
       const w = sc.weights || {};
       s = r1(answered.reduce((a, it) => a + (w[it.id] ?? 1) * val(it), 0) / (sc.divisor || 1));
+    } else if (sc.method === 'subsum') {
+      s = subs.some(x => x.raw === null) ? null : r1(subs.reduce((a, x) => a + x.raw, 0));
     }
-    const subs = (sc.subscales || []).map(sub => ({
-      name: sub.name, max: sub.max,
-      score: sub.items.reduce((a, id) => { const it = items.find(x => x.id === id); return a + ((it ? itemScore(it, answers[id]) : answers[id]) ?? 0); }, 0)
-    }));
-    return { score: s, raw, answeredCount: answered.length, subs, extras };
+    // 분류 규칙 (예: STarT Back 위험군)
+    let category = '';
+    if (sc.classify && s !== null) {
+      const get = k => k === 'total' ? s : (subs.find(x => x.name === k) || {}).score;
+      const ok = ([k, op, v]) => { const x = get(k); if (x === null || x === undefined) return false; return op === '<=' ? x <= v : op === '>=' ? x >= v : op === '<' ? x < v : op === '>' ? x > v : x === v; };
+      const hit = sc.classify.find(c => c.when.every(ok)); if (hit) category = hit.label;
+    }
+    return { score: s, raw, answeredCount: answered.length, missing, subs, extras, category };
   }
+  // 비교·해석에 쓰는 지표 목록 (총점 1개, 또는 영역별 여러 개)
+  function measures(q) {
+    const sc = q.scoring; if (!sc) return [];
+    if (sc.method === 'subscales') return sc.subscales.map(sb => ({ key: q.id + '#' + sb.name, name: sb.name, min: sb.min ?? 0, max: sb.max, unit: sb.unit || sc.unit || '점', hb: sc.higherIsBetter, get: r => (score(q, r.v || {}).subs.find(x => x.name === sb.name) || {}).score ?? null }));
+    const main = { key: q.id, name: q.short || q.name, min: sc.min, max: sc.max, unit: sc.unit || '점', hb: sc.higherIsBetter, get: r => r.s, main: true };
+    const extra = (sc.subscales || []).filter(sb => sb.measure).map(sb => ({ key: q.id + '#' + sb.name, name: sb.name, min: sb.min ?? 0, max: sb.max, unit: sb.unit || sc.unit || '점', hb: sb.higherIsBetter ?? sc.higherIsBetter, get: r => (score(q, r.v || {}).subs.find(x => x.name === sb.name) || {}).score ?? null }));
+    return [main, ...extra];
+  }
+  function fmtM(m, v) { if (v === null || v === undefined) return '-'; return m.unit === '%' ? v + '%' : v + (m.max !== undefined ? ' / ' + m.max : ''); }
   function fmt(q, s) {
     if (s === null || s === undefined) return '계산 안 함';
     const sc = q.scoring || {};
@@ -129,5 +159,5 @@ const OM = (() => {
   function qSourceHtml(q) {
     return `<div class="qsrc">출처: ${esc(q.source || '')}${(q.refs || []).length ? '<br>원저: ' + q.refs.map(esc).join('<br>') : ''}</div>`;
   }
-  return { itemScore, renderCredit, qSourceHtml, loadCatalog, loadQ, allItems, scoredItems, itemMax, score, fmt, encodeResult, decodeResult, findCodes, nowStr, esc, baseUrl, isKakao, dialog, alertBox, confirmBox, copyText, shareText };
+  return { measures, fmtM, itemScore, renderCredit, qSourceHtml, loadCatalog, loadQ, allItems, scoredItems, itemMax, score, fmt, encodeResult, decodeResult, findCodes, nowStr, esc, baseUrl, isKakao, dialog, alertBox, confirmBox, copyText, shareText };
 })();

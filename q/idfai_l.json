@@ -1,0 +1,291 @@
+{
+ "id": "idfai_l",
+ "name": "기능적 발목 불안정성 확인 설문지 (왼쪽)",
+ "short": "idFAI 왼쪽",
+ "source": "@orca_physio 한국어판 idFAI (Version 1.0)",
+ "refs": [
+  "Donovan L, et al. (2012). The identification and clinical relevance of functional ankle instability. Journal of Athletic Training, 47(4), 458–462."
+ ],
+ "intro": "왼쪽 발목에 대해 답해 주세요. 'Giving way(무너짐)'은 자신의 발목이 갑자기, 통제할 수 없이, 바깥으로 말리거나 흔들리는 느낌을 말합니다.",
+ "sections": [
+  {
+   "items": [
+    {
+     "id": "fi1",
+     "q": "1) 지금까지 발목을 몇 번 삐었습니까?",
+     "input": {
+      "type": "number",
+      "unit": "번",
+      "placeholder": "0",
+      "min": 0
+     },
+     "scored": false
+    },
+    {
+     "id": "fi2",
+     "q": "2) 마지막으로 발목을 삔 시점은 언제입니까?",
+     "options": [
+      {
+       "label": "한번도 없음",
+       "score": 0
+      },
+      {
+       "label": "2년이상 전",
+       "score": 1
+      },
+      {
+       "label": "1~2년 전",
+       "score": 2
+      },
+      {
+       "label": "6~12개월 전",
+       "score": 3
+      },
+      {
+       "label": "1~6개월 전",
+       "score": 4
+      },
+      {
+       "label": "1개월 이내",
+       "score": 5
+      }
+     ]
+    },
+    {
+     "id": "fi3",
+     "q": "3) 트레이너, 의사 또는 의료 전문가에게 발목 염좌 진단을 받은 적이 있다면, 가장 심한 염좌는 어느 정도였나요?",
+     "options": [
+      {
+       "label": "진료 받은적 없음",
+       "score": 0
+      },
+      {
+       "label": "경증 (Grade 1)",
+       "score": 1
+      },
+      {
+       "label": "중등도 (Grade 2)",
+       "score": 2
+      },
+      {
+       "label": "중증 (Grade 3)",
+       "score": 3
+      }
+     ]
+    },
+    {
+     "id": "fi4",
+     "q": "4) 발목 염좌로 인해 목발 또는 보조기구를 사용한 적이 있다면, 며칠 동안 사용 하셨나요?",
+     "options": [
+      {
+       "label": "사용 안함",
+       "score": 0
+      },
+      {
+       "label": "1-3일",
+       "score": 1
+      },
+      {
+       "label": "4-7일",
+       "score": 2
+      },
+      {
+       "label": "1-2주",
+       "score": 3
+      },
+      {
+       "label": "2-3주",
+       "score": 4
+      },
+      {
+       "label": "3주 이상",
+       "score": 5
+      }
+     ]
+    },
+    {
+     "id": "fi5",
+     "q": "5) 발목이 '무너지는 느낌(giving way)'을 마지막으로 경험한 시점은 언제인가요?",
+     "options": [
+      {
+       "label": "한번도 없음",
+       "score": 0
+      },
+      {
+       "label": "2년이상 전",
+       "score": 1
+      },
+      {
+       "label": "1~2년 전",
+       "score": 2
+      },
+      {
+       "label": "6~12개월 전",
+       "score": 3
+      },
+      {
+       "label": "1~6개월 전",
+       "score": 4
+      },
+      {
+       "label": "1개월 이내",
+       "score": 5
+      }
+     ]
+    },
+    {
+     "id": "fi6",
+     "q": "6) 발목이 '무너지는 느낌(giving way)'은 얼마나 자주 발생 합니까?",
+     "options": [
+      {
+       "label": "절대없음",
+       "score": 0
+      },
+      {
+       "label": "1년에 한번",
+       "score": 1
+      },
+      {
+       "label": "한달에 한번",
+       "score": 2
+      },
+      {
+       "label": "일주일에 한번",
+       "score": 3
+      },
+      {
+       "label": "하루에 한번 이상",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "fi7",
+     "q": "7) 보통 발목이 꺾이거나 말릴 때, 본인이 그 움직임을 멈출 수 있습니까?",
+     "options": [
+      {
+       "label": "꺾인 적 없음",
+       "score": 0
+      },
+      {
+       "label": "즉시 멈출 수 있음",
+       "score": 1
+      },
+      {
+       "label": "가끔 가능",
+       "score": 2
+      },
+      {
+       "label": "멈출 수 없음",
+       "score": 3
+      }
+     ]
+    },
+    {
+     "id": "fi8",
+     "q": "8) 발목이 꺾인 이후, 정상 상태로 회복되기 까지 얼마나 걸립니까?",
+     "options": [
+      {
+       "label": "꺾인 적 없음",
+       "score": 0
+      },
+      {
+       "label": "즉시 회복됨",
+       "score": 1
+      },
+      {
+       "label": "1일 이내",
+       "score": 2
+      },
+      {
+       "label": "1-2일",
+       "score": 3
+      },
+      {
+       "label": "2일 이상",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "fi9",
+     "q": "9) 일상 생활 활동 중 발목이 불안정하다고 느끼는 빈도는 어느 정도인가요?",
+     "options": [
+      {
+       "label": "절대없음",
+       "score": 0
+      },
+      {
+       "label": "1년에 한번",
+       "score": 1
+      },
+      {
+       "label": "한달에 한번",
+       "score": 2
+      },
+      {
+       "label": "일주일에 한번",
+       "score": 3
+      },
+      {
+       "label": "하루에 한번 이상",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "id": "fi10",
+     "q": "10) 운동이나 레크리에이션 활동 중 발목이 불안정하다고 느끼는 빈도는 어느정도 인가요?",
+     "options": [
+      {
+       "label": "절대없음",
+       "score": 0
+      },
+      {
+       "label": "1년에 한번",
+       "score": 1
+      },
+      {
+       "label": "한달에 한번",
+       "score": 2
+      },
+      {
+       "label": "일주일에 한번",
+       "score": 3
+      },
+      {
+       "label": "하루에 한번 이상",
+       "score": 4
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "scoring": {
+  "method": "sum",
+  "min": 0,
+  "max": 37,
+  "unit": "점",
+  "higherIsBetter": false,
+  "text": "문항별 점수의 합 (0점 가장 안정 ~ 37점 매우 불안정). 1번(염좌 횟수)은 점수에 포함되지 않음"
+ },
+ "interpretation": {
+  "bands": [
+   {
+    "min": 11,
+    "max": 37,
+    "label": "기능적 발목 불안정성(FAI) 있음"
+   },
+   {
+    "min": 0,
+    "max": 10,
+    "label": "FAI 없음 (정상 또는 단순 염좌 이력)"
+   }
+  ],
+  "bandsNote": "원문: ≥11점 FAI-positive, <11점 FAI-negative (Donovan et al. 2012)"
+ },
+ "notes": [
+  "원문 지침대로 오른쪽과 왼쪽 발목을 따로 작성하도록 나눴습니다."
+ ]
+}

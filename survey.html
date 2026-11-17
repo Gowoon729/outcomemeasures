@@ -69,7 +69,7 @@ function finish(results, date){
   if (PREVIEW()) {
     box.innerHTML = `<h2>미리보기 끝 👀</h2><p>환자는 이 화면에서 <b>치료사에게 보내기</b> 버튼을 누르게 됩니다.</p>
       <div class="note">미리보기 결과는 저장되지 않아요. 계산된 점수만 확인용으로 보여 드려요.</div>
-      ${results.map(r => { const q = QS.find(x => x.id === r.q); return `<p style="margin-top:8px"><b>${OM.esc(q.short || q.name)}</b>: ${q.scoring ? OM.fmt(q, r.s) : '점수 계산 안 함'}</p>`; }).join('')}
+      ${results.map(r => { const q = QS.find(x => x.id === r.q); return `<p style="margin-top:8px"><b>${OM.esc(q.short || q.name)}</b>: ${q.scoring ? OM.fmt(q, r.s) + (OM.score(q, r.v).category ? ' · ' + OM.esc(OM.score(q, r.v).category) : '') + OM.score(q, r.v).subs.filter((x,i) => q.scoring.subscales[i].measure).map(x => ` · ${OM.esc(x.name)} ${x.score ?? '-'}`).join('') : '점수 계산 안 함'}</p>`; }).join('')}
       <button class="btn btn-line" onclick="location.reload()">처음부터 다시</button>`;
     show('done'); return;
   }

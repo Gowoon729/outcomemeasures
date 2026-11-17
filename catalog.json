@@ -18,10 +18,33 @@
      "status": "ready"
     },
     {
-     "id": null,
-     "name": "채찍질 손상 기능 제한 설문",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "id": "wdq",
+     "name": "채찍질 손상 기능 제한 설문 (WDQ)",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
+    }
+   ]
+  },
+  {
+   "id": "upper",
+   "name": "어깨·팔·손",
+   "items": [
+    {
+     "id": "dash",
+     "name": "DASH (팔·어깨·손 장애)",
+     "status": "ready",
+     "note": "선택 설문(일·스포츠) 점수 포함"
+    },
+    {
+     "id": "quickdash",
+     "name": "QuickDASH",
+     "status": "ready"
+    },
+    {
+     "id": "prtee",
+     "name": "주관절 외측상과염 평가서 (PRTEE)",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
     }
    ]
   },
@@ -30,46 +53,72 @@
    "name": "허리",
    "items": [
     {
-     "id": null,
+     "id": "rmq",
      "name": "론랜드 모리스 허리통증·기능제한 설문 (RMQ)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "ready"
     },
     {
-     "id": null,
+     "id": "startback",
      "name": "스타트 백 설문 (STarT Back)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
     },
     {
-     "id": null,
+     "id": "startback_k",
+     "name": "STarT Back 선별 도구 (Keele, 위험군 분류)",
+     "status": "ready"
+    },
+    {
+     "id": "fabq",
      "name": "두려움 회피 양상 설문 (FABQ)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "ready",
+     "note": "신체활동·업무 두 점수로 비교"
     }
    ]
   },
   {
    "id": "hip",
-   "name": "고관절",
+   "name": "고관절·허벅지",
    "items": [
     {
-     "id": null,
+     "id": "hoos",
      "name": "후스 고관절 설문 (HOOS)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
     },
     {
-     "id": null,
-     "name": "국제 고관절 회복 설문 (iHOT)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "id": "ihot33",
+     "name": "국제 고관절 회복 설문 (iHOT-33)",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
     },
     {
-     "id": null,
+     "id": "mhhs",
      "name": "변경된 하리스 고관절 점수 (mHHS)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "ready"
+    },
+    {
+     "id": "ihot12",
+     "name": "국제 고관절 회복 설문 (iHOT-12)",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
+    },
+    {
+     "id": "hagos",
+     "name": "코펜하겐 고관절·사타구니 점수 (HAGOS)",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
+    },
+    {
+     "id": "hos",
+     "name": "고관절 결과 점수 (HOS)",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
+    },
+    {
+     "id": "fash",
+     "name": "급성 햄스트링 손상 기능 평가 (FASH)",
+     "status": "ready"
     }
    ]
   },
@@ -102,7 +151,7 @@
      "id": null,
      "name": "빅토리안 스포츠 기관 설문 (VISA-P)",
      "status": "pending",
-     "note": "8b 보기 점수 문서에 없음: 확인 필요"
+     "note": "8b 보기 점수가 원문에 없음: 확인 필요 (8a '7-15분'은 '11-15분' 오기 의심)"
     }
    ]
   },
@@ -111,16 +160,57 @@
    "name": "발목·발",
    "items": [
     {
-     "id": null,
+     "id": "faam_adl",
      "name": "FAAM 일상생활 (ADL)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "ready"
     },
     {
-     "id": null,
+     "id": "faam_sports",
      "name": "FAAM 스포츠 (Sports)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "ready"
+    },
+    {
+     "id": "cait_l",
+     "name": "CAIT 발목 불안정성 (왼쪽)",
+     "status": "ready"
+    },
+    {
+     "id": "cait_r",
+     "name": "CAIT 발목 불안정성 (오른쪽)",
+     "status": "ready"
+    },
+    {
+     "id": "idfai_l",
+     "name": "idFAI 기능적 발목 불안정성 (왼쪽)",
+     "status": "ready"
+    },
+    {
+     "id": "idfai_r",
+     "name": "idFAI 기능적 발목 불안정성 (오른쪽)",
+     "status": "ready"
+    },
+    {
+     "id": "aii",
+     "name": "발목 불안정성 조사지 (AII)",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
+    },
+    {
+     "id": "fadi_adl",
+     "name": "FADI 일상생활",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
+    },
+    {
+     "id": "fadi_sports",
+     "name": "FADI 스포츠",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
+    },
+    {
+     "id": "visa_a",
+     "name": "빅토리안 스포츠 기관 설문 – 아킬레스 (VISA-A)",
+     "status": "ready"
     }
    ]
   },
@@ -129,22 +219,42 @@
    "name": "공통·심리",
    "items": [
     {
-     "id": null,
+     "id": "sf36",
      "name": "SF-36",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
     },
     {
-     "id": null,
+     "id": "tsk",
      "name": "탐파 움직임 두려움 지수 (TSK)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "ready"
     },
     {
-     "id": null,
-     "name": "쿼브로 근골격계 검사 설문 (OMSQ-12)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "id": "omsq12",
+     "name": "외레브로 근골격계 검사 설문 (ÖMSQ-12)",
+     "status": "ready"
+    },
+    {
+     "id": "csi_a",
+     "name": "중추 감작 조사지 A (CSI)",
+     "status": "ready"
+    },
+    {
+     "id": "csi_b",
+     "name": "중추 감작 조사지 B (CSI)",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
+    },
+    {
+     "id": "paindetect",
+     "name": "PainDETECT (신경병성 통증 선별)",
+     "status": "ready"
+    },
+    {
+     "id": "pds",
+     "name": "외상 후 스트레스 진단 척도 (PDS)",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
     }
    ]
   },
@@ -153,70 +263,64 @@
    "name": "골반건강",
    "items": [
     {
-     "id": null,
+     "id": "pf_screen",
      "name": "골반저근 기능부전 스크리닝",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
     },
     {
-     "id": null,
+     "id": "cozean",
      "name": "코진 골반기능이상 스크리닝",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "ready"
     },
     {
-     "id": null,
+     "id": "pf_dx",
      "name": "골반저근 기능부전 관련질환 스크리닝",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
     },
     {
-     "id": null,
+     "id": "nihcpsi",
      "name": "만성 전립선염 증상 설문지 (NIH-CPSI)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "ready"
     },
     {
-     "id": null,
+     "id": "udi6",
      "name": "배뇨 기능 관련 스트레스 설문지 (UDI-6)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
     },
     {
-     "id": null,
+     "id": "iiq7",
      "name": "요실금 영향 설문지 (IIQ-7)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "ready"
     },
     {
-     "id": null,
+     "id": "vulvar",
      "name": "외음부 통증 기능성 검사지",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "answers",
+     "note": "원문에 보기별 점수만 있고 총점 계산법 없음: 답변·문항 점수만 저장"
     },
     {
-     "id": null,
+     "id": "pfdi20",
      "name": "골반저근 통증 조사지 (PFDI-20)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "ready"
     },
     {
-     "id": null,
+     "id": "pfiq7",
      "name": "골반저근 영향 설문지 (PFIQ-7)",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "status": "ready"
     },
     {
-     "id": null,
-     "name": "중추 감작 조사지 A",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "id": "csi_a",
+     "name": "중추 감작 조사지 A (CSI)",
+     "status": "ready"
     },
     {
-     "id": null,
-     "name": "중추 감작 조사지 B",
-     "status": "pending",
-     "note": "문항 입력 전"
+     "id": "csi_b",
+     "name": "중추 감작 조사지 B (CSI)",
+     "status": "answers",
+     "note": "채점법 문서에 없음: 답변만 저장"
     }
    ]
   }

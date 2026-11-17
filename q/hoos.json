@@ -1,0 +1,1089 @@
+{
+ "id": "hoos",
+ "name": "후스 고관절 설문",
+ "short": "HOOS",
+ "source": "피티에듀(PTEdu) 물리치료 평가지 p24-29",
+ "intro": "이 설문을 통해 고관절의 상태에 대해 어떻게 느끼고, 일상 생활을 얼마나 잘 할 수 있는지를 기록할 예정이니 신중하게 응답해주세요. 고르기 애매한 질문에는 최선이라고 여겨지는 답을 해주시면 됩니다.",
+ "sections": [
+  {
+   "title": "증상",
+   "desc": "지난주동안 느끼셨던 고관절 부위의 증상이나 불편함(어려움)에 대해 생각해보시고 답해주시면 됩니다.",
+   "items": [
+    {
+     "id": "hS1",
+     "q": "S1. 고관절에서 갈리는(닳는) 느낌이 나거나 뚝 하는 소리 혹은 불협음이 난 적이 있나요?",
+     "options": [
+      {
+       "label": "전혀",
+       "score": null
+      },
+      {
+       "label": "거의",
+       "score": null
+      },
+      {
+       "label": "가끔",
+       "score": null
+      },
+      {
+       "label": "자주",
+       "score": null
+      },
+      {
+       "label": "항상",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hS2",
+     "q": "S2. 다리를 옆으로 넓게 벌리는 게 어려우신가요?",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hS3",
+     "q": "S3. 걸을 때 보폭을 크게 내딛는 게 어려우신가요?",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "뻣뻣함",
+   "desc": "다음은 지난주 동안 느끼셨던 고관절의 뻣뻣함에 대한 질문들입니다. 뻣뻣하다는 건 고관절을 움직일 때 느려지거나 제한되는 느낌입니다.",
+   "items": [
+    {
+     "id": "hS4",
+     "q": "S4. 아침에 일어났을 때, 고관절이 얼마나 뻣뻣하다고 느껴지시나요?",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hS5",
+     "q": "S5. 일과 후 앉거나 눕거나, 쉬었다가 움직일 때 고관절이 얼마나 뻣뻣하다고 느껴지시나요?",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "통증",
+   "desc": "P2부터는 지난 한 주 동안 아래의 활동을 할 시에 느꼈던 통증의 정도를 체크해주세요.",
+   "items": [
+    {
+     "id": "hP1",
+     "q": "P1. 얼마나 자주 통증이 느껴지시나요?",
+     "options": [
+      {
+       "label": "전혀",
+       "score": null
+      },
+      {
+       "label": "매달",
+       "score": null
+      },
+      {
+       "label": "매주",
+       "score": null
+      },
+      {
+       "label": "매일",
+       "score": null
+      },
+      {
+       "label": "항상",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hP2",
+     "q": "P2. 고관절을 쭉 뻗는 동작",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hP3",
+     "q": "P3. 고관절을 완전히 굽히는 동작",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hP4",
+     "q": "P4. 평지 걷기",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hP5",
+     "q": "P5. 계단 오르내리기",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hP6",
+     "q": "P6. 잠 잘 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hP7",
+     "q": "P7. 앉아있거나 누워있을 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hP8",
+     "q": "P8. 똑바로 서 있을 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hP9",
+     "q": "P9. 아스팔트, 콘크리트 같은 딱딱한 바닥을 걸을 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hP10",
+     "q": "P10. 고르지 못하고 울퉁불퉁한 바닥을 걸을 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "일상생활과 관련된 신체 기능",
+   "desc": "지난 한 주 동안 아래의 활동 시 고관절 문제로 인하여 느꼈던 어려움 정도를 체크해주세요.",
+   "items": [
+    {
+     "id": "hA1",
+     "q": "A1. 계단 내려오기",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA2",
+     "q": "A2. 계단 오르기",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA3",
+     "q": "A3. 앉은 자세에서 일어서기",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA4",
+     "q": "A4. 서 있기",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA5",
+     "q": "A5. 물건을 잡으려/주으려 몸을 숙일 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA6",
+     "q": "A6. 평지를 걸을 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA7",
+     "q": "A7. 차에 타거나 내릴 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA8",
+     "q": "A8. 장보기/ 쇼핑을 할 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA9",
+     "q": "A9. 양말이나 스타킹을 신을 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA10",
+     "q": "A10. 일어나 앉을 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA11",
+     "q": "A11. 양말이나 스타킹을 벗을 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA12",
+     "q": "A12. 누워있을 때(몸을 뒤집거나, 가만히 있을 때)",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA13",
+     "q": "A13. 욕조에 들어가거나 나올 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA14",
+     "q": "A14. 앉아있을 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA15",
+     "q": "A15. 변기에 앉아있거나 일어날 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA16",
+     "q": "A16. 힘든 집안일을 할 때(무거운 상자를 옮기거나, 바닥 청소를 하는 등)",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hA17",
+     "q": "A17. 가벼운 집안일을 할 때(요리를 하거나 먼지를 털 때 등)",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "스포츠나 여가활동과 관련된 신체적 기능",
+   "desc": "지난주 동안 고관절 문제로 인하여 겪었던 어려움 정도를 체크해주시면 됩니다.",
+   "items": [
+    {
+     "id": "hSP1",
+     "q": "SP1. 스쿼트",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hSP2",
+     "q": "SP2. 달리기",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hSP3",
+     "q": "SP3. 한 다리로 서서 몸통을 회전시킬 때",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hSP4",
+     "q": "SP4. 울퉁불퉁한 바닥 걷기",
+     "options": [
+      {
+       "label": "없다",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "삶의 질",
+   "items": [
+    {
+     "id": "hQ1",
+     "q": "Q1. 고관절의 문제를 얼마나 자주 인식하시나요?",
+     "options": [
+      {
+       "label": "전혀",
+       "score": null
+      },
+      {
+       "label": "매달",
+       "score": null
+      },
+      {
+       "label": "매주",
+       "score": null
+      },
+      {
+       "label": "매일",
+       "score": null
+      },
+      {
+       "label": "항상",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hQ2",
+     "q": "Q2. 고관절에 손상(부담)이 갈 것 같은 활동들을 하지 않으려고 생활 방식을 바꾼 적이 있나요?",
+     "options": [
+      {
+       "label": "전혀",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "매우",
+       "score": null
+      },
+      {
+       "label": "완전히",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hQ3",
+     "q": "Q3. 고관절에 얼마나 많이 걱정되시나요?",
+     "options": [
+      {
+       "label": "전혀",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "매우",
+       "score": null
+      },
+      {
+       "label": "완전히",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hQ4",
+     "q": "Q4. 전반적으로 고관절이 얼마나 불편한가요?",
+     "options": [
+      {
+       "label": "전혀",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "중간정도",
+       "score": null
+      },
+      {
+       "label": "매우",
+       "score": null
+      },
+      {
+       "label": "완전히",
+       "score": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "scoring": null,
+ "higherIsBetter": null,
+ "notes": [
+  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다."
+ ]
+}

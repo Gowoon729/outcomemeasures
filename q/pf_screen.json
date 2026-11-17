@@ -1,0 +1,161 @@
+{
+ "id": "pf_screen",
+ "name": "골반저근 기능부전 스크리닝",
+ "short": "PFD 스크리닝",
+ "source": "피티에듀(PTEdu) 물리치료 평가지 p52",
+ "refs": [
+  "Keizer A, Vandyken B, Vandyken C, et al. Predictors of Pelvic Floor Muscle Dysfunction Among Women With Lumbopelvic Pain. Phys Ther. 2019;99(12)."
+ ],
+ "intro": "아래 문항 중 본인에게 해당되는 항목에 '예'를 골라 주세요.",
+ "sections": [
+  {
+   "items": [
+    {
+     "id": "ps1",
+     "q": "하루에 8번이상 소변을 보시나요?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ps2",
+     "q": "소변을 누시려고 할 때 시작하시기 힘드시거나 소변을 누실 때 타는 듯한 느낌이 드시나요?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ps3",
+     "q": "아주 강하거나 통제하기 힘든 요절박을 경험하시나요?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ps4",
+     "q": "요실금이나 배변실금을 경험하시나요? (화장실 가시는 길에, 기침/재채기/웃으실 때, 운동 중 등)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ps5",
+     "q": "배변 중이나 후에 통증을 경험하시나요?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ps6",
+     "q": "규칙적인 배변활동이 힘드신가요?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ps7",
+     "q": "성관계시 통증을 경험하시나요?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ps8",
+     "q": "골반통이나 골반에 무게감(질, 직장, 음경, 고환, 방광, 꼬리뼈 등)을 느끼시나요?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ps9",
+     "q": "남성이라면, 음경, 고환, 전립선에 통증을 느끼시나요?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ps10",
+     "q": "여성이라면, 약 복용, 복부패드 등을 사용해야할 만큼 생리통을 경험하시나요?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "scoring": null,
+ "higherIsBetter": null,
+ "notes": [
+  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다."
+ ]
+}

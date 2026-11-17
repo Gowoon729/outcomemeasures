@@ -1,0 +1,589 @@
+{
+ "id": "pfiq7",
+ "name": "골반저근 영향 설문지",
+ "short": "PFIQ-7",
+ "source": "피티에듀(PTEdu) 물리치료 평가지 p68-69",
+ "refs": [
+  "Uebersax JS, Wyman JF, Shumaker SA et al. Neurourol Urodyn 1995;14:131."
+ ],
+ "intro": "각 활동마다, 아래 세 가지 증상이 어느 정도 지장을 주는지 골라 주세요.",
+ "sections": [
+  {
+   "title": "1. 가사일을 하는데 (설거지, 요리, 청소, 세탁 등)",
+   "items": [
+    {
+     "id": "pq1b",
+     "q": "방광 또는 배뇨증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq1w",
+     "q": "장 또는 배변증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq1p",
+     "q": "골반 관련 증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    }
+   ]
+  },
+  {
+   "title": "2. 신체적 활동을 하는데 (수영, 등산, 조깅, 골프 등)",
+   "items": [
+    {
+     "id": "pq2b",
+     "q": "방광 또는 배뇨증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq2w",
+     "q": "장 또는 배변증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq2p",
+     "q": "골반 관련 증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    }
+   ]
+  },
+  {
+   "title": "3. 여가활동을 하는데 (영화관람, 연주회관람)",
+   "items": [
+    {
+     "id": "pq3b",
+     "q": "방광 또는 배뇨증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq3w",
+     "q": "장 또는 배변증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq3p",
+     "q": "골반 관련 증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    }
+   ]
+  },
+  {
+   "title": "4. 차를 이용하여 30분 이상 장거리 여행을 하는데",
+   "items": [
+    {
+     "id": "pq4b",
+     "q": "방광 또는 배뇨증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq4w",
+     "q": "장 또는 배변증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq4p",
+     "q": "골반 관련 증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    }
+   ]
+  },
+  {
+   "title": "5. 집 밖에서 사회활동이나 모임에 참가하는데",
+   "items": [
+    {
+     "id": "pq5b",
+     "q": "방광 또는 배뇨증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq5w",
+     "q": "장 또는 배변증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq5p",
+     "q": "골반 관련 증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    }
+   ]
+  },
+  {
+   "title": "6. 이로 인해 우울, 불안, 초조하신가요?",
+   "items": [
+    {
+     "id": "pq6b",
+     "q": "방광 또는 배뇨증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq6w",
+     "q": "장 또는 배변증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq6p",
+     "q": "골반 관련 증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    }
+   ]
+  },
+  {
+   "title": "7. 이로 인해 좌절, 실망, 공포감을 느끼시나요?",
+   "items": [
+    {
+     "id": "pq7b",
+     "q": "방광 또는 배뇨증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq7w",
+     "q": "장 또는 배변증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    },
+    {
+     "id": "pq7p",
+     "q": "골반 관련 증상",
+     "options": [
+      {
+       "label": "전혀 지장 없음",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 1
+      },
+      {
+       "label": "중간 정도",
+       "score": 2
+      },
+      {
+       "label": "꽤 많이",
+       "score": 3
+      }
+     ],
+     "optional": true
+    }
+   ]
+  }
+ ],
+ "scoring": {
+  "method": "subsum",
+  "min": 0,
+  "max": 300,
+  "unit": "점",
+  "higherIsBetter": false,
+  "text": "각 척도 = 응답한 항목 평균(0~3) × 100/3 (0~100점). PFIQ-7 = 세 척도 합 (0~300점)",
+  "subscales": [
+   {
+    "name": "UIQ-7 (방광·배뇨)",
+    "items": [
+     "pq1b",
+     "pq2b",
+     "pq3b",
+     "pq4b",
+     "pq5b",
+     "pq6b",
+     "pq7b"
+    ],
+    "calc": "mean",
+    "multiplier": 33.333333333333336,
+    "max": 100
+   },
+   {
+    "name": "CRAIQ-7 (장·배변)",
+    "items": [
+     "pq1w",
+     "pq2w",
+     "pq3w",
+     "pq4w",
+     "pq5w",
+     "pq6w",
+     "pq7w"
+    ],
+    "calc": "mean",
+    "multiplier": 33.333333333333336,
+    "max": 100
+   },
+   {
+    "name": "POPIQ-7 (골반)",
+    "items": [
+     "pq1p",
+     "pq2p",
+     "pq3p",
+     "pq4p",
+     "pq5p",
+     "pq6p",
+     "pq7p"
+    ],
+    "calc": "mean",
+    "multiplier": 33.333333333333336,
+    "max": 100
+   }
+  ]
+ },
+ "notes": [
+  "의견: 원문 p69 채점 설명의 UIQ-7 '담낭 또는 소변'은 '방광 또는 소변'의 오기로 보입니다 (설문 보기는 '방광 또는 배뇨증상'). 설문 보기를 기준으로 계산합니다.",
+  "원문 p69: UIQ-7 척도는 IIQ-7과 동일함"
+ ]
+}

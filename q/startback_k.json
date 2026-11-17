@@ -1,0 +1,218 @@
+{
+ "id": "startback_k",
+ "name": "STarT Back 선별 도구 (Keele)",
+ "short": "STarT Back Tool",
+ "source": "STarT Back Screening Tool 한국어판 (© Keele University 01/08/07, Funded by Arthritis Research UK)",
+ "intro": "설문지 작성 전, 지난 2주간의 허리 통증에 대해 생각해보시기 바랍니다.",
+ "sections": [
+  {
+   "items": [
+    {
+     "id": "sk1",
+     "q": "1. 지난 2주 동안, 때때로 (가끔) 허리 통증이 하지로 내려가고는 했다.",
+     "options": [
+      {
+       "label": "아니다",
+       "score": 0
+      },
+      {
+       "label": "그렇다",
+       "score": 1
+      }
+     ]
+    },
+    {
+     "id": "sk2",
+     "q": "2. 지난 2주 동안, 때때로(가끔) 목이나 어깨의 통증을 느꼈다.",
+     "options": [
+      {
+       "label": "아니다",
+       "score": 0
+      },
+      {
+       "label": "그렇다",
+       "score": 1
+      }
+     ]
+    },
+    {
+     "id": "sk3",
+     "q": "3. 허리 통증으로 인해 짧은 거리만 걸을 수 있었다.",
+     "options": [
+      {
+       "label": "아니다",
+       "score": 0
+      },
+      {
+       "label": "그렇다",
+       "score": 1
+      }
+     ]
+    },
+    {
+     "id": "sk4",
+     "q": "4. 지난 2주 동안, 허리 통증으로 인해 평소보다 옷을 천천히 입었다.",
+     "options": [
+      {
+       "label": "아니다",
+       "score": 0
+      },
+      {
+       "label": "그렇다",
+       "score": 1
+      }
+     ]
+    },
+    {
+     "id": "sk5",
+     "q": "5. 나와 같은 상태의 사람이 신체 활동을 하는 것은 안전하지 않다고 생각한다.",
+     "options": [
+      {
+       "label": "아니다",
+       "score": 0
+      },
+      {
+       "label": "그렇다",
+       "score": 1
+      }
+     ]
+    },
+    {
+     "id": "sk6",
+     "q": "6. 염려와 걱정이 수도 없이 떠올랐다.",
+     "options": [
+      {
+       "label": "아니다",
+       "score": 0
+      },
+      {
+       "label": "그렇다",
+       "score": 1
+      }
+     ]
+    },
+    {
+     "id": "sk7",
+     "q": "7. 내 허리 통증은 너무 심해서 나아질 것 같지 않다.",
+     "options": [
+      {
+       "label": "아니다",
+       "score": 0
+      },
+      {
+       "label": "그렇다",
+       "score": 1
+      }
+     ]
+    },
+    {
+     "id": "sk8",
+     "q": "8. 지난 2주 동안 내가 평소에 즐기던 모든 것들이 재미가 없어졌다.",
+     "options": [
+      {
+       "label": "아니다",
+       "score": 0
+      },
+      {
+       "label": "그렇다",
+       "score": 1
+      }
+     ]
+    },
+    {
+     "id": "sk9",
+     "q": "9. 전반적으로 지난 2주 동안 허리 통증으로 얼마나 불편했나요?",
+     "options": [
+      {
+       "label": "불편하지 않았다",
+       "score": 0
+      },
+      {
+       "label": "약간",
+       "score": 0
+      },
+      {
+       "label": "중간정도",
+       "score": 0
+      },
+      {
+       "label": "매우",
+       "score": 1
+      },
+      {
+       "label": "매우 심함",
+       "score": 1
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "scoring": {
+  "method": "sum",
+  "min": 0,
+  "max": 9,
+  "unit": "점",
+  "higherIsBetter": false,
+  "text": "전체 점수 = 9문항 합. 부분 점수 = 5~9번 합",
+  "subscales": [
+   {
+    "name": "부분 점수(Q5-9)",
+    "items": [
+     "sk5",
+     "sk6",
+     "sk7",
+     "sk8",
+     "sk9"
+    ],
+    "max": 5,
+    "measure": true
+   }
+  ],
+  "classify": [
+   {
+    "label": "저위험 (Low risk)",
+    "when": [
+     [
+      "total",
+      "<=",
+      3
+     ]
+    ]
+   },
+   {
+    "label": "중위험 (Medium risk)",
+    "when": [
+     [
+      "total",
+      ">=",
+      4
+     ],
+     [
+      "부분 점수(Q5-9)",
+      "<=",
+      3
+     ]
+    ]
+   },
+   {
+    "label": "고위험 (High risk)",
+    "when": [
+     [
+      "total",
+      ">=",
+      4
+     ],
+     [
+      "부분 점수(Q5-9)",
+      ">=",
+      4
+     ]
+    ]
+   }
+  ]
+ },
+ "notes": [
+  "원문 채점: 전체 점수 3점 이하 → 저위험. 4점 이상이면 부분 점수(Q5-9)를 보고 3점 이하 → 중위험, 4점 이상 → 고위험."
+ ]
+}

@@ -1,0 +1,888 @@
+{
+ "id": "hos",
+ "name": "고관절 결과 점수",
+ "short": "HOS",
+ "source": "APPI 한국어판 (제작: APPI 정무진)",
+ "intro": "각 질문에 지난 한 주 동안 자신의 상태와 가장 가까운 항목을 한 개만 골라 주세요. 활동이 엉덩이 관절 이외의 문제로 제한되었다면 '해당되지 않음'을 골라 주세요.",
+ "sections": [
+  {
+   "title": "일상 생활 중",
+   "items": [
+    {
+     "id": "ha1",
+     "q": "1. 15분 동안 서있기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha2",
+     "q": "2. 승용차에 타거나 내리기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha3",
+     "q": "3. 양말이나 신발 신기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha4",
+     "q": "4. 가파른 경사 올라가기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha5",
+     "q": "5. 가파른 경사 내려가기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha6",
+     "q": "6. 계단으로 한층 올라가기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha7",
+     "q": "7. 계단으로 한층 내려가기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha8",
+     "q": "8. 차도에서 인도로 올라서거나 내려가기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha9",
+     "q": "9. 쪼그려 앉기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha10",
+     "q": "10. 욕조에 들어가고 나오기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha11",
+     "q": "11. 15분 동안 앉아있기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha12",
+     "q": "12. 처음 걷기 시작할 때",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha13",
+     "q": "13. 10분 정도 걷기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha14",
+     "q": "14. 15분 이상 걷기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha15",
+     "q": "15. 아픈 다리를 중심으로 고관절을 비틀거나 방향 전환하기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha16",
+     "q": "16. 침대에서 돌아눕기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha17",
+     "q": "17. 가벼운 일하기 (서있거나 걷기)",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha18",
+     "q": "18. 힘든 일하기 (밀기/당기기, 등산이나 짐 나르기)",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha19",
+     "q": "19. 여가활동",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ha_self",
+     "q": "현재 일상 생활을 하는데 있어서 고관절의 기능이 0~100 사이라고 했을 때 어디에 해당한다고 생각하십니까? (고관절 문제 발생 전 = 100, 일상생활을 전혀 할 수 없는 상태 = 0)",
+     "input": {
+      "type": "number",
+      "unit": "%",
+      "placeholder": "0~100",
+      "min": 0,
+      "max": 100
+     },
+     "scored": false
+    }
+   ]
+  },
+  {
+   "title": "운동 중",
+   "items": [
+    {
+     "id": "hs1",
+     "q": "1. 1~2km 달리기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hs2",
+     "q": "2. 제자리 뛰기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hs3",
+     "q": "3. 골프채와 같은 물건 휘두르기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hs4",
+     "q": "4. 착지할 때",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hs5",
+     "q": "5. 빠르게 움직이거나 멈추기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hs6",
+     "q": "6. 가로막기나 옆으로 움직이기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hs7",
+     "q": "7. 빨리 걷기 같은 가벼운 운동",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hs8",
+     "q": "8. 정상적으로 활동 하기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hs9",
+     "q": "9. 원하는 만큼 스포츠 활동에 참여하기",
+     "options": [
+      {
+       "label": "전혀 어렵지 않다",
+       "score": null
+      },
+      {
+       "label": "약간 어렵다",
+       "score": null
+      },
+      {
+       "label": "중간 정도로 어렵다",
+       "score": null
+      },
+      {
+       "label": "아주 어렵다",
+       "score": null
+      },
+      {
+       "label": "불가능하다",
+       "score": null
+      },
+      {
+       "label": "해당되지 않음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hs_self",
+     "q": "현재 운동을 하는데 있어서 고관절의 기능이 0~100 사이라고 했을 때 어디에 해당한다고 생각하십니까? (고관절 문제 발생 전 = 100, 전혀 할 수 없는 상태 = 0)",
+     "input": {
+      "type": "number",
+      "unit": "%",
+      "placeholder": "0~100",
+      "min": 0,
+      "max": 100
+     },
+     "scored": false
+    }
+   ]
+  }
+ ],
+ "scoring": null,
+ "higherIsBetter": null,
+ "notes": [
+  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다."
+ ]
+}

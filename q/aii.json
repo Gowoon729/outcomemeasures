@@ -1,0 +1,273 @@
+{
+ "id": "aii",
+ "name": "발목 불안정성 조사지",
+ "short": "AII",
+ "source": "대한스포츠의학회지(KJSM) Supplementary Materials 1 – Ankle Instability Instrument 한국어판",
+ "intro": "각 질문에 '예' 또는 '아니오'로 답해 주세요.",
+ "sections": [
+  {
+   "title": "객관식 질문",
+   "items": [
+    {
+     "id": "ai1a",
+     "q": "1a. 오른쪽 발목은 접질리셨습니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ai1b",
+     "q": "1b. 왼쪽 발목을 접질리셨습니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ai2",
+     "q": "2. 발목 염좌로 병원을 찾으신 적이 있습니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ai3",
+     "q": "3. 발목 염좌로 체중을 지탱할 수 없어 목발 등의 기구를 사용한 적이 있으십니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ai4",
+     "q": "4. 발목에 휘청거리는 느낌, 꺾일 것 같은 느낌, 불안정한 느낌을 경험하였습니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ai5",
+     "q": "5. 평평한 지면을 걸을 때 발목 부위가 불안정함을 느끼신 적이 있습니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ai6",
+     "q": "6. 평평하지 않은 지면을 걸을 때 발목 부위가 불안정함을 느끼신 적이 있습니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ai7",
+     "q": "7. 여가 활동이나 운동 중 발목이 불안정하다고 느끼신 적이 있습니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ai8",
+     "q": "8. 계단을 올라가는 도중 발목이 불안정합니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ai9",
+     "q": "9. 계단을 내려갈 때 발목이 불안정합니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ai10",
+     "q": "10. 발목 염좌로 재활 치료를 받으신 적이 있습니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "주관식 질문",
+   "items": [
+    {
+     "id": "ai11",
+     "q": "11. 무릎에 부상을 당한 적이 있으십니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ai11t",
+     "q": "11번 '예'라면: 좌측/우측, 부상의 종류, 일자를 적어 주세요.",
+     "input": {
+      "type": "text",
+      "placeholder": "예: 우측, 반월상연골 손상, 2023.5"
+     },
+     "scored": false,
+     "optional": true
+    },
+    {
+     "id": "ai12",
+     "q": "12. 다리의 무릎 아래 부분에 부상을 당하신 적이 있습니까?",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "ai12t",
+     "q": "12번 '예'라면: 좌측/우측, 부상의 종류, 일자를 적어 주세요.",
+     "input": {
+      "type": "text",
+      "placeholder": ""
+     },
+     "scored": false,
+     "optional": true
+    },
+    {
+     "id": "ai_cnt_r",
+     "q": "이전 발목 염좌 횟수 – 우측",
+     "input": {
+      "type": "number",
+      "unit": "번",
+      "placeholder": "",
+      "min": 0
+     },
+     "scored": false
+    },
+    {
+     "id": "ai_cnt_l",
+     "q": "이전 발목 염좌 횟수 – 좌측",
+     "input": {
+      "type": "number",
+      "unit": "번",
+      "placeholder": "",
+      "min": 0
+     },
+     "scored": false
+    },
+    {
+     "id": "ai_last_r",
+     "q": "마지막으로 발목 염좌가 발생한 시점 – 우측 (몇 주 전)",
+     "input": {
+      "type": "number",
+      "unit": "주 전",
+      "placeholder": "",
+      "min": 0
+     },
+     "scored": false
+    },
+    {
+     "id": "ai_last_l",
+     "q": "마지막으로 발목 염좌가 발생한 시점 – 좌측 (몇 주 전)",
+     "input": {
+      "type": "number",
+      "unit": "주 전",
+      "placeholder": "",
+      "min": 0
+     },
+     "scored": false
+    }
+   ]
+  }
+ ],
+ "scoring": null,
+ "higherIsBetter": null,
+ "notes": [
+  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다.",
+  "원문 안내: 1번에 '예'라고 응답하는 사람만 참여할 수 있으며, 최소 5개 이상 문항에 '예'라고 응답해야 합니다. 양측 발목 염좌(1번) 및 하지의 골절 또는 중대한 무릎 부상이 있는 경우 참여 대상에서 제외합니다 (연구 대상자 선정 기준).",
+  "의견: 원문 안내의 '(10번 및 11번 문항)'은 무릎·하지 부상을 묻는 11번·12번을 가리키는 것으로 보입니다.",
+  "염좌 횟수·시점 칸은 앱에서는 우측·좌측 숫자 칸 4개로 나눴습니다."
+ ]
+}

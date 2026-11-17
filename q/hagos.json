@@ -1,0 +1,1017 @@
+{
+ "id": "hagos",
+ "name": "코펜하겐 고관절·사타구니 결과 점수",
+ "short": "HAGOS",
+ "source": "APPI 한국어판 (제작: APPI 정무진)",
+ "intro": "모든 질문은 지난 1주일 동안의 엉덩이(고관절) 및/또는 사타구니 기능을 고려하여 답해 주세요. 질문 당 하나만 고르고, 해당 사항이 없거나 지난주에 그런 경험이 없었다면 가장 가깝다고 생각되는 답을 골라 주세요.",
+ "sections": [
+  {
+   "title": "증상 (Symptom)",
+   "desc": "지난 1주일 동안 겪은 엉덩이(고관절) 및/또는 사타구니 부위의 증상과 불편함을 고려하여 답변해 주세요.",
+   "items": [
+    {
+     "id": "hgS1",
+     "q": "S1. 엉덩이(고관절) 및/또는 사타구니 부위에 불편함을 느끼시나요?",
+     "options": [
+      {
+       "label": "전혀 아니다",
+       "score": null
+      },
+      {
+       "label": "드물게",
+       "score": null
+      },
+      {
+       "label": "때때로",
+       "score": null
+      },
+      {
+       "label": "자주",
+       "score": null
+      },
+      {
+       "label": "항상",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgS2",
+     "q": "S2. 엉덩이(고관절) 및/또는 사타구니 부위에서 딸깍거리는 소리나 다른 종류의 소리가 들리나요?",
+     "options": [
+      {
+       "label": "전혀 아니다",
+       "score": null
+      },
+      {
+       "label": "드물게",
+       "score": null
+      },
+      {
+       "label": "때때로",
+       "score": null
+      },
+      {
+       "label": "자주",
+       "score": null
+      },
+      {
+       "label": "항상",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgS3",
+     "q": "S3. 다리를 옆으로 멀리 뻗는 동작을 할 때 어려움이 있나요?",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "약간 있음",
+       "score": null
+      },
+      {
+       "label": "중간 정도",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgS4",
+     "q": "S4. 걸을 때 보폭을 충분히 내딛는 데 어려움이 있나요?",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "약간 있음",
+       "score": null
+      },
+      {
+       "label": "중간 정도",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgS5",
+     "q": "S5. 엉덩이(고관절) 및/또는 사타구니 부위에 갑작스러운 찌릿하거나 찌르는 듯한 감각이 느껴지나요?",
+     "options": [
+      {
+       "label": "전혀 아니다",
+       "score": null
+      },
+      {
+       "label": "드물게",
+       "score": null
+      },
+      {
+       "label": "때때로",
+       "score": null
+      },
+      {
+       "label": "자주",
+       "score": null
+      },
+      {
+       "label": "항상",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "뻣뻣함 (Stiffness)",
+   "desc": "뻣뻣함이란 엉덩이 및/또는 사타구니를 움직일 때 느껴지는 제한이나 둔하고 느린 움직임의 감각을 의미합니다.",
+   "items": [
+    {
+     "id": "hgS6",
+     "q": "S6. 아침에 처음 잠에서 깬 후, 엉덩이 및/또는 사타구니의 뻣뻣함은 어느 정도입니까?",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "약간 있음",
+       "score": null
+      },
+      {
+       "label": "중간 정도",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgS7",
+     "q": "S7. 하루 중 늦은 시간에 앉아 있거나, 누워 있거나, 쉬고 난 후의 엉덩이 및/또는 사타구니 경직감은 어느 정도입니까?",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "약간 있음",
+       "score": null
+      },
+      {
+       "label": "중간 정도",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "통증 (Pain)",
+   "desc": "P3부터는 지난 일주일 동안 다음 활동 중 엉덩이 및/또는 사타구니 부위 통증을 얼마나 경험했는지 골라 주세요.",
+   "items": [
+    {
+     "id": "hgP1",
+     "q": "P1. 엉덩이 및/또는 사타구니가 얼마나 자주 아픕니까?",
+     "options": [
+      {
+       "label": "전혀 아니다",
+       "score": null
+      },
+      {
+       "label": "한 달에 한번 정도",
+       "score": null
+      },
+      {
+       "label": "일주일에 한번 정도",
+       "score": null
+      },
+      {
+       "label": "거의 매일",
+       "score": null
+      },
+      {
+       "label": "항상",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgP2",
+     "q": "P2. 엉덩이 및/또는 사타구니 문제와 관련이 있다고 생각되는 다른 부위의 통증은 얼마나 자주 있습니까?",
+     "options": [
+      {
+       "label": "전혀 아니다",
+       "score": null
+      },
+      {
+       "label": "한 달에 한번 정도",
+       "score": null
+      },
+      {
+       "label": "일주일에 한번 정도",
+       "score": null
+      },
+      {
+       "label": "거의 매일",
+       "score": null
+      },
+      {
+       "label": "항상",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgP3",
+     "q": "P3. 엉덩이를 완전히 펴는 동작 시",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "약간 있음",
+       "score": null
+      },
+      {
+       "label": "중간 정도",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgP4",
+     "q": "P4. 엉덩이를 완전히 구부리는 동작 시",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "약간 있음",
+       "score": null
+      },
+      {
+       "label": "중간 정도",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgP5",
+     "q": "P5. 계단을 오르거나 내려갈 때",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "약간 있음",
+       "score": null
+      },
+      {
+       "label": "중간 정도",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgP6",
+     "q": "P6. 밤에 잠자는 중 (통증으로 수면이 방해될 때)",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "약간 있음",
+       "score": null
+      },
+      {
+       "label": "중간 정도",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgP7",
+     "q": "P7. 앉아 있거나 누워 있을 때",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "약간 있음",
+       "score": null
+      },
+      {
+       "label": "중간 정도",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgP8",
+     "q": "P8. 똑바로 서 있을 때",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "약간 있음",
+       "score": null
+      },
+      {
+       "label": "중간 정도",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgP9",
+     "q": "P9. 단단한 지면 위를 걸을 때 (예: 아스팔트, 콘크리트 등)",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "약간 있음",
+       "score": null
+      },
+      {
+       "label": "중간 정도",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgP10",
+     "q": "P10. 울퉁불퉁한 지면 위를 걸을 때",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "약간 있음",
+       "score": null
+      },
+      {
+       "label": "중간 정도",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "신체 기능, 일상 생활 (Physical function, daily living)",
+   "desc": "엉덩이(고관절) 및/또는 사타구니 문제로 인해 지난 일주일 동안 특정 활동을 할 때 겪은 어려움의 정도입니다.",
+   "items": [
+    {
+     "id": "hgA1",
+     "q": "A1. 계단 오르기",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgA2",
+     "q": "A2. 몸을 굽히기 (예: 바닥에서 물건을 줍기 위해)",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgA3",
+     "q": "A3. 차량에 타고 내리기",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgA4",
+     "q": "A4. 침대에 누워 있기 (자세를 유지하거나 뒤척이는 동작 포함)",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgA5",
+     "q": "A5. 무거운 집안일 (예: 바닥 닦기, 진공청소기 사용, 무거운 상자 옮기기 등)",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "기능, 스포츠 및 여가 활동 (Function, sports and recreational activities)",
+   "desc": "보다 높은 수준의 활동에 참여할 때의 신체 기능입니다. 해당되지 않거나 지난 일주일 동안 경험하지 않은 활동이라면 가장 정확하다고 생각되는 답을 골라 주세요.",
+   "items": [
+    {
+     "id": "hgSP1",
+     "q": "SP1. 쪼그려 앉기",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgSP2",
+     "q": "SP2. 달리기",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgSP3",
+     "q": "SP3. 체중을 싣고 다리를 비트는 동작",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgSP4",
+     "q": "SP4. 울퉁불퉁한 지면 위를 걷기",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgSP5",
+     "q": "SP5. 전력 질주",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgSP6",
+     "q": "SP6. 다리를 힘차게 앞으로 또는 옆으로 움직이는 동작 (예: 킥 동작, 스케이팅 등)",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgSP7",
+     "q": "SP7. 급작스럽고 폭발적인 움직임 (예: 빠른 발놀림, 가속, 감속, 방향 전환 등)",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgSP8",
+     "q": "SP8. 다리가 바깥쪽으로 끝까지 벌어지는 자세 (예: 몸에서 최대한 멀리 다리를 뻗은 상황)",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "신체 활동 참여 (Participation in physical activities)",
+   "desc": "신체 활동에는 운동뿐 아니라 숨이 약간 찰 정도의 모든 형태의 활동이 포함됩니다. 지난 일주일 동안 엉덩이 및/또는 사타구니 문제로 신체 활동 참여 능력이 어느 정도 영향을 받았는지 고려해 주세요.",
+   "items": [
+    {
+     "id": "hgPA1",
+     "q": "PA1. 원하는 시간만큼 선호하는 신체 활동에 참여할 수 있었습니까?",
+     "options": [
+      {
+       "label": "항상",
+       "score": null
+      },
+      {
+       "label": "자주",
+       "score": null
+      },
+      {
+       "label": "때때로",
+       "score": null
+      },
+      {
+       "label": "드물게",
+       "score": null
+      },
+      {
+       "label": "전혀 아니다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgPA2",
+     "q": "PA2. 평소 수준의 수행 능력으로 선호하는 신체 활동에 참여할 수 있었습니까?",
+     "options": [
+      {
+       "label": "항상",
+       "score": null
+      },
+      {
+       "label": "자주",
+       "score": null
+      },
+      {
+       "label": "때때로",
+       "score": null
+      },
+      {
+       "label": "드물게",
+       "score": null
+      },
+      {
+       "label": "전혀 아니다",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "삶의 질 (Quality of life)",
+   "items": [
+    {
+     "id": "hgQ1",
+     "q": "Q1. 엉덩이 및/또는 사타구니 문제를 얼마나 자주 인식하고 있습니까?",
+     "options": [
+      {
+       "label": "전혀 아니다",
+       "score": null
+      },
+      {
+       "label": "한 달에 한번 정도",
+       "score": null
+      },
+      {
+       "label": "일주일에 한번 정도",
+       "score": null
+      },
+      {
+       "label": "거의 매일",
+       "score": null
+      },
+      {
+       "label": "항상",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgQ2",
+     "q": "Q2. 엉덩이 및/또는 사타구니에 해가 될 수 있는 활동을 피하려고 생활 방식을 바꾼 적이 있습니까?",
+     "options": [
+      {
+       "label": "전혀 아니다",
+       "score": null
+      },
+      {
+       "label": "약간 바꾸었다",
+       "score": null
+      },
+      {
+       "label": "어느 정도 바꾸었다",
+       "score": null
+      },
+      {
+       "label": "많이 바꾸었다",
+       "score": null
+      },
+      {
+       "label": "완전히 바꾸었다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgQ3",
+     "q": "Q3. 일반적으로 엉덩이 및/또는 사타구니 문제로 인해 얼마나 많은 어려움을 겪고 있습니까?",
+     "options": [
+      {
+       "label": "문제없음",
+       "score": null
+      },
+      {
+       "label": "약간 어려움",
+       "score": null
+      },
+      {
+       "label": "중간 정도 어려움",
+       "score": null
+      },
+      {
+       "label": "어려움",
+       "score": null
+      },
+      {
+       "label": "매우 어려움",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgQ4",
+     "q": "Q4. 엉덩이 및/또는 사타구니 문제가 기분에 부정적인 영향을 미치나요?",
+     "options": [
+      {
+       "label": "전혀 아니다",
+       "score": null
+      },
+      {
+       "label": "드물게",
+       "score": null
+      },
+      {
+       "label": "때때로",
+       "score": null
+      },
+      {
+       "label": "자주",
+       "score": null
+      },
+      {
+       "label": "항상",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "hgQ5",
+     "q": "Q5. 엉덩이 및/또는 사타구니 문제로 인해 제약을 느낀 적이 있습니까?",
+     "options": [
+      {
+       "label": "전혀 아니다",
+       "score": null
+      },
+      {
+       "label": "드물게",
+       "score": null
+      },
+      {
+       "label": "때때로",
+       "score": null
+      },
+      {
+       "label": "자주",
+       "score": null
+      },
+      {
+       "label": "항상",
+       "score": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "scoring": null,
+ "higherIsBetter": null,
+ "notes": [
+  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다."
+ ]
+}
