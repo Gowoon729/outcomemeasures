@@ -1,0 +1,258 @@
+{
+ "id": "fadi_sports",
+ "name": "족부 및 발목 장애 지수 – 스포츠",
+ "short": "FADI Sport",
+ "source": "대한스포츠의학회지(KJSM) Supplementary Materials 5 – FADI Sports 한국어판",
+ "intro": "족부 및 발목의 증상으로 인하여 다음 활동에 어느 정도의 어려움을 겪고 있는지 골라 주세요. 다른 이유로 제약받고 있으면 '해당 없음'을 골라 주세요.",
+ "sections": [
+  {
+   "items": [
+    {
+     "id": "fds1",
+     "q": "달리기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": null
+      },
+      {
+       "label": "약간의 어려움",
+       "score": null
+      },
+      {
+       "label": "보통수준 어려움",
+       "score": null
+      },
+      {
+       "label": "극심한 어려움",
+       "score": null
+      },
+      {
+       "label": "활동 불가",
+       "score": null
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fds2",
+     "q": "점프",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": null
+      },
+      {
+       "label": "약간의 어려움",
+       "score": null
+      },
+      {
+       "label": "보통수준 어려움",
+       "score": null
+      },
+      {
+       "label": "극심한 어려움",
+       "score": null
+      },
+      {
+       "label": "활동 불가",
+       "score": null
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fds3",
+     "q": "착지",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": null
+      },
+      {
+       "label": "약간의 어려움",
+       "score": null
+      },
+      {
+       "label": "보통수준 어려움",
+       "score": null
+      },
+      {
+       "label": "극심한 어려움",
+       "score": null
+      },
+      {
+       "label": "활동 불가",
+       "score": null
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fds4",
+     "q": "갑자기 이동하여 멈추기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": null
+      },
+      {
+       "label": "약간의 어려움",
+       "score": null
+      },
+      {
+       "label": "보통수준 어려움",
+       "score": null
+      },
+      {
+       "label": "극심한 어려움",
+       "score": null
+      },
+      {
+       "label": "활동 불가",
+       "score": null
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fds5",
+     "q": "횡보/측면 이동",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": null
+      },
+      {
+       "label": "약간의 어려움",
+       "score": null
+      },
+      {
+       "label": "보통수준 어려움",
+       "score": null
+      },
+      {
+       "label": "극심한 어려움",
+       "score": null
+      },
+      {
+       "label": "활동 불가",
+       "score": null
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fds6",
+     "q": "저강도 활동",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": null
+      },
+      {
+       "label": "약간의 어려움",
+       "score": null
+      },
+      {
+       "label": "보통수준 어려움",
+       "score": null
+      },
+      {
+       "label": "극심한 어려움",
+       "score": null
+      },
+      {
+       "label": "활동 불가",
+       "score": null
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fds7",
+     "q": "보통의 기술 수준으로 활동을 수행할 수 있는 능력",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": null
+      },
+      {
+       "label": "약간의 어려움",
+       "score": null
+      },
+      {
+       "label": "보통수준 어려움",
+       "score": null
+      },
+      {
+       "label": "극심한 어려움",
+       "score": null
+      },
+      {
+       "label": "활동 불가",
+       "score": null
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fds8",
+     "q": "원하는 종목의 스포츠활동을 원하는 시간만큼 진행",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": null
+      },
+      {
+       "label": "약간의 어려움",
+       "score": null
+      },
+      {
+       "label": "보통수준 어려움",
+       "score": null
+      },
+      {
+       "label": "극심한 어려움",
+       "score": null
+      },
+      {
+       "label": "활동 불가",
+       "score": null
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "scoring": null,
+ "higherIsBetter": null,
+ "notes": [
+  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다."
+ ]
+}

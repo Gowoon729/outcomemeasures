@@ -1,0 +1,153 @@
+{
+ "id": "udi6",
+ "name": "배뇨 기능 관련 스트레스 설문지",
+ "short": "UDI-6",
+ "source": "피티에듀(PTEdu) 물리치료 평가지 p58",
+ "refs": [
+  "Uebersax JS, Wyman JF, Shumaker SA, et al. Short forms to assess life quality and symptom distress for urinary incontinence in women: the incontinence impact questionnaire and urogenital distress inventory. Neurourol Urodyn 1995;14:131."
+ ],
+ "intro": "각 질문에, 지난 몇 달 간 겪으신 증상의 심각성에 대해 가장 잘 설명한 것을 골라 주세요.",
+ "sections": [
+  {
+   "items": [
+    {
+     "id": "u1",
+     "q": "잦은 배뇨?",
+     "options": [
+      {
+       "label": "전혀 없음",
+       "score": 0
+      },
+      {
+       "label": "조금 있음",
+       "score": 1
+      },
+      {
+       "label": "어느정도 있음",
+       "score": 2
+      },
+      {
+       "label": "심각하게 있음",
+       "score": 3
+      }
+     ]
+    },
+    {
+     "id": "u2",
+     "q": "요절박과 관련된 요실금?",
+     "options": [
+      {
+       "label": "전혀 없음",
+       "score": 0
+      },
+      {
+       "label": "조금 있음",
+       "score": 1
+      },
+      {
+       "label": "어느정도 있음",
+       "score": 2
+      },
+      {
+       "label": "심각하게 있음",
+       "score": 3
+      }
+     ]
+    },
+    {
+     "id": "u3",
+     "q": "신체활동과 관련된 요실금? (걷기, 뛰기, 웃기, 기침, 재채기)",
+     "options": [
+      {
+       "label": "전혀 없음",
+       "score": 0
+      },
+      {
+       "label": "조금 있음",
+       "score": 1
+      },
+      {
+       "label": "어느정도 있음",
+       "score": 2
+      },
+      {
+       "label": "심각하게 있음",
+       "score": 3
+      }
+     ]
+    },
+    {
+     "id": "u4",
+     "q": "조금의 요실금?",
+     "options": [
+      {
+       "label": "전혀 없음",
+       "score": 0
+      },
+      {
+       "label": "조금 있음",
+       "score": 1
+      },
+      {
+       "label": "어느정도 있음",
+       "score": 2
+      },
+      {
+       "label": "심각하게 있음",
+       "score": 3
+      }
+     ]
+    },
+    {
+     "id": "u5",
+     "q": "소변을 누는데 어려움?",
+     "options": [
+      {
+       "label": "전혀 없음",
+       "score": 0
+      },
+      {
+       "label": "조금 있음",
+       "score": 1
+      },
+      {
+       "label": "어느정도 있음",
+       "score": 2
+      },
+      {
+       "label": "심각하게 있음",
+       "score": 3
+      }
+     ]
+    },
+    {
+     "id": "u6",
+     "q": "아랫쪽 복부, 골반, 혹은 회음부 부위의 통증이나 불편감",
+     "options": [
+      {
+       "label": "전혀 없음",
+       "score": 0
+      },
+      {
+       "label": "조금 있음",
+       "score": 1
+      },
+      {
+       "label": "어느정도 있음",
+       "score": 2
+      },
+      {
+       "label": "심각하게 있음",
+       "score": 3
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "scoring": null,
+ "higherIsBetter": false,
+ "notes": [
+  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다. (p58 단독 양식 기준. PFDI-20 안의 UDI-6 척도는 0~4점 방식으로 따로 계산됩니다.)"
+ ]
+}

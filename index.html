@@ -50,10 +50,14 @@
         <button class="btn btn-line" onclick="openRecords(curP)">🗂 기록 보기</button>
         <button class="btn btn-line" onclick="newEpisode()">🔄 새 치료 시작</button>
       </div>
+      <button class="btn btn-line" onclick="CH.open(curP)">📋 APPI 평가 차트</button>
       <button class="btn btn-line" onclick="editPatient()">✏️ 회원 정보 수정 · 삭제</button>
     </div>
     <div id="pPending"></div>
   </div>
+
+  <!-- APPI 평가 차트 (치료사 전용) -->
+  <div id="v-chart" class="view"><div id="chRoot"></div></div>
 
   <!-- 기록관리 -->
   <div id="v-records" class="view">
@@ -129,7 +133,8 @@
       <h2>📄 CSV 내보내기 (엑셀)</h2>
       <p class="sub">모든 결과를 엑셀에서 열 수 있는 표로 저장합니다. 케이스 리포트나 발표 자료에 쓸 수 있어요.</p>
       <label class="list-item" style="cursor:pointer"><input type="checkbox" id="csvNames"><div class="grow">회원 이름 포함 <div class="sub">끄면 회원 코드로만 내보냅니다 (권장)</div></div></label>
-      <button class="btn btn-main" onclick="exportCSV()">⬇️ CSV 내보내기</button>
+      <button class="btn btn-main" onclick="exportCSV()">⬇️ 설문 결과 CSV 내보내기</button>
+      <button class="btn btn-line" onclick="CH.exportCSV(document.getElementById('csvNames').checked)">⬇️ APPI 평가 차트 CSV 내보내기</button>
     </div>
     <div class="card">
       <h2>백업</h2>
@@ -160,6 +165,7 @@
 <script src="survey-engine.js"></script>
 <script src="sync.js"></script>
 <script src="editor.js"></script>
+<script src="chart.js"></script>
 <script>
 const KEY = 'om_therapist_v1';
 let S = null, CAT = null, curP = null, recP = null, recEp = null, recMode = 'q', curJoint = null;
@@ -174,6 +180,7 @@ function load(){
   try { S = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e){}
   if (!S) S = {};
   S.patients = S.patients || {}; S.results = S.results || []; S.notes = S.notes || []; S.sent = S.sent || [];
+  S.charts = S.charts || [];
   S.settings = S.settings || {}; S.settings.interp = S.settings.interp || {}; S.settings.hiddenQ = S.settings.hiddenQ || {}; S.custom = S.custom || {};
   // 이전 버전 기록 → 에피소드 1로
   Object.values(S.patients).forEach(p => { if (!p.ep) { p.ep = 1; p.eps = { 1: { start: (p.created || today()).slice(0,10), label: '' } }; } });
@@ -198,9 +205,9 @@ function readyIds(){ return CAT ? CAT.joints.flatMap(j => j.items).filter(it => 
 function go(v){
   if (v !== 'editor' && document.getElementById('v-editor').classList.contains('active') && ED.dirty && !ED.leaving) { ED.confirmLeave(v); return; }
   document.querySelectorAll('#app > .view').forEach(e => e.classList.toggle('active', e.id === 'v-' + v));
-  const tab = v === 'patient' ? 'patients' : v === 'editor' ? 'forms' : v;
+  const tab = (v === 'patient' || v === 'chart') ? 'patients' : v === 'editor' ? 'forms' : v;
   ['patients','records','send','forms','settings'].forEach(t => document.getElementById('t-' + t).classList.toggle('on', t === tab));
-  ({ patients: renderPatients, patient: renderPatient, records: renderRecords, send: renderSend, forms: renderForms, settings: renderSettings, editor: () => ED.render() }[v] || (() => {}))();
+  ({ patients: renderPatients, patient: renderPatient, records: renderRecords, send: renderSend, forms: renderForms, settings: renderSettings, chart: () => CH.render(), editor: () => ED.render() }[v] || (() => {}))();
   document.getElementById('pendCount').innerText = pendingList().length;
   window.scrollTo(0, 0);
 }
@@ -235,7 +242,7 @@ async function deletePatient(){
   const n = S.results.filter(r => r.p === curP).length;
   if (!await OM.confirmBox(`${S.patients[curP].name} (${curP})와 결과 ${n}건, 메모를 모두 삭제할까요?\n되돌릴 수 없습니다.`)) return;
   delete S.patients[curP];
-  S.results = S.results.filter(r => r.p !== curP); S.notes = S.notes.filter(n => n.p !== curP); S.sent = S.sent.filter(s => s.p !== curP);
+  S.results = S.results.filter(r => r.p !== curP); S.notes = S.notes.filter(n => n.p !== curP); S.sent = S.sent.filter(s => s.p !== curP); S.charts = S.charts.filter(c => c.p !== curP);
   save(); go('patients');
 }
 async function newEpisode(){
@@ -722,7 +729,7 @@ function importBackup(e){
     const d = o && o.app === 'om-therapist' && o.data; if (!d) { OM.alertBox('아웃컴 메저 백업 파일이 아닙니다.'); return; }
     Object.entries(d.patients || {}).forEach(([k, v]) => { if (!S.patients[k]) S.patients[k] = v; });
     const merge = (key) => { const ids = new Set(S[key].map(x => x.id)); let n = 0; (d[key] || []).forEach(x => { if (!ids.has(x.id)) { S[key].push(x); n++; } }); return n; };
-    const n = merge('results'); merge('notes'); merge('sent');
+    const n = merge('results'); merge('notes'); merge('sent'); S.charts = S.charts || []; (d.charts || []).forEach(x => { if (!S.charts.some(y => y.id === x.id)) S.charts.push(x); });
     Object.entries((d.settings || {}).interp || {}).forEach(([k, v]) => { if (!S.settings.interp[k]) S.settings.interp[k] = v; });
     Object.entries((d.settings || {}).hiddenQ || {}).forEach(([k, v]) => { if (!S.settings.hiddenQ[k]) S.settings.hiddenQ[k] = v; });
     Object.entries(d.custom || {}).forEach(([k, c]) => { const mine = S.custom[k]; if (!mine) S.custom[k] = c; else Object.entries(c.vers || {}).forEach(([v, q]) => { if (!mine.vers[v]) mine.vers[v] = q; }); });
@@ -861,7 +868,7 @@ function teamInvite(id){
 }
 
 // ---------- 앱 업데이트 안내 ----------
-const APP_VER = 18;                       // 새 버전을 올릴 때 version.json 의 번호와 함께 올립니다
+const APP_VER = 19;                       // 새 버전을 올릴 때 version.json 의 번호와 함께 올립니다
 let newVer = 0, updTimer = null;
 async function checkUpdate(){
   try {

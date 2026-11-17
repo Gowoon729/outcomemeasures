@@ -1,0 +1,681 @@
+{
+ "id": "faam_adl",
+ "name": "발과 발목 기능 측정 – 일상생활",
+ "short": "FAAM ADL",
+ "source": "피티에듀(PTEdu) 물리치료 평가지 p46-47",
+ "refs": [
+  "Martin R, Irrgang J, Burdett R, Conti S, VanSwearingen J. Evidence of Validity for the Foot and Ankle Ability Measure. Foot Ankle Int. 2005;26(11):968-983."
+ ],
+ "intro": "모든 질문에 지난 한 주 동안의 상태를 가장 정확하게 설명하는 하나의 답변을 선택해 주세요. 발과 발목으로 인한 것이 아닌 다른 문제로 해당 질문의 내용이 제한된다면 '해당 없음'을 골라 주세요.",
+ "sections": [
+  {
+   "title": "발과 발목으로 인하여 얼마나 어려움을 겪습니까?",
+   "items": [
+    {
+     "id": "fa1",
+     "q": "서 있는 것",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa2",
+     "q": "편평한 지면 걷기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa3",
+     "q": "신발 없이 편평한 지면 걷기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa4",
+     "q": "언덕 오르기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa5",
+     "q": "언덕 내려가기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa6",
+     "q": "계단 오르기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa7",
+     "q": "계단 내려오기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa8",
+     "q": "울퉁불퉁한 지면 걷기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa9",
+     "q": "도로 경계석 오르고 내리기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa10",
+     "q": "쪼그려 앉기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa11",
+     "q": "까치발 서기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa12",
+     "q": "걷기 시작할 때",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa13",
+     "q": "5분 또는 그 이하 걷기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa14",
+     "q": "10분 정도 걷기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa15",
+     "q": "15분 또는 그 이상 걷기",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa16",
+     "q": "가정에서의 일",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa17",
+     "q": "일상생활 동작",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa18",
+     "q": "개인 관리",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa19",
+     "q": "어렵지 않은 동작 (서있기, 걷기)",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa20",
+     "q": "어려운 동작 (밀기/당기기, 오르기, 옮기기)",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "fa21",
+     "q": "여가 활동",
+     "options": [
+      {
+       "label": "어려움 없음",
+       "score": 4
+      },
+      {
+       "label": "약간 어려움",
+       "score": 3
+      },
+      {
+       "label": "중정도 어려움",
+       "score": 2
+      },
+      {
+       "label": "심한 어려움",
+       "score": 1
+      },
+      {
+       "label": "할 수 없음",
+       "score": 0
+      },
+      {
+       "label": "해당 없음",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "items": [
+    {
+     "id": "fa_self",
+     "q": "평소 일상 활동을 하는 동안 기능 수준을 스스로 평가하신다면 어떻게 평가하시나요? (발·발목에 문제가 생기기 전 = 100, 일상 활동의 어느 것도 못 하는 상태 = 0)",
+     "input": {
+      "type": "number",
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "placeholder": "0~100"
+     },
+     "scored": false
+    }
+   ]
+  }
+ ],
+ "scoring": {
+  "method": "percent",
+  "min": 0,
+  "max": 100,
+  "unit": "%",
+  "higherIsBetter": true,
+  "text": "어려움 없음 4 ~ 할 수 없음 0점, 해당 없음 제외. (얻은 점수 ÷ 가능한 최고 점수) × 100"
+ },
+ "higherIsBetter": null,
+ "notes": [
+  "문항은 피티에듀 평가지(p46-47), 점수 계산 출처: @orca_physio FAAM 해석 자료 (문항별 4~0점, 해당 없음 제외, 얻은 점수 ÷ 가능한 최고 점수 × 100)."
+ ],
+ "interpretation": {
+  "mcid": {
+   "value": 8,
+   "note": "orca 자료: ADL 약 8점 이상의 변화 → 임상적으로 유의미"
+  }
+ }
+}

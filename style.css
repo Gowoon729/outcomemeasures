@@ -153,3 +153,16 @@ textarea.mono{font-family:ui-monospace,Menlo,monospace;font-size:.8rem;min-heigh
 .skipbox.off{opacity:.55;cursor:default}
 .skip-hint{margin-top:4px;min-height:1.1em}
 .secbody{margin-top:2px}
+
+/* APPI 평가 차트 */
+input[type=date]{width:100%;font-size:1rem;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--text);font-family:inherit}
+.ch-wrap{flex-wrap:wrap;overflow:visible}
+.ch-body{position:relative;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:crosshair;touch-action:manipulation}
+.ch-body img{width:100%;display:block;pointer-events:none;user-select:none;-webkit-user-select:none}
+.ch-dot{position:absolute;width:14px;height:14px;border-radius:50%;background:rgba(220,38,38,.85);border:2px solid #fff;transform:translate(-50%,-50%);pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}
+.ch-oxrow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}
+.ch-cross{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:6px;align-items:center;max-width:380px}
+.ch-cross input{padding:8px;font-size:.9rem;text-align:center}
+.ch-cross .circ{width:68px;height:68px;border:2px solid var(--text);border-radius:50%;margin:auto;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700}
+table.ch-cmp td{text-align:left;vertical-align:top;white-space:pre-wrap;font-size:.84rem}
+table.ch-cmp td.diff{background:var(--warn-soft)}

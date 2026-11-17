@@ -1,0 +1,211 @@
+{
+ "id": "pf_dx",
+ "name": "골반저근 기능부전 관련질환 스크리닝",
+ "short": "PFD 관련질환",
+ "source": "피티에듀(PTEdu) 물리치료 평가지 p54",
+ "intro": "아래와 같은 질환에 진단을 받으신 적이 있으신 경우 '예'를 골라 주세요.",
+ "sections": [
+  {
+   "items": [
+    {
+     "id": "dx1",
+     "q": "질경련 (Vaginismus)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx2",
+     "q": "외음부전정염 (Vestibulodynia)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx3",
+     "q": "외음부통 (Vulvodynia)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx4",
+     "q": "간질성방광염 (Interstitial Cystitis/Bladder Pain Syndrome)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx5",
+     "q": "만성전립선염 (Chronic Prostatitis)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx6",
+     "q": "자궁내막증 (Endometriosis)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx7",
+     "q": "다낭난소증후군 (Polycystic Ovarian Syndrome, PCOS)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx8",
+     "q": "항문올림근신드롬 (Levator Ani Syndrome)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx9",
+     "q": "궁둥구멍근 신드롬 (Piriformis Syndrome)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx10",
+     "q": "미골통증 (Coccydynia)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx11",
+     "q": "과민성대장증후군 (Irritable Bowel Syndrome)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx12",
+     "q": "음부신경통 (Pudendal Neuralgia)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx13",
+     "q": "배뇨/배변 협동운동이상증 (Bladder/Bowel Dyssynergia)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "dx_text",
+     "q": "'예'로 답한 질환의 진단 시기와 진단의를 적어 주세요.",
+     "input": {
+      "type": "text",
+      "placeholder": "예: 간질성방광염 – 2023년, ○○병원"
+     },
+     "scored": false,
+     "optional": true
+    }
+   ]
+  }
+ ],
+ "scoring": null,
+ "higherIsBetter": null,
+ "notes": [
+  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다.",
+  "원문은 질환마다 '진단 시기, 진단의' 칸이 있지만, 휴대폰 입력이 편하도록 마지막에 한 칸으로 모았습니다."
+ ]
+}

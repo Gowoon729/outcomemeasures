@@ -1,0 +1,169 @@
+{
+ "id": "csi_b",
+ "name": "중추 감작 조사지 B",
+ "short": "CSI-B",
+ "source": "피티에듀(PTEdu) 물리치료 평가지 p71",
+ "intro": "의사로부터 다음과 같은 질환을 진단 받은 적이 있습니까?",
+ "sections": [
+  {
+   "items": [
+    {
+     "id": "cb1",
+     "q": "1. 하지 불안 증후군",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "cb2",
+     "q": "2. 만성 피로 증후군",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "cb3",
+     "q": "3. 섬유근육통",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "cb4",
+     "q": "4. 측두하악관절 (턱관절) 장애",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "cb5",
+     "q": "5. 편두통, 긴장성 두통",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "cb6",
+     "q": "6. 과민성 대장 증후군",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "cb7",
+     "q": "7. 다발성 화학물질 과민증",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "cb8",
+     "q": "8. 목손상 (편타성 경추손상 포함)",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "cb9",
+     "q": "9. 불안 또는 공황 장애",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "cb10",
+     "q": "10. 우울증",
+     "options": [
+      {
+       "label": "예",
+       "score": null
+      },
+      {
+       "label": "아니오",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "cb_text",
+     "q": "'예'로 답한 질환의 진단 시기를 적어 주세요.",
+     "input": {
+      "type": "text",
+      "placeholder": "예: 섬유근육통 – 2022년"
+     },
+     "scored": false,
+     "optional": true
+    }
+   ]
+  }
+ ],
+ "scoring": null,
+ "higherIsBetter": null,
+ "notes": [
+  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다.",
+  "원문은 질환마다 '진단시기' 칸이 있지만, 휴대폰 입력이 편하도록 마지막에 한 칸으로 모았습니다."
+ ]
+}

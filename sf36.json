@@ -1,0 +1,837 @@
+{
+ "id": "sf36",
+ "name": "SF-36 설문지",
+ "short": "SF-36",
+ "source": "피티에듀(PTEdu) 물리치료 평가지 p4-7",
+ "intro": "아래 36개의 모든 질문에 솔직하게 답변해주시기 바랍니다.",
+ "sections": [
+  {
+   "title": "일반적 건강 상태",
+   "items": [
+    {
+     "id": "sf1",
+     "q": "일반적으로 건강하다고 생각 하시나요?",
+     "options": [
+      {
+       "label": "훌륭하다",
+       "score": null
+      },
+      {
+       "label": "아주 좋다",
+       "score": null
+      },
+      {
+       "label": "좋다",
+       "score": null
+      },
+      {
+       "label": "나쁘지 않다",
+       "score": null
+      },
+      {
+       "label": "나쁘다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf2",
+     "q": "1년 전에 비해 현재 건강 상태는 어떤가요?",
+     "options": [
+      {
+       "label": "1년 전 보다 많이 좋아졌다",
+       "score": null
+      },
+      {
+       "label": "1년 전 보다 조금 좋아졌다",
+       "score": null
+      },
+      {
+       "label": "비슷하다",
+       "score": null
+      },
+      {
+       "label": "1년 전 보다 조금 나빠졌다",
+       "score": null
+      },
+      {
+       "label": "1년 전 보다 많이 나빠졌다",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "활동 제한",
+   "desc": "다음 항목은 일반적인 생활에 대한 내용입니다. 다음의 활동 시 얼마나 제한이 있으신가요?",
+   "items": [
+    {
+     "id": "sf3",
+     "q": "달리기, 무거운 물건 들기, 격렬한 운동과 같은 활발한 활동",
+     "options": [
+      {
+       "label": "많이 제한적이다",
+       "score": null
+      },
+      {
+       "label": "약간 제한적이다",
+       "score": null
+      },
+      {
+       "label": "전혀 제한 없다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf4",
+     "q": "테이블 옮기기, 청소기 돌리기, 볼링 또는 골프 등의 적당한 활동",
+     "options": [
+      {
+       "label": "많이 제한적이다",
+       "score": null
+      },
+      {
+       "label": "약간 제한적이다",
+       "score": null
+      },
+      {
+       "label": "전혀 제한 없다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf5",
+     "q": "식료품 들거나 옮기기",
+     "options": [
+      {
+       "label": "많이 제한적이다",
+       "score": null
+      },
+      {
+       "label": "약간 제한적이다",
+       "score": null
+      },
+      {
+       "label": "전혀 제한 없다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf6",
+     "q": "계단 여러 개 오르기",
+     "options": [
+      {
+       "label": "많이 제한적이다",
+       "score": null
+      },
+      {
+       "label": "약간 제한적이다",
+       "score": null
+      },
+      {
+       "label": "전혀 제한 없다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf7",
+     "q": "계단 1개 오르기",
+     "options": [
+      {
+       "label": "많이 제한적이다",
+       "score": null
+      },
+      {
+       "label": "약간 제한적이다",
+       "score": null
+      },
+      {
+       "label": "전혀 제한 없다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf8",
+     "q": "몸 굽히기, 무릎 꿇기, 구부정한 자세",
+     "options": [
+      {
+       "label": "많이 제한적이다",
+       "score": null
+      },
+      {
+       "label": "약간 제한적이다",
+       "score": null
+      },
+      {
+       "label": "전혀 제한 없다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf9",
+     "q": "1.6km 이상 걷기",
+     "options": [
+      {
+       "label": "많이 제한적이다",
+       "score": null
+      },
+      {
+       "label": "약간 제한적이다",
+       "score": null
+      },
+      {
+       "label": "전혀 제한 없다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf10",
+     "q": "몇 개의 블록을 걷는다(한 블록 이상 걷기)",
+     "options": [
+      {
+       "label": "많이 제한적이다",
+       "score": null
+      },
+      {
+       "label": "약간 제한적이다",
+       "score": null
+      },
+      {
+       "label": "전혀 제한 없다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf11",
+     "q": "한 블록을 걷는다(한 블록 걷기).",
+     "options": [
+      {
+       "label": "많이 제한적이다",
+       "score": null
+      },
+      {
+       "label": "약간 제한적이다",
+       "score": null
+      },
+      {
+       "label": "전혀 제한 없다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf12",
+     "q": "도움 없이 목욕하기 또는 옷 입기",
+     "options": [
+      {
+       "label": "많이 제한적이다",
+       "score": null
+      },
+      {
+       "label": "약간 제한적이다",
+       "score": null
+      },
+      {
+       "label": "전혀 제한 없다",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "신체 건강 문제",
+   "desc": "지난 4주 동안 신체 건강으로 인해 업무나 일상 활동에 어떤 문제가 있었나요?",
+   "items": [
+    {
+     "id": "sf13",
+     "q": "업무 또는 기타 활동에 할애하는 시간을 줄였다.",
+     "options": [
+      {
+       "label": "네",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf14",
+     "q": "해야 되는 것을 다 하지 못했다.",
+     "options": [
+      {
+       "label": "네",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf15",
+     "q": "업무 또는 기타 활동이 제한적이다.",
+     "options": [
+      {
+       "label": "네",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf16",
+     "q": "업무 또는 기타 활동을 수행하는 데 어려움이 있다.(예, 평소보다 노력을 더 많이 해야 함)",
+     "options": [
+      {
+       "label": "네",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "정신 건강 문제",
+   "desc": "지난 4주 동안, 감정적인 문제(예: 우울함이나 불안함)로 인해 직장이나 일상 활동에 다음과 같은 문제가 있었던 적이 있었나요?",
+   "items": [
+    {
+     "id": "sf17",
+     "q": "업무 또는 기타 활동에 할애하는 시간을 줄였다.",
+     "options": [
+      {
+       "label": "네",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf18",
+     "q": "해야 되는 것을 다 하지 못했다.",
+     "options": [
+      {
+       "label": "네",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf19",
+     "q": "평소와 달리 업무 또는 다른 활동을 신중하게 하지 못했다.",
+     "options": [
+      {
+       "label": "네",
+       "score": null
+      },
+      {
+       "label": "아니요",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "사회 활동",
+   "items": [
+    {
+     "id": "sf20",
+     "q": "감정적인 문제가 가족, 친구, 이웃과의 모임 또는 사회 활동에 지장을 주었나요?",
+     "options": [
+      {
+       "label": "전혀",
+       "score": null
+      },
+      {
+       "label": "약간",
+       "score": null
+      },
+      {
+       "label": "보통",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "통증",
+   "items": [
+    {
+     "id": "sf21",
+     "q": "지난 4주 동안 얼마만큼의 통증을 느꼈나요?",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "매우 낮음",
+       "score": null
+      },
+      {
+       "label": "보통",
+       "score": null
+      },
+      {
+       "label": "심함",
+       "score": null
+      },
+      {
+       "label": "매우 심함",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf22",
+     "q": "지난 4주 동안의 통증이 정상적인 생활(사회활동과 집안일 모두 포함)에 얼마나 지장을 주었나요?",
+     "options": [
+      {
+       "label": "없음",
+       "score": null
+      },
+      {
+       "label": "조금",
+       "score": null
+      },
+      {
+       "label": "보통",
+       "score": null
+      },
+      {
+       "label": "많이",
+       "score": null
+      },
+      {
+       "label": "아주 많이",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "에너지와 감정",
+   "desc": "아래는 지난 4주 동안 어떻게 느끼고 어떻게 지내왔는지에 관한 질문입니다. 각각의 질문에 대해, 지금까지 느끼고 있던 것과 가장 가까운 대답을 해주세요.",
+   "items": [
+    {
+     "id": "sf23",
+     "q": "활기찬 기분을 느꼈나요?",
+     "options": [
+      {
+       "label": "항상 그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "가끔 그렇다",
+       "score": null
+      },
+      {
+       "label": "약간 그렇다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf24",
+     "q": "많이 예민하신가요?",
+     "options": [
+      {
+       "label": "항상 그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "가끔 그렇다",
+       "score": null
+      },
+      {
+       "label": "약간 그렇다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf25",
+     "q": "기운이 나지 않을 정도로 낙담해 본 적이 있었나요?",
+     "options": [
+      {
+       "label": "항상 그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "가끔 그렇다",
+       "score": null
+      },
+      {
+       "label": "약간 그렇다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf26",
+     "q": "차분하고 편안했나요?",
+     "options": [
+      {
+       "label": "항상 그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "가끔 그렇다",
+       "score": null
+      },
+      {
+       "label": "약간 그렇다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf27",
+     "q": "에너지가 많았나요?",
+     "options": [
+      {
+       "label": "항상 그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "가끔 그렇다",
+       "score": null
+      },
+      {
+       "label": "약간 그렇다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf28",
+     "q": "좌절하고 우울한 기분을 느꼈나요?",
+     "options": [
+      {
+       "label": "항상 그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "가끔 그렇다",
+       "score": null
+      },
+      {
+       "label": "약간 그렇다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf29",
+     "q": "지친느낌을 받았나요?",
+     "options": [
+      {
+       "label": "항상 그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "가끔 그렇다",
+       "score": null
+      },
+      {
+       "label": "약간 그렇다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf30",
+     "q": "행복한 사람이었나요?",
+     "options": [
+      {
+       "label": "항상 그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "가끔 그렇다",
+       "score": null
+      },
+      {
+       "label": "약간 그렇다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf31",
+     "q": "피곤함을 느꼈나요?",
+     "options": [
+      {
+       "label": "항상 그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "가끔 그렇다",
+       "score": null
+      },
+      {
+       "label": "약간 그렇다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "사회 활동",
+   "items": [
+    {
+     "id": "sf32",
+     "q": "지난 4주 동안 신체 건강이나 정신적 문제가 사회 활동을 방해했나요? (예, 친구, 친척 등 방문)",
+     "options": [
+      {
+       "label": "항상 그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "가끔 그렇다",
+       "score": null
+      },
+      {
+       "label": "약간 그렇다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "일반 건강",
+   "desc": "아래 문항의 질문에 해당하는 것에 체크해주세요.",
+   "items": [
+    {
+     "id": "sf33",
+     "q": "다른 사람들보다 조금 더 쉽게 아픈 것 같다.",
+     "options": [
+      {
+       "label": "그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "모르겠다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇지 않다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf34",
+     "q": "나는 내가 아는 어느 누구 보다 건강하다.",
+     "options": [
+      {
+       "label": "그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "모르겠다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇지 않다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf35",
+     "q": "건강이 나빠질 것 같다.",
+     "options": [
+      {
+       "label": "그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "모르겠다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇지 않다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    },
+    {
+     "id": "sf36",
+     "q": "나는 매우 건강하다.",
+     "options": [
+      {
+       "label": "그렇다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇다",
+       "score": null
+      },
+      {
+       "label": "모르겠다",
+       "score": null
+      },
+      {
+       "label": "대부분 그렇지 않다",
+       "score": null
+      },
+      {
+       "label": "그렇지 않다",
+       "score": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "scoring": null,
+ "higherIsBetter": null,
+ "notes": [
+  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다.",
+  "의견: 원판 SF-36의 통증 정도 문항('지난 4주 동안 얼마만큼의 통증')은 6단계(없음~매우 심함)로 알고 있는데, 원문은 5단계입니다. 원문 그대로 넣었습니다."
+ ]
+}
