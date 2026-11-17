@@ -20,8 +20,8 @@
     {
      "id": "wdq",
      "name": "채찍질 손상 기능 제한 설문 (WDQ)",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready",
+     "note": "13문항 합 0~130점 (높을수록 나쁨)"
     }
    ]
   },
@@ -43,8 +43,14 @@
     {
      "id": "prtee",
      "name": "주관절 외측상과염 평가서 (PRTEE)",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready",
+     "note": "통증·기능 점수와 총점(0~100)"
+    },
+    {
+     "id": "prwe",
+     "name": "환자 기입식 손목 평가 (PRWE, 한국어판)",
+     "status": "ready",
+     "note": "통증·기능 점수와 총점(0~100)"
     }
    ]
   },
@@ -61,18 +67,13 @@
      "id": "startback",
      "name": "스타트 백 설문 (STarT Back)",
      "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "note": "스타트 백 선별 도구(Keele)를 사용하세요",
+     "hidden": true
     },
     {
      "id": "startback_k",
      "name": "STarT Back 선별 도구 (Keele, 위험군 분류)",
      "status": "ready"
-    },
-    {
-     "id": "fabq",
-     "name": "두려움 회피 양상 설문 (FABQ)",
-     "status": "ready",
-     "note": "신체활동·업무 두 점수로 비교"
     }
    ]
   },
@@ -83,14 +84,14 @@
     {
      "id": "hoos",
      "name": "후스 고관절 설문 (HOOS)",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready",
+     "note": "5개 영역별 0~100점 (높을수록 좋음)"
     },
     {
      "id": "ihot33",
      "name": "국제 고관절 회복 설문 (iHOT-33)",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready",
+     "note": "0~100점 (높을수록 좋음), 직업 구역 건너뛰기 가능"
     },
     {
      "id": "mhhs",
@@ -100,20 +101,20 @@
     {
      "id": "ihot12",
      "name": "국제 고관절 회복 설문 (iHOT-12)",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready",
+     "note": "0~100점 (높을수록 좋음)"
     },
     {
      "id": "hagos",
      "name": "코펜하겐 고관절·사타구니 점수 (HAGOS)",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready",
+     "note": "6개 영역별 0~100점 (높을수록 좋음)"
     },
     {
      "id": "hos",
      "name": "고관절 결과 점수 (HOS)",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready",
+     "note": "일상생활·스포츠 영역별 0~100점 (높을수록 좋음)"
     },
     {
      "id": "fash",
@@ -148,10 +149,16 @@
      "note": "채점법 문서에 없음: 답변만 저장"
     },
     {
-     "id": null,
-     "name": "빅토리안 스포츠 기관 설문 (VISA-P)",
-     "status": "pending",
-     "note": "8b 보기 점수가 원문에 없음: 확인 필요 (8a '7-15분'은 '11-15분' 오기 의심)"
+     "id": "koos",
+     "name": "KOOS 무릎 관절 설문 (한국어판)",
+     "status": "ready",
+     "note": "5개 영역 0~100점 (높을수록 좋음)"
+    },
+    {
+     "id": "visap",
+     "name": "빅토리안 스포츠 기관 설문 – 슬개건 (VISA-P)",
+     "status": "ready",
+     "note": "8문항 합계 0~100점"
     }
    ]
   },
@@ -216,7 +223,7 @@
   },
   {
    "id": "general",
-   "name": "공통·심리",
+   "name": "공통·심리·통증",
    "items": [
     {
      "id": "sf36",
@@ -228,6 +235,12 @@
      "id": "tsk",
      "name": "탐파 움직임 두려움 지수 (TSK)",
      "status": "ready"
+    },
+    {
+     "id": "fabq",
+     "name": "두려움 회피 양상 설문 (FABQ)",
+     "status": "ready",
+     "note": "신체활동·업무 두 점수로 비교"
     },
     {
      "id": "omsq12",

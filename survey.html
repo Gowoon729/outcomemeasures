@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>물리치료 설문</title>
+<title>설문지</title>
 <meta name="theme-color" content="#0e7490">
 <link rel="icon" href="icon-192.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="wrap">
-  <h1>📝 물리치료 설문</h1>
+  <h1>📝 설문지</h1>
   <div id="previewBanner" class="note" style="display:none;margin-bottom:12px">👀 <b>미리보기</b>입니다. 작성해도 결과가 저장되거나 전송되지 않아요.</div>
 
   <div id="v-start" class="view">
@@ -84,7 +84,7 @@ function begin(){
 function finish(results, date){
   const box = document.getElementById('doneBox');
   if (PREVIEW()) {
-    box.innerHTML = `<h2>미리보기 끝 👀</h2><p>환자는 이 화면에서 <b>치료사에게 보내기</b> 버튼을 누르게 됩니다.</p>
+    box.innerHTML = `<h2>미리보기 끝 👀</h2><p>회원은 이 화면에서 <b>치료사에게 보내기</b> 버튼을 누르게 됩니다.</p>
       <div class="note">미리보기 결과는 저장되지 않아요. 계산된 점수만 확인용으로 보여 드려요.</div>
       ${results.map(r => { const q = QS.find(x => x.id === r.q); return `<p style="margin-top:8px"><b>${OM.esc(q.short || q.name)}</b>: ${q.scoring ? OM.fmt(q, r.s) + (OM.score(q, r.v).category ? ' · ' + OM.esc(OM.score(q, r.v).category) : '') + OM.score(q, r.v).subs.filter((x,i) => q.scoring.subscales[i].measure).map(x => ` · ${OM.esc(x.name)} ${x.score ?? '-'}`).join('') : '점수 계산 안 함'}</p>`; }).join('')}
       <button class="btn btn-line" onclick="location.reload()">처음부터 다시</button>`;
@@ -120,7 +120,7 @@ async function autoSend(){
 function resultDate(){ try { return OM.decodeResult(resultCode).d || ''; } catch(e){ return ''; } }
 function message(){
   const link = OM.baseUrl() + 'index.html#r=' + resultCode;
-  return `[물리치료 설문 결과] ${P}\n${QS.map(q => q.short || q.name).join(', ')} 작성 완료\n${link}`;
+  return `[설문지 결과] ${P}\n${QS.map(q => q.short || q.name).join(', ')} 작성 완료\n${link}`;
 }
 function sendResult(){ OM.shareText(message(), '설문 결과'); }
 function copyResult(){ OM.copyText(message(), '복사했어요. 카카오톡이나 문자에 붙여넣어 치료사에게 보내 주세요.'); }

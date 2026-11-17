@@ -21,30 +21,53 @@
     const $ = k => root.querySelector(`[data-r="${k}"]`);
     $('next').onclick = next; $('prev').onclick = prev;
 
+    // 구역 전체 건너뛰기 (예: DASH '나는 일을 하지 않습니다'). 상태는 답에서 계산: 구역의 모든 문항이 null 이면 '건너뜀'
+    const skipState = (sec, a) => {
+      const ids = sec.items.map(it => it.id);
+      const on = ids.length > 0 && ids.every(id => a[id] === null);
+      const entered = ids.some(id => a[id] !== undefined && a[id] !== null);
+      return { on, disabled: !on && entered };
+    };
+    const SKIP_OFF = '이미 답을 입력해서 건너뛸 수 없어요.';
+    const skipPick = {};   // 건너뛰기 선택지가 여러 개일 때, 화면에서 고른 것 (저장되지 않음)
+
     function render() {
       const q = qs[step], a = answers[q.id];
+      const updateSkips = () => q.sections.forEach((sec, si) => {
+        if (!sec.skip) return;
+        const st = skipState(sec, a), picked = skipPick[q.id + ':' + si] || 0;
+        $('body').querySelectorAll(`input[data-skipsec="${si}"]`).forEach(cb => { cb.disabled = st.disabled; cb.checked = st.on && (+cb.dataset.skipidx || 0) === picked; cb.parentElement.classList.toggle('off', st.disabled); });
+        const h = $('body').querySelector(`[data-skiphint="${si}"]`); if (h) h.innerText = st.disabled ? SKIP_OFF : '';
+      });
       $('step').innerText = `설문 ${step + 1} / ${qs.length}`;
       $('bar').style.width = (step / qs.length * 100) + '%';
       $('title').innerText = q.name;
       $('src').innerHTML = OM.qSourceHtml(q);
       $('intro').innerText = q.intro || '';
       let html = '';
-      q.sections.forEach(sec => {
+      q.sections.forEach((sec, si) => {
         if (sec.title) html += `<div class="sec-title">${esc(sec.title)}</div>`;
         if (sec.desc) html += `<p class="sub sec-desc">${esc(sec.desc)}</p>`;
+        const sk = sec.skip ? skipState(sec, a) : null;
+        if (sk) {
+          const labs = sec.skip.labels || [sec.skip.label || '이 부분은 해당하지 않습니다 (건너뛰기)'], picked = skipPick[q.id + ':' + si] || 0;
+          labs.forEach((lb, li) => html += `<label class="skipbox${sk.disabled ? ' off' : ''}"><input type="checkbox" data-skipsec="${si}" data-skipidx="${li}" ${sk.on && li === picked ? 'checked' : ''} ${sk.disabled ? 'disabled' : ''}><span>${esc(lb)}</span></label>`);
+          html += `<div class="skip-hint sub" data-skiphint="${si}">${sk.disabled ? SKIP_OFF : ''}</div><div class="secbody" data-secbody="${si}"${sk.on ? ' style="display:none"' : ''}>`;
+        }
         sec.items.forEach(it => {
           html += `<div class="q" data-q="${esc(it.id)}">${esc(it.q)}</div>`;
           if (it.input) {
             const t = it.input.type === 'number' ? 'number' : 'text';
             html += `<div class="inrow"><input type="${t}" ${t === 'number' ? 'inputmode="decimal" step="any"' : ''} data-in="${esc(it.id)}" value="${a[it.id] === undefined || a[it.id] === null ? '' : esc(a[it.id])}" placeholder="${esc(it.input.placeholder || '')}">${it.input.unit ? `<span>${esc(it.input.unit)}</span>` : ''}</div>`;
           } else if (it.options) {
-            html += `<div class="opts">` + it.options.map((o, j) => `<button type="button" class="${a[it.id] === j ? 'on' : ''}" data-i="${esc(it.id)}" data-v="${j}">${esc(o.label)}</button>`).join('') + `</div>`;
+            html += `<div class="opts">` + it.options.map((o, j) => o.hidden ? '' : `<button type="button" class="${a[it.id] === j ? 'on' : ''}" data-i="${esc(it.id)}" data-v="${j}">${esc(o.label)}</button>`).join('') + `</div>`;
           } else {
             let b = ''; for (let v = it.scale.min; v <= it.scale.max; v++) b += `<button type="button" class="${a[it.id] === v ? 'on' : ''}" data-i="${esc(it.id)}" data-v="${v}">${v}</button>`;
             html += `<div class="scale">${b}</div><div class="scale-labels"><span>${esc(it.scale.minLabel || '')}</span><span>${esc(it.scale.maxLabel || '')}</span></div>`;
           }
           if (it.optional) html += `<button class="skip" type="button" data-skip="${esc(it.id)}">${a[it.id] === null ? '✔ 해당 없음으로 표시됨' : '해당 없음 (건너뛰기)'}</button>`;
         });
+        if (sk) html += `</div>`;
       });
       $('body').innerHTML = html;
       $('body').querySelectorAll('button[data-i]').forEach(btn => btn.onclick = () => {
@@ -53,6 +76,7 @@
         a[id] = +btn.dataset.v;
         const qEl = $('body').querySelector(`[data-q="${CSS.escape(id)}"]`); if (qEl) qEl.classList.remove('missing');
         const sk = $('body').querySelector(`[data-skip="${CSS.escape(id)}"]`); if (sk) sk.innerText = '해당 없음 (건너뛰기)';
+        updateSkips();
         opt.onChange && opt.onChange(answers, step);
       });
       $('body').querySelectorAll('input[data-in]').forEach(inp => inp.oninput = () => {
@@ -64,6 +88,7 @@
         } else a[it.id] = raw;
         const qEl = $('body').querySelector(`[data-q="${CSS.escape(it.id)}"]`); if (qEl) qEl.classList.remove('missing');
         const sk = $('body').querySelector(`[data-skip="${CSS.escape(it.id)}"]`); if (sk) sk.innerText = '해당 없음 (건너뛰기)';
+        updateSkips();
         opt.onChange && opt.onChange(answers, step);
       });
       $('body').querySelectorAll('button[data-skip]').forEach(btn => btn.onclick = () => {
@@ -71,6 +96,14 @@
         btn.parentElement.querySelectorAll(`button[data-i="${CSS.escape(id)}"]`).forEach(b => b.classList.remove('on'));
         const inp = btn.parentElement.querySelector(`input[data-in="${CSS.escape(id)}"]`); if (inp) inp.value = '';
         btn.innerText = '✔ 해당 없음으로 표시됨';
+        updateSkips();
+        opt.onChange && opt.onChange(answers, step);
+      });
+      $('body').querySelectorAll('input[data-skipsec]').forEach(cb => cb.onchange = () => {
+        const sec = q.sections[+cb.dataset.skipsec];
+        if (cb.checked) skipPick[q.id + ':' + cb.dataset.skipsec] = +cb.dataset.skipidx || 0;
+        sec.items.forEach(it => { if (cb.checked) a[it.id] = null; else delete a[it.id]; });
+        const y = window.scrollY; render(); window.scrollTo(0, y);
         opt.onChange && opt.onChange(answers, step);
       });
       $('prev').style.display = step === 0 ? 'none' : '';

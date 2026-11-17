@@ -6,6 +6,35 @@
  "intro": "아래 4가지 증상 각각에 대해, 증상 없이 할 수 있는 가장 높은 수준을 골라 주세요.",
  "sections": [
   {
+   "title": "기본 정보",
+   "items": [
+    {
+     "id": "ck_side",
+     "q": "부상 부위",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "오른쪽"
+      },
+      {
+       "label": "왼쪽"
+      }
+     ]
+    },
+    {
+     "id": "ck_date",
+     "q": "부상일",
+     "scored": false,
+     "optional": true,
+     "input": {
+      "type": "text",
+      "placeholder": "예: 2026-05-01"
+     }
+    }
+   ]
+  },
+  {
    "items": [
     {
      "id": "pain",
@@ -130,6 +159,270 @@
    ]
   },
   {
+   "title": "통증 등 (점수에는 쓰이지 않음)",
+   "items": [
+    {
+     "id": "ck_loc",
+     "q": "통증 위치",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "내측"
+      },
+      {
+       "label": "외측"
+      },
+      {
+       "label": "앞쪽"
+      },
+      {
+       "label": "뒷쪽"
+      },
+      {
+       "label": "전체"
+      }
+     ]
+    },
+    {
+     "id": "ck_type",
+     "q": "통증 형태",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "찌르는"
+      },
+      {
+       "label": "쑤시는"
+      },
+      {
+       "label": "욱신거리는"
+      },
+      {
+       "label": "타는 듯한"
+      }
+     ]
+    },
+    {
+     "id": "ck_inc",
+     "q": "통증이 늘어나는 때",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "앉기"
+      },
+      {
+       "label": "서기"
+      },
+      {
+       "label": "계단"
+      },
+      {
+       "label": "쪼그려 앉기"
+      },
+      {
+       "label": "달리기, 뛰기"
+      }
+     ]
+    },
+    {
+     "id": "ck_dec",
+     "q": "통증이 줄어드는 때",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "운동 안 할 때"
+      },
+      {
+       "label": "일상동작 제한"
+      },
+      {
+       "label": "휴식, 약물"
+      },
+      {
+       "label": "통증 감소 안됨"
+      }
+     ]
+    },
+    {
+     "id": "ck_noise",
+     "q": "무릎 갈리는 소리",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "있음"
+      },
+      {
+       "label": "없음"
+      }
+     ]
+    },
+    {
+     "id": "ck_stiff",
+     "q": "무릎 뻣뻣함",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "있음"
+      },
+      {
+       "label": "없음"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "멈춤/잠김",
+   "items": [
+    {
+     "id": "ck_lock1",
+     "q": "1. 몇 초 간 무릎이 움직이지 않는다.",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "있음"
+      },
+      {
+       "label": "없음"
+      }
+     ]
+    },
+    {
+     "id": "ck_lock2",
+     "q": "2. 5분 이상 무릎이 움직이지 않는다.",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "있음"
+      },
+      {
+       "label": "없음"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "업무",
+   "items": [
+    {
+     "id": "ck_job1",
+     "q": "직업: 업무형태 ①",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "정규직"
+      },
+      {
+       "label": "비정규직"
+      }
+     ]
+    },
+    {
+     "id": "ck_job2",
+     "q": "직업: 업무형태 ②",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "고강도"
+      },
+      {
+       "label": "저강도"
+      },
+      {
+       "label": "무직"
+      }
+     ]
+    },
+    {
+     "id": "ck_work",
+     "q": "일할 때, 다음과 같은 것을 느낀다.",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "제한 없음"
+      },
+      {
+       "label": "약간의 제한"
+      },
+      {
+       "label": "중간정도의 제한"
+      },
+      {
+       "label": "심한 제한"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "운동 프로그램",
+   "items": [
+    {
+     "id": "ck_ex",
+     "q": "운동 프로그램으로 인해, 다음과 같은 것을 느낀다.",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "좋아지고 있음"
+      },
+      {
+       "label": "느리지만 좋아짐"
+      },
+      {
+       "label": "운동 시 약간의 문제 있음"
+      },
+      {
+       "label": "운동은 통증과 문제를 일으킴"
+      },
+      {
+       "label": "운동 안함"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "진행 상황",
+   "items": [
+    {
+     "id": "ck_prog",
+     "q": "마지막 방문한 후에, 다음과 같은 것을 느낀다.",
+     "scored": false,
+     "optional": true,
+     "options": [
+      {
+       "label": "좋아지고 있음"
+      },
+      {
+       "label": "느리지만 좋아짐"
+      },
+      {
+       "label": "똑같음"
+      },
+      {
+       "label": "증상이 나빠짐"
+      },
+      {
+       "label": "해당 없음"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "title": "환자 등급",
    "items": [
     {
@@ -168,7 +461,10 @@
   }
  ],
  "notes": [
-  "원문 p39의 통증 위치·형태, 멈춤/잠김, 업무, 운동 프로그램, 진행 상황 항목은 점수에 쓰이지 않아 이번 테스트판에서는 뺐습니다."
+  "선생님 요청으로 점수에 쓰이지 않는 항목(부상 부위·부상일, 통증 위치·형태·증가·감소, 갈리는 소리, 뻣뻣함, 멈춤/잠김, 업무, 운동 프로그램, 진행 상황)을 다시 넣었습니다. 모두 점수 계산에는 쓰이지 않고 답만 저장하며, 건너뛸 수 있습니다.",
+  "의견: 원문은 칸 체크(☐) 방식이라 통증 위치·증가·감소처럼 여러 개를 고를 수 있어 보이지만, 앱은 한 문항에 하나만 고를 수 있어 가장 해당하는 하나를 고르게 했습니다.",
+  "의견: 선생님이 보낸 자료는 '통증 20·무릎 꺾임 20·부종 10 = 증상 50점(mCKRS)'로 설명하지만, PDF 원문은 (통증×2 + 부종 + 부분 힘 빠짐 + 완전 힘 빠짐) ÷ 5 (0~10점)입니다. 원문 PDF 방식을 그대로 따랐습니다.",
+  "의견(참고만): 자료에 따르면 증상표 단독의 MCID/MDC는 확립되어 있지 않고, CKRS 총점(100점 만점)으로만 MCID 약 14~26점, MDC 약 10~20점이 보고됩니다. 앱에는 기본값을 넣지 않았어요."
  ],
  "interpretation": {}
 }

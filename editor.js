@@ -1,6 +1,6 @@
 /* 아웃컴 메저 – 3단계: 설문지 추가 화면 (치료사 앱 전용)
  * - 직접 만들기 / AI 변환 요청문 복사 → 답 붙여넣어 가져오기
- * - 점수 테스트(모두 최저·최고, 직접 답해 보기) · 환자 화면 미리보기
+ * - 점수 테스트(모두 최저·최고, 직접 답해 보기) · 회원 화면 미리보기
  * - 📨 내 설문지로 저장 (S.custom, 버전 관리: 점수 계산이 바뀌면 새 버전)
  * - 📚 모두에게 게시 (GitHub 토큰을 넣은 기기에서만, q/*.json + catalog.json 갱신)
  * 의존: OM(common.js), S·save·go·CAT·QMETA·ensureCatalog·toast(index.html) */
@@ -147,7 +147,7 @@ const ED = (() => {
       <div class="ed-mini"><div><label class="field">약어</label><input type="text" data-top="short" value="${esc(q.short || '')}" placeholder="예: NDI"></div>
       <div><label class="field">관절</label><select data-top="joint">${jointOptions(joint)}</select></div></div>
       <label class="field">출처</label><input type="text" data-top="source" value="${esc(q.source || '')}" placeholder="예: 피티에듀 평가지 p15-17">
-      <label class="field">환자 안내문</label><textarea data-top="intro" style="min-height:70px" placeholder="예: 각 문항에서 가장 가까운 것 하나를 골라 주세요.">${esc(q.intro || '')}</textarea>
+      <label class="field">회원 안내문</label><textarea data-top="intro" style="min-height:70px" placeholder="예: 각 문항에서 가장 가까운 것 하나를 골라 주세요.">${esc(q.intro || '')}</textarea>
       <label class="field">의견·메모 (한 줄에 하나)</label><textarea data-top="notes" style="min-height:60px" placeholder="예: 의견: 8a '7-15분'은 '11-15분' 오기로 보임 (원문 그대로 둠)">${esc((q.notes || []).join('\n'))}</textarea>
       <div class="ed-hint">원문이 틀려 보여도 문항은 원문 그대로 두고, 여기에 의견으로 적어 두세요.</div>
       <button class="btn btn-line" onclick="ED.openAI(true)">🤖 AI 변환 결과 붙여넣기 (이 화면 내용 바꾸기)</button></div>`;
@@ -158,10 +158,11 @@ const ED = (() => {
       <p class="sub">보기는 한 줄에 하나씩, <b>맨 앞 숫자가 점수</b>예요. 예) <span class="code">0: 전혀 없다</span>. 점수 없는 보기는 <span class="code">- 해당 없음</span>처럼 써요.</p>`;
     q.sections.forEach((sec, si) => {
       h += `<div class="ed-sec">`;
-      if (q.sections.length > 1 || sec.title || sec.desc) {
+      if (q.sections.length > 1 || sec.title || sec.desc || sec.skip) {
         h += `<div class="ed-item-top"><b>구역 ${si + 1}</b><span class="ed-tools">${q.sections.length > 1 ? `<button onclick="ED.act('secDel',${si})">구역 삭제</button>` : ''}</span></div>
           <input type="text" data-sec="${si}" data-k="title" value="${esc(sec.title || '')}" placeholder="구역 제목 (예: 통증)">
-          <input type="text" data-sec="${si}" data-k="desc" value="${esc(sec.desc || '')}" placeholder="구역 설명 (선택)" style="margin-top:6px">`;
+          <input type="text" data-sec="${si}" data-k="desc" value="${esc(sec.desc || '')}" placeholder="구역 설명 (선택)" style="margin-top:6px">
+          <input type="text" data-sec="${si}" data-k="skip" value="${esc((sec.skip && sec.skip.label) || '')}" placeholder="건너뛰기 체크 문구 (선택, 예: 나는 일을 하지 않습니다)" style="margin-top:6px">`;
       }
       sec.items.forEach((it, ii) => { n++; h += itemHtml(it, si, ii, n); });
       h += `<button class="btn btn-line" onclick="ED.act('add',${si})">＋ 문항 추가${sec.items.length ? ' (위 문항과 같은 보기)' : ''}</button></div>`;
@@ -175,7 +176,7 @@ const ED = (() => {
       <div class="row"><button class="btn btn-line" onclick="ED.extreme('min')">모두 최저 답</button><button class="btn btn-line" onclick="ED.extreme('max')">모두 최고 답</button></div>
       <div id="edExtreme"></div>
       <button class="btn btn-line" onclick="ED.test()">✍️ 직접 답해 보며 점수 보기</button>
-      <button class="btn btn-line" onclick="ED.preview()">👀 환자 화면 미리보기 (새 창)</button></div>`;
+      <button class="btn btn-line" onclick="ED.preview()">👀 회원 화면 미리보기 (새 창)</button></div>`;
 
     // 고급
     h += `<div class="card"><details class="ed-adv" id="edAdv"><summary>⚙️ 고급: JSON 직접 보기·고치기</summary>
@@ -286,7 +287,8 @@ const ED = (() => {
       else if (d.top === 'hb') { if (val === '') delete q.higherIsBetter; else q.higherIsBetter = val === 'true'; }
       else q[d.top] = val;
     } else if (d.sec !== undefined) {
-      q.sections[+d.sec][d.k] = val;
+      if (d.k === 'skip') { if (val.trim()) q.sections[+d.sec].skip = { label: val }; else delete q.sections[+d.sec].skip; }
+      else q.sections[+d.sec][d.k] = val;
     } else if (d.it) {
       const [si, ii] = d.it.split('.').map(Number), it = q.sections[si].items[ii];
       switch (d.k) {
@@ -510,7 +512,7 @@ const ED = (() => {
   "name": "설문지 이름",
   "short": "약어 (예: NDI)",
   "source": "출처 (자료 이름과 쪽)",
-  "intro": "환자에게 보여 줄 안내문",
+  "intro": "회원에게 보여 줄 안내문",
   "notes": ["의견이나 확인할 점"],
   "sections": [
     {
@@ -537,6 +539,7 @@ const ED = (() => {
 - 건너뛸 수 있는 문항(해당 없음 허용)은 "optional": true
 - 척도를 거꾸로 채점하면 "reverse": true
 - id는 영어·숫자로, 겹치지 않게
+- '해당하지 않으면 이 부분 전체를 건너뛰어도 됩니다'라는 구역(예: 일을 하지 않는 사람)은 구역에 "skip": {"label": "나는 일을 하지 않습니다."} 를 넣기
 
 채점 규칙 (method)
 - "sum": 점수 합
@@ -680,6 +683,40 @@ const ED = (() => {
       await OM.alertBox(cat ? `연결됐어요 ✅\n${g.owner}/${g.repo}${r.private ? '' : '\n\n※ 이 저장소는 Public이에요. 게시한 설문지는 누구나 볼 수 있으니, 원저작권·사용 허락을 확인한 설문지만 게시해 주세요.'}` : '저장소에는 연결됐지만 catalog.json이 없어요. 앱 파일이 올라간 저장소인지 확인해 주세요.');
     } catch (e) { await OM.alertBox(ghErr(e)); }
   }
+  // ---------- 📦 숨기기 (목록에서만 빼기. q/*.json 파일과 기록은 그대로) ----------
+  const isHidden = it => !!(it && it.id && (it.hidden || (S.settings.hiddenQ || {})[it.id]));
+  async function setCatalogHidden(g, id, flag) {
+    for (let tries = 0; tries < 2; tries++) {
+      const cf = await getFile(g, 'catalog.json'); if (!cf) throw new Error('catalog.json 없음');
+      const cat = JSON.parse(b64utf8(cf.content));
+      cat.joints.forEach(j => j.items.forEach(it => { if (it.id === id) { if (flag) it.hidden = true; else delete it.hidden; } }));
+      try { await putFile(g, 'catalog.json', JSON.stringify(cat, null, 1) + '\n', cf.sha, `${flag ? '목록에서 숨김' : '목록에 다시 표시'}: ${id}`); return; }
+      catch (e) { if (tries || (e.status !== 409 && e.status !== 422)) throw e; }
+    }
+  }
+  async function pickItem(jid, idx) { await ensureCatalog(); const j = CAT.joints.find(x => x.id === jid); return j && j.items[idx]; }
+  async function hideQ(jid, idx) {
+    const it = await pickItem(jid, idx); if (!it || !it.id) return;
+    const g = gh();
+    const ok = await OM.dialog(`"${it.name}"를 숨길까요?\n\n보내기 목록에서만 빠져요. 이미 받은 기록과 보낸 링크는 그대로이고, 언제든 다시 보이게 할 수 있어요.`, { cancel: true, okText: '숨기기', html: g ? `<label class="ed-chk"><input type="checkbox" id="hdAll">모두에게 숨기기 (GitHub 목록을 바꿔요)</label><div class="ed-hint">체크하지 않으면 이 기기에서만 숨겨져요.</div>` : '<div class="ed-hint">이 기기에서만 숨겨져요.</div>' });
+    if (!ok) return;
+    const all = !!(g && document.getElementById('hdAll') && document.getElementById('hdAll').checked);
+    try {
+      if (all) { toast('숨기는 중…'); await setCatalogHidden(g, it.id, true); it.hidden = true; }
+      else { S.settings.hiddenQ[it.id] = 1; save(); }
+      selected.delete(it.id); renderForms();
+      toast(all ? '모두에게 숨겼어요 (반영까지 1~2분)' : '숨겼어요');
+    } catch (e) { await OM.alertBox(ghErr(e)); }
+  }
+  async function unhideQ(jid, idx) {
+    const it = await pickItem(jid, idx); if (!it || !it.id) return;
+    const g = gh();
+    if (it.hidden && !g) { await OM.alertBox('모두에게 숨겨진 설문지예요.\nGitHub를 연결한 관리자 기기에서만 다시 보이게 할 수 있어요.'); return; }
+    try {
+      if (it.hidden) { toast('되돌리는 중…'); await setCatalogHidden(g, it.id, false); delete it.hidden; }
+      delete S.settings.hiddenQ[it.id]; save(); renderForms(); toast('다시 보여요');
+    } catch (e) { await OM.alertBox(ghErr(e)); }
+  }
   async function ghOff() { if (!(await OM.confirmBox('이 기기에서 GitHub 연결(토큰)을 지울까요?'))) return; try { localStorage.removeItem(GHK); } catch (e) {} renderGhCard(); }
 
   async function publish() {
@@ -729,7 +766,7 @@ const ED = (() => {
     get dirty() { return dirty; }, get leaving() { return leaving; },
     render, newBlank, editCustom, copyPublished, act, autoRange, extreme, test, testCustom, closeTest, preview,
     openAI, pasteAI, copyPrompt, applyJson, saveMine, removeCustom, confirmLeave,
-    renderGhCard, ghSetup, ghTest, ghOff, publish,
+    renderGhCard, ghSetup, ghTest, ghOff, publish, isHidden, hideQ, unhideQ,
     _t: { textToOpts, optsToText, numsToIds, idsToNums, normalize, parseLoose, fingerprint, PROMPT }
   };
 })();

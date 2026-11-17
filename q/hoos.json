@@ -15,23 +15,23 @@
      "options": [
       {
        "label": "전혀",
-       "score": null
+       "score": 0
       },
       {
        "label": "거의",
-       "score": null
+       "score": 1
       },
       {
        "label": "가끔",
-       "score": null
+       "score": 2
       },
       {
        "label": "자주",
-       "score": null
+       "score": 3
       },
       {
        "label": "항상",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -41,23 +41,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -67,23 +67,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     }
@@ -99,23 +99,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -125,23 +125,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     }
@@ -157,23 +157,23 @@
      "options": [
       {
        "label": "전혀",
-       "score": null
+       "score": 0
       },
       {
        "label": "매달",
-       "score": null
+       "score": 1
       },
       {
        "label": "매주",
-       "score": null
+       "score": 2
       },
       {
        "label": "매일",
-       "score": null
+       "score": 3
       },
       {
        "label": "항상",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -183,23 +183,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -209,23 +209,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -235,23 +235,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -261,23 +261,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -287,23 +287,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -313,23 +313,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -339,23 +339,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -365,23 +365,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -391,23 +391,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     }
@@ -423,23 +423,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -449,23 +449,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -475,23 +475,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -501,23 +501,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -527,23 +527,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -553,23 +553,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -579,23 +579,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -605,23 +605,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -631,23 +631,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -657,23 +657,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -683,23 +683,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -709,23 +709,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -735,23 +735,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -761,23 +761,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -787,23 +787,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -813,23 +813,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -839,23 +839,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     }
@@ -871,23 +871,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -897,23 +897,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -923,23 +923,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -949,23 +949,23 @@
      "options": [
       {
        "label": "없다",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이",
-       "score": null
+       "score": 3
       },
       {
        "label": "아주 많이",
-       "score": null
+       "score": 4
       }
      ]
     }
@@ -980,23 +980,23 @@
      "options": [
       {
        "label": "전혀",
-       "score": null
+       "score": 0
       },
       {
        "label": "매달",
-       "score": null
+       "score": 1
       },
       {
        "label": "매주",
-       "score": null
+       "score": 2
       },
       {
        "label": "매일",
-       "score": null
+       "score": 3
       },
       {
        "label": "항상",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -1006,23 +1006,23 @@
      "options": [
       {
        "label": "전혀",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "매우",
-       "score": null
+       "score": 3
       },
       {
        "label": "완전히",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -1032,23 +1032,23 @@
      "options": [
       {
        "label": "전혀",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "매우",
-       "score": null
+       "score": 3
       },
       {
        "label": "완전히",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -1058,32 +1058,139 @@
      "options": [
       {
        "label": "전혀",
-       "score": null
+       "score": 0
       },
       {
        "label": "조금",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "매우",
-       "score": null
+       "score": 3
       },
       {
        "label": "완전히",
-       "score": null
+       "score": 4
       }
      ]
     }
    ]
   }
  ],
- "scoring": null,
- "higherIsBetter": null,
+ "scoring": {
+  "method": "subscales",
+  "unit": "점",
+  "min": 0,
+  "max": 100,
+  "higherIsBetter": true,
+  "text": "영역별로 따로 계산(총점 없음): 100 − (영역 실제 합 ÷ 영역 최고 가능 점수) × 100. 0점 = 가장 나쁨, 100점 = 장애·증상 없음",
+  "subscales": [
+   {
+    "name": "통증(Pain)",
+    "items": [
+     "hP1",
+     "hP2",
+     "hP3",
+     "hP4",
+     "hP5",
+     "hP6",
+     "hP7",
+     "hP8",
+     "hP9",
+     "hP10"
+    ],
+    "calc": "mean",
+    "offset": -4,
+    "multiplier": -25,
+    "min": 0,
+    "max": 100,
+    "requireAll": true
+   },
+   {
+    "name": "기타 증상(Symptoms)",
+    "items": [
+     "hS1",
+     "hS2",
+     "hS3",
+     "hS4",
+     "hS5"
+    ],
+    "calc": "mean",
+    "offset": -4,
+    "multiplier": -25,
+    "min": 0,
+    "max": 100,
+    "requireAll": true
+   },
+   {
+    "name": "일상생활 기능(ADL)",
+    "items": [
+     "hA1",
+     "hA2",
+     "hA3",
+     "hA4",
+     "hA5",
+     "hA6",
+     "hA7",
+     "hA8",
+     "hA9",
+     "hA10",
+     "hA11",
+     "hA12",
+     "hA13",
+     "hA14",
+     "hA15",
+     "hA16",
+     "hA17"
+    ],
+    "calc": "mean",
+    "offset": -4,
+    "multiplier": -25,
+    "min": 0,
+    "max": 100,
+    "requireAll": true
+   },
+   {
+    "name": "스포츠·여가 기능(Sport/Rec)",
+    "items": [
+     "hSP1",
+     "hSP2",
+     "hSP3",
+     "hSP4"
+    ],
+    "calc": "mean",
+    "offset": -4,
+    "multiplier": -25,
+    "min": 0,
+    "max": 100,
+    "requireAll": true
+   },
+   {
+    "name": "삶의 질(QoL)",
+    "items": [
+     "hQ1",
+     "hQ2",
+     "hQ3",
+     "hQ4"
+    ],
+    "calc": "mean",
+    "offset": -4,
+    "multiplier": -25,
+    "min": 0,
+    "max": 100,
+    "requireAll": true
+   }
+  ]
+ },
+ "higherIsBetter": true,
  "notes": [
-  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다."
+  "채점법은 선생님이 보낸 자료를 따랐습니다(원문 PDF에는 채점법이 없음): 각 문항 0(없다·전혀)~4(아주 많이·항상·완전히)점, 영역별로 100 − (합 ÷ 최고점) × 100.",
+  "점수 방향이 일반 설문과 반대입니다: 0점이 최악, 100점이 최고(좋음). 앱의 비교·그래프도 '높을수록 좋음'으로 처리합니다.",
+  "5개 영역(통증 10·기타 증상 5·일상생활 17·스포츠 4·삶의 질 4)은 합치지 않고 영역별 점수만 냅니다. 원문 PDF는 증상 질문(S1~S3)과 뻣뻣함 질문(S4~S5)을 따로 보여 주지만 '기타 증상' 한 영역으로 계산합니다.",
+  "빠진 문항 처리와 MCID/MDC는 문서에 없음: 한 영역의 문항에 모두 답해야 그 영역 점수를 계산합니다. MCID/MDC는 ⚙️ 설정에서 직접 입력하세요."
  ]
 }

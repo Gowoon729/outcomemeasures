@@ -131,6 +131,7 @@
   "text": "10문항 점수의 합 (/100점)"
  },
  "notes": [
-  "원문 주: 논문의 원래 내용은 * toe touch while standing, ** straight leg kick, *** partner exercise where you attempt to resist a forward-falling motion using your hamstrings throughout the whole range of motion to the ground 이며, 한국어 설명은 의역 부연설명입니다."
+  "원문 주: 논문의 원래 내용은 * toe touch while standing, ** straight leg kick, *** partner exercise where you attempt to resist a forward-falling motion using your hamstrings throughout the whole range of motion to the ground 이며, 한국어 설명은 의역 부연설명입니다.",
+  "의견(참고만, 연구가 아직 많지 않음): 선생님이 보낸 자료에 따르면 FASH의 MDC는 여러 연구(독일판, 스페인 프로 축구선수 등)에서 약 2.2~7.2점으로 보고됩니다. 모든 환자에게 통하는 확정된 MCID는 아직 없고, 현장에서는 MDC 상한 근처인 약 7~10점 이상 상승과 함께 뻣뻣함 감소·통증 없는 가속(달리기) 수행 여부를 호전 기준으로 참고합니다. 그래서 앱에는 MCID/MDC 기본값을 넣지 않았어요."
  ]
 }

@@ -63,7 +63,7 @@ const SYNC = (() => {
           if (it.del) { if (!cur) { cfg.u[k] = it.u; return; } delete S.patients[id]; }
           else {
             const mine = cur || {};
-            S.patients[id] = Object.assign({}, obj, { name: obj.name || mine.name || '환자 ' + id, memo: obj.memo || mine.memo || '' });
+            S.patients[id] = Object.assign({}, obj, { name: obj.name || mine.name || '회원 ' + id, memo: obj.memo || mine.memo || '' });
           }
         } else if (t === 'i') {
           if (it.del) delete S.settings.interp[id]; else S.settings.interp[id] = obj;
@@ -141,7 +141,7 @@ const SYNC = (() => {
   }
   function disconnect() { clearTimeout(timer); cfg = null; try { localStorage.removeItem(CK); } catch (e) {} emit(); }
 
-  // 환자 링크에 붙일 값: 환자 화면이 결과를 바로 시트로 보낼 수 있게 함
+  // 회원 링크에 붙일 값: 회원 화면이 결과를 바로 시트로 보낼 수 있게 함
   function linkParams() {
     if (!connected() || !cfg.me) return '';
     const m = cfg.url.match(/^https:\/\/script\.google\.com\/macros\/s\/([^/]+)\/exec$/);

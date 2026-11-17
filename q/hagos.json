@@ -15,23 +15,23 @@
      "options": [
       {
        "label": "전혀 아니다",
-       "score": null
+       "score": 0
       },
       {
        "label": "드물게",
-       "score": null
+       "score": 1
       },
       {
        "label": "때때로",
-       "score": null
+       "score": 2
       },
       {
        "label": "자주",
-       "score": null
+       "score": 3
       },
       {
        "label": "항상",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -41,23 +41,23 @@
      "options": [
       {
        "label": "전혀 아니다",
-       "score": null
+       "score": 0
       },
       {
        "label": "드물게",
-       "score": null
+       "score": 1
       },
       {
        "label": "때때로",
-       "score": null
+       "score": 2
       },
       {
        "label": "자주",
-       "score": null
+       "score": 3
       },
       {
        "label": "항상",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -67,23 +67,23 @@
      "options": [
       {
        "label": "없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 있음",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "심함",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 심함",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -93,23 +93,23 @@
      "options": [
       {
        "label": "없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 있음",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "심함",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 심함",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -119,23 +119,23 @@
      "options": [
       {
        "label": "전혀 아니다",
-       "score": null
+       "score": 0
       },
       {
        "label": "드물게",
-       "score": null
+       "score": 1
       },
       {
        "label": "때때로",
-       "score": null
+       "score": 2
       },
       {
        "label": "자주",
-       "score": null
+       "score": 3
       },
       {
        "label": "항상",
-       "score": null
+       "score": 4
       }
      ]
     }
@@ -151,23 +151,23 @@
      "options": [
       {
        "label": "없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 있음",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "심함",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 심함",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -177,23 +177,23 @@
      "options": [
       {
        "label": "없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 있음",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "심함",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 심함",
-       "score": null
+       "score": 4
       }
      ]
     }
@@ -209,23 +209,23 @@
      "options": [
       {
        "label": "전혀 아니다",
-       "score": null
+       "score": 0
       },
       {
        "label": "한 달에 한번 정도",
-       "score": null
+       "score": 1
       },
       {
        "label": "일주일에 한번 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "거의 매일",
-       "score": null
+       "score": 3
       },
       {
        "label": "항상",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -235,23 +235,23 @@
      "options": [
       {
        "label": "전혀 아니다",
-       "score": null
+       "score": 0
       },
       {
        "label": "한 달에 한번 정도",
-       "score": null
+       "score": 1
       },
       {
        "label": "일주일에 한번 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "거의 매일",
-       "score": null
+       "score": 3
       },
       {
        "label": "항상",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -261,23 +261,23 @@
      "options": [
       {
        "label": "없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 있음",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "심함",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 심함",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -287,23 +287,23 @@
      "options": [
       {
        "label": "없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 있음",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "심함",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 심함",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -313,23 +313,23 @@
      "options": [
       {
        "label": "없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 있음",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "심함",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 심함",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -339,23 +339,23 @@
      "options": [
       {
        "label": "없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 있음",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "심함",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 심함",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -365,23 +365,23 @@
      "options": [
       {
        "label": "없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 있음",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "심함",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 심함",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -391,23 +391,23 @@
      "options": [
       {
        "label": "없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 있음",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "심함",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 심함",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -417,23 +417,23 @@
      "options": [
       {
        "label": "없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 있음",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "심함",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 심함",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -443,23 +443,23 @@
      "options": [
       {
        "label": "없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 있음",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "심함",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 심함",
-       "score": null
+       "score": 4
       }
      ]
     }
@@ -475,23 +475,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -501,23 +501,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -527,23 +527,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -553,23 +553,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -579,23 +579,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     }
@@ -611,23 +611,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -637,23 +637,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -663,23 +663,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -689,23 +689,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -715,23 +715,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -741,23 +741,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -767,23 +767,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -793,23 +793,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     }
@@ -825,23 +825,23 @@
      "options": [
       {
        "label": "항상",
-       "score": null
+       "score": 0
       },
       {
        "label": "자주",
-       "score": null
+       "score": 1
       },
       {
        "label": "때때로",
-       "score": null
+       "score": 2
       },
       {
        "label": "드물게",
-       "score": null
+       "score": 3
       },
       {
        "label": "전혀 아니다",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -851,23 +851,23 @@
      "options": [
       {
        "label": "항상",
-       "score": null
+       "score": 0
       },
       {
        "label": "자주",
-       "score": null
+       "score": 1
       },
       {
        "label": "때때로",
-       "score": null
+       "score": 2
       },
       {
        "label": "드물게",
-       "score": null
+       "score": 3
       },
       {
        "label": "전혀 아니다",
-       "score": null
+       "score": 4
       }
      ]
     }
@@ -882,23 +882,23 @@
      "options": [
       {
        "label": "전혀 아니다",
-       "score": null
+       "score": 0
       },
       {
        "label": "한 달에 한번 정도",
-       "score": null
+       "score": 1
       },
       {
        "label": "일주일에 한번 정도",
-       "score": null
+       "score": 2
       },
       {
        "label": "거의 매일",
-       "score": null
+       "score": 3
       },
       {
        "label": "항상",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -908,23 +908,23 @@
      "options": [
       {
        "label": "전혀 아니다",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 바꾸었다",
-       "score": null
+       "score": 1
       },
       {
        "label": "어느 정도 바꾸었다",
-       "score": null
+       "score": 2
       },
       {
        "label": "많이 바꾸었다",
-       "score": null
+       "score": 3
       },
       {
        "label": "완전히 바꾸었다",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -934,23 +934,23 @@
      "options": [
       {
        "label": "문제없음",
-       "score": null
+       "score": 0
       },
       {
        "label": "약간 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "중간 정도 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "매우 어려움",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -960,23 +960,23 @@
      "options": [
       {
        "label": "전혀 아니다",
-       "score": null
+       "score": 0
       },
       {
        "label": "드물게",
-       "score": null
+       "score": 1
       },
       {
        "label": "때때로",
-       "score": null
+       "score": 2
       },
       {
        "label": "자주",
-       "score": null
+       "score": 3
       },
       {
        "label": "항상",
-       "score": null
+       "score": 4
       }
      ]
     },
@@ -986,32 +986,223 @@
      "options": [
       {
        "label": "전혀 아니다",
-       "score": null
+       "score": 0
       },
       {
        "label": "드물게",
-       "score": null
+       "score": 1
       },
       {
        "label": "때때로",
-       "score": null
+       "score": 2
       },
       {
        "label": "자주",
-       "score": null
+       "score": 3
       },
       {
        "label": "항상",
-       "score": null
+       "score": 4
       }
      ]
     }
    ]
   }
  ],
- "scoring": null,
- "higherIsBetter": null,
+ "scoring": {
+  "method": "subscales",
+  "unit": "점",
+  "min": 0,
+  "max": 100,
+  "higherIsBetter": true,
+  "text": "6개 영역을 따로 계산(총점 없음): 100 − (영역 실제 합 ÷ 영역 최고 가능 점수) × 100. 0점 = 가장 나쁨, 100점 = 장애·증상 없음",
+  "subscales": [
+   {
+    "name": "증상(Symptoms)",
+    "items": [
+     "hgS1",
+     "hgS2",
+     "hgS3",
+     "hgS4",
+     "hgS5",
+     "hgS6",
+     "hgS7"
+    ],
+    "calc": "mean",
+    "offset": -4,
+    "multiplier": -25,
+    "min": 0,
+    "max": 100,
+    "requireAll": true
+   },
+   {
+    "name": "통증(Pain)",
+    "items": [
+     "hgP1",
+     "hgP2",
+     "hgP3",
+     "hgP4",
+     "hgP5",
+     "hgP6",
+     "hgP7",
+     "hgP8",
+     "hgP9",
+     "hgP10"
+    ],
+    "calc": "mean",
+    "offset": -4,
+    "multiplier": -25,
+    "min": 0,
+    "max": 100,
+    "requireAll": true
+   },
+   {
+    "name": "일상생활(ADL)",
+    "items": [
+     "hgA1",
+     "hgA2",
+     "hgA3",
+     "hgA4",
+     "hgA5"
+    ],
+    "calc": "mean",
+    "offset": -4,
+    "multiplier": -25,
+    "min": 0,
+    "max": 100,
+    "requireAll": true
+   },
+   {
+    "name": "스포츠·여가(Sport/Rec)",
+    "items": [
+     "hgSP1",
+     "hgSP2",
+     "hgSP3",
+     "hgSP4",
+     "hgSP5",
+     "hgSP6",
+     "hgSP7",
+     "hgSP8"
+    ],
+    "calc": "mean",
+    "offset": -4,
+    "multiplier": -25,
+    "min": 0,
+    "max": 100,
+    "requireAll": true
+   },
+   {
+    "name": "신체 활동 참여(PA)",
+    "items": [
+     "hgPA1",
+     "hgPA2"
+    ],
+    "calc": "mean",
+    "offset": -4,
+    "multiplier": -25,
+    "min": 0,
+    "max": 100,
+    "requireAll": true
+   },
+   {
+    "name": "삶의 질(QoL)",
+    "items": [
+     "hgQ1",
+     "hgQ2",
+     "hgQ3",
+     "hgQ4",
+     "hgQ5"
+    ],
+    "calc": "mean",
+    "offset": -4,
+    "multiplier": -25,
+    "min": 0,
+    "max": 100,
+    "requireAll": true
+   }
+  ]
+ },
+ "higherIsBetter": true,
  "notes": [
-  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다."
- ]
+  "채점법은 선생님이 보낸 자료를 따랐습니다(원문 PDF에는 채점법이 없음): 각 문항 0(문제 없음)~4점, 영역별로 100 − (합 ÷ 최고점) × 100. 0점이 최악, 100점이 최고(좋음)입니다.",
+  "의견: 선생님이 보낸 자료는 '41문항(증상 5·ADL 5·스포츠 8·참여 2·삶의 질 11)'이라고 하지만 PDF는 37문항(증상 7·통증 10·ADL 5·스포츠 8·참여 2·삶의 질 5)입니다. 문항은 PDF를 그대로 따랐습니다. PDF의 '증상'과 '뻣뻣함'은 화면에서 나뉘어 있지만 '증상' 한 영역(7문항)으로 계산합니다.",
+  "신체 활동 참여 두 문항(PA1·PA2)은 '항상'이 0점, '전혀 아니다'가 4점입니다(원문 보기 순서 그대로, 보기 순서가 다른 문항과 반대).",
+  "빠진 문항 처리는 문서에 없음: 한 영역의 문항에 모두 답해야 그 영역 점수를 계산합니다."
+ ],
+ "interpretation": {
+  "subs": {
+   "증상(Symptoms)": {
+    "mcid": {
+     "value": 8,
+     "unit": "점",
+     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 의미 있는 호전 약 8~12점 향상. 기본값은 범위의 아래쪽(8점)이며 바꿔도 돼요 (의견)."
+    },
+    "mdc": {
+     "value": 11,
+     "unit": "점",
+     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 최소감지변화 약 11~15점. 기본값은 범위의 아래쪽(11점)이며 바꿔도 돼요 (의견)."
+    }
+   },
+   "통증(Pain)": {
+    "mcid": {
+     "value": 10,
+     "unit": "점",
+     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 의미 있는 호전 약 10~15점 향상. 기본값은 범위의 아래쪽(10점)이며 바꿔도 돼요 (의견)."
+    },
+    "mdc": {
+     "value": 10,
+     "unit": "점",
+     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 최소감지변화 약 10~14점. 기본값은 범위의 아래쪽(10점)이며 바꿔도 돼요 (의견)."
+    }
+   },
+   "일상생활(ADL)": {
+    "mcid": {
+     "value": 8,
+     "unit": "점",
+     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 의미 있는 호전 약 8~10점 향상. 기본값은 범위의 아래쪽(8점)이며 바꿔도 돼요 (의견)."
+    },
+    "mdc": {
+     "value": 7,
+     "unit": "점",
+     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 최소감지변화 약 7~10점. 기본값은 범위의 아래쪽(7점)이며 바꿔도 돼요 (의견)."
+    }
+   },
+   "스포츠·여가(Sport/Rec)": {
+    "mcid": {
+     "value": 12,
+     "unit": "점",
+     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 의미 있는 호전 약 12~18점 향상. 기본값은 범위의 아래쪽(12점)이며 바꿔도 돼요 (의견)."
+    },
+    "mdc": {
+     "value": 13,
+     "unit": "점",
+     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 최소감지변화 약 13~18점. 기본값은 범위의 아래쪽(13점)이며 바꿔도 돼요 (의견)."
+    }
+   },
+   "신체 활동 참여(PA)": {
+    "mcid": {
+     "value": 10,
+     "unit": "점",
+     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 의미 있는 호전 약 10~15점 향상. 기본값은 범위의 아래쪽(10점)이며 바꿔도 돼요 (의견)."
+    },
+    "mdc": {
+     "value": 12,
+     "unit": "점",
+     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 최소감지변화 약 12~17점. 기본값은 범위의 아래쪽(12점)이며 바꿔도 돼요 (의견)."
+    }
+   },
+   "삶의 질(QoL)": {
+    "mcid": {
+     "value": 10,
+     "unit": "점",
+     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 의미 있는 호전 약 10~15점 향상. 기본값은 범위의 아래쪽(10점)이며 바꿔도 돼요 (의견)."
+    },
+    "mdc": {
+     "value": 10,
+     "unit": "점",
+     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 최소감지변화 약 10~14점. 기본값은 범위의 아래쪽(10점)이며 바꿔도 돼요 (의견)."
+    }
+   }
+  }
+ }
 }

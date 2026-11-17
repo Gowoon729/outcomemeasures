@@ -1,4 +1,4 @@
-// 치료사 앱(index.html)과 환자 설문(survey.html)이 함께 쓰는 기능
+// 치료사 앱(index.html)과 회원 설문(survey.html)이 함께 쓰는 기능
 const OM = (() => {
   const qCache = {};
   let catalog = null;
