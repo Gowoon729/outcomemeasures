@@ -1,5 +1,5 @@
 // 항상 최신 파일을 먼저 받고, 인터넷이 안 될 때만 보관본을 씁니다.
-const CACHE = 'om-v7';
+const CACHE = 'om-v8';
 self.addEventListener('install', e => { self.skipWaiting(); });
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim()));

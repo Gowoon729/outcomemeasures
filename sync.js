@@ -162,8 +162,10 @@ const SYNC = (() => {
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') schedule(500); });
     setInterval(() => { if (document.visibilityState === 'visible') schedule(100); }, 60000);
   }
+  const SV_NEED = 3;   // 이 앱이 기대하는 시트 스크립트 버전
+  const scriptOld = () => !!(connected() && cfg.me && cfg.me.role === 'admin' && (cfg.sv || 0) < SV_NEED && !cfg.err);
   const info = () => cfg;
   const statusText = () => status;
   const onChange = f => listeners.push(f);
-  return { customReady, pendingCustom, attach, touch, run, connect, disconnect, connected, info, statusText, onChange, linkParams, members, setSyncNames, normUrl };
+  return { scriptOld, customReady, pendingCustom, attach, touch, run, connect, disconnect, connected, info, statusText, onChange, linkParams, members, setSyncNames, normUrl };
 })();

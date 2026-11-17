@@ -16,6 +16,7 @@
 <body>
 <div class="wrap" id="app">
   <h1>📊 아웃컴 메저</h1>
+  <div id="updBar" class="updbar" style="display:none"></div>
   <div id="syncBar" class="syncbar" style="display:none" onclick="go('settings')"></div>
   <nav class="tabs tabs5">
     <button class="tab" id="t-patients" onclick="go('patients')">👥<br>환자</button>
@@ -747,6 +748,7 @@ function renderSyncBar(){
   if (!SYNC.connected() || !c) { b.style.display = 'none'; renderSync(); return; }
   b.style.display = ''; b.className = 'syncbar' + (c.err ? ' bad' : '');
   b.innerHTML = c.err ? `⚠️ ${esc(c.err)}` : `☁️ 현재 연결: <b>${esc(c.team || '')} 시트</b> · ${esc(c.me ? c.me.name : '')} ${SYNC.statusText() ? '· ' + SYNC.statusText() : c.last ? '· ' + hhmm(c.last) + ' 동기화' : ''}`;
+  if (SYNC.scriptOld()) b.innerHTML += `<br>🛠 시트 스크립트를 업데이트해 주세요 (눌러서 방법 보기)`;
   renderSync();
 }
 async function onInbox(items){
@@ -775,6 +777,7 @@ function renderSync(){
   const admin = c.me && c.me.role === 'admin';
   el.innerHTML = `<h2>☁️ 현재 연결: ${esc(c.team || '')} 시트</h2>
     <p class="sub">${esc(c.me ? c.me.name : '')} ${admin ? '(관리자)' : '(팀원)'} · ${c.err ? '<b style="color:var(--bad)">' + esc(c.err) + '</b>' : c.last ? '마지막 동기화 ' + hhmm(c.last) : '아직 동기화 전'}</p>
+    ${SYNC.scriptOld() ? `<div class="note"><b>🛠 시트 스크립트 업데이트가 필요해요</b> (관리자만 할 수 있어요)<br>지금은 기본 기능은 되지만, 새 기능(내 설문지를 짧은 링크로 보내기)이 빠져 있어요.<br>1. 구글 시트 → 확장 프로그램 → Apps Script<br>2. 기존 코드를 지우고, 새 <b>google-apps-script.gs</b> 내용을 붙여넣고 저장 💾<br>3. <b>배포 → 배포 관리 → ✏️(연필) → 버전: 새 버전 → 배포</b><br>※ <b>[새 배포]가 아니라 [배포 관리]</b>로 해야 웹 앱 주소가 그대로예요. 팀원은 아무것도 안 해도 돼요.<br>다 하면 앱에서 [🔄 지금 동기화]를 눌러 보세요.</div>` : ''}
     <p class="sub" style="margin-top:6px">여기서 보내는 설문 링크에는 시트 주소가 함께 들어가서, 환자가 마치면 결과가 자동으로 도착합니다. 내 환자 기록은 내 키로만 열려요.</p>
     <label class="list-item" style="cursor:pointer"><input type="checkbox" ${c.syncNames ? 'checked' : ''} onchange="toggleNames(this.checked)"><div class="grow">환자 이름·메모도 시트에 저장<div class="sub">끄면 시트에는 환자 코드와 점수만 올라가고, 이름은 이 기기에만 있어요 (다른 기기에서는 코드로 보임)</div></div></label>
     <div class="row" style="margin-top:8px"><button class="btn btn-main" onclick="syncNow()">🔄 지금 동기화</button>${admin ? '<button class="btn btn-line" onclick="openTeam()">👥 팀원 관리</button>' : ''}</div>
@@ -853,6 +856,37 @@ function teamInvite(id){
   return OM.copyText(text, `${m.name} 님 초대 메시지를 복사했어요. 카카오톡 등으로 보내 주세요.`);
 }
 
+// ---------- 앱 업데이트 안내 ----------
+const APP_VER = 8;                       // 새 버전을 올릴 때 version.json 의 번호와 함께 올립니다
+let newVer = 0, updTimer = null;
+async function checkUpdate(){
+  try {
+    const r = await fetch('version.json?t=' + Date.now(), { cache: 'no-store' }); if (!r.ok) return;
+    const v = +(await r.json()).v;
+    if (v > APP_VER) { newVer = v; renderUpdBar(); }
+  } catch(e){}
+}
+function renderUpdBar(){
+  const b = document.getElementById('updBar'); if (!b) return;
+  if (!newVer) { b.style.display = 'none'; return; }
+  b.style.display = ''; b.innerHTML = `<span>🔄 새 버전이 나왔어요. 기록은 그대로 남아요.</span><button onclick="doUpdate()">지금 업데이트</button>`;
+}
+async function doUpdate(){
+  if (onsite) { OM.alertBox('환자 작성 중이에요. 작성이 끝나고 치료사 화면으로 돌아온 뒤 업데이트해 주세요.'); return; }
+  if (ED.dirty && !(await OM.confirmBox('편집 중인 설문지가 있어요. 임시로 보관되지만, 먼저 저장하는 게 안전해요.\n그래도 업데이트할까요?'))) return;
+  try {
+    const ks = await caches.keys(); await Promise.all(ks.map(k => caches.delete(k)));
+    const regs = await navigator.serviceWorker.getRegistrations(); await Promise.all(regs.map(r => r.update().catch(() => {})));
+    await Promise.all(['index.html','common.js','survey-engine.js','sync.js','editor.js','style.css','catalog.json'].map(f => fetch(f + '?t=' + Date.now(), { cache: 'reload' }).catch(() => {})));
+  } catch(e){}
+  location.reload();
+}
+function startUpdateCheck(){
+  checkUpdate();
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') checkUpdate(); });
+  clearInterval(updTimer); updTimer = setInterval(() => { if (document.visibilityState === 'visible') checkUpdate(); }, 15 * 60 * 1000);
+}
+
 // ---------- 시작 ----------
 (async () => {
   load(); save();
@@ -862,6 +896,7 @@ function teamInvite(id){
   OM.renderCredit(document.getElementById('credit'), false);
   OM.renderCredit(document.getElementById('creditFull'), true);
   ensureCatalog().catch(() => {});
+  startUpdateCheck();
   if (!(await handleHash())) go('patients');
 })();
 window.addEventListener('hashchange', handleHash);
