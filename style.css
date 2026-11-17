@@ -113,3 +113,33 @@ body.onsite-on .onsite{display:block}
 .inrow span{font-weight:700;color:var(--sub)}
 .q{white-space:pre-line}
 .sec-desc{margin-top:6px}
+
+.syncbar{background:var(--main-soft);color:var(--main);font-size:.82rem;padding:7px 12px;border-radius:10px;margin-bottom:10px;cursor:pointer}
+.syncbar.bad{background:var(--bad-soft);color:var(--bad)}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fff;padding:11px 16px;border-radius:12px;font-size:.92rem;opacity:0;pointer-events:none;transition:.25s;z-index:60;max-width:90%;text-align:center}
+.toast.show{opacity:.95;transform:translateX(-50%)}
+
+/* 3단계: 설문지 편집기 */
+.tag.mine{background:#ede9fe;color:#6d28d9}
+.ed-item{border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:10px;background:#fff}
+.ed-item-top{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.ed-item-top b{flex:1}
+.ed-tools button{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 8px;font-size:.85rem;cursor:pointer;font-family:inherit;margin-left:2px}
+.ed-sec{border-left:3px solid var(--main);padding-left:10px;margin-top:14px}
+.ed-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ed-mini label.field{margin-top:8px}
+.ed-chk{display:flex;align-items:center;gap:8px;font-size:.9rem;margin-top:8px;cursor:pointer}
+.ed-chk input{width:20px;height:20px}
+.ed-hint{font-size:.8rem;color:var(--sub);margin-top:4px}
+.ed-check li{margin:4px 0 0 18px;font-size:.88rem}
+.ed-check .e{color:var(--bad)}.ed-check .w{color:var(--warn)}
+.ed-ok{background:var(--good-soft);color:var(--good);border-radius:10px;padding:10px 12px;font-size:.9rem;font-weight:700}
+.ed-bar{position:sticky;bottom:0;background:var(--bg);padding:8px 0 4px;z-index:4}
+.ed-bar .btn{margin-top:6px}
+.ed-sub{border:1px dashed var(--line);border-radius:10px;padding:10px;margin-top:10px}
+.ed-score{background:var(--main-soft);color:var(--main);border-radius:10px;padding:10px 12px;font-weight:700;margin-top:8px;white-space:pre-line}
+.overlay{display:none;position:fixed;inset:0;background:var(--bg);overflow:auto;z-index:70;padding:14px 12px 60px}
+.overlay.show{display:block}
+.overlay-top{position:sticky;top:0;background:var(--bg);padding:4px 0 8px;z-index:2}
+details.ed-adv summary{cursor:pointer;font-weight:700}
+textarea.mono{font-family:ui-monospace,Menlo,monospace;font-size:.8rem;min-height:220px}

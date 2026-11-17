@@ -107,8 +107,11 @@
       if (it.options) { picks[it.id] = v; vals[it.id] = it.options[v].score ?? null; }
       else vals[it.id] = v;
     });
-    return { q: q.id, a: picks, v: vals, s: OM.score(q, vals).score };
+    const out = { q: q.id, a: picks, v: vals, s: OM.score(q, vals).score };
+    if (q.ver) out.qv = q.ver;               // 내 설문지: 작성한 버전 기록
+    return out;
   }
 
   OM.runSurvey = runSurvey;
+  OM.toResult = toResult;
 })();

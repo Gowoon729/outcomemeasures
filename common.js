@@ -78,11 +78,14 @@ const OM = (() => {
     return { score: s, raw, answeredCount: answered.length, missing, subs, extras, category };
   }
   // 비교·해석에 쓰는 지표 목록 (총점 1개, 또는 영역별 여러 개)
-  function measures(q) {
+  // qOf(r): 결과마다 '저장 당시 버전'의 설문지를 돌려주는 함수 (내 설문지용, 없으면 q 사용)
+  function measures(q, qOf) {
     const sc = q.scoring; if (!sc) return [];
-    if (sc.method === 'subscales') return sc.subscales.map(sb => ({ key: q.id + '#' + sb.name, name: sb.name, min: sb.min ?? 0, max: sb.max, unit: sb.unit || sc.unit || '점', hb: sc.higherIsBetter, get: r => (score(q, r.v || {}).subs.find(x => x.name === sb.name) || {}).score ?? null }));
-    const main = { key: q.id, name: q.short || q.name, min: sc.min, max: sc.max, unit: sc.unit || '점', hb: sc.higherIsBetter, get: r => r.s, main: true };
-    const extra = (sc.subscales || []).filter(sb => sb.measure).map(sb => ({ key: q.id + '#' + sb.name, name: sb.name, min: sb.min ?? 0, max: sb.max, unit: sb.unit || sc.unit || '점', hb: sb.higherIsBetter ?? sc.higherIsBetter, get: r => (score(q, r.v || {}).subs.find(x => x.name === sb.name) || {}).score ?? null }));
+    const Q = r => (qOf && qOf(r)) || q;
+    const subOf = (r, name) => { const qq = Q(r); if (!qq.scoring) return null; return (score(qq, r.v || {}).subs.find(x => x.name === name) || {}).score ?? null; };
+    if (sc.method === 'subscales') return sc.subscales.map(sb => ({ key: q.id + '#' + sb.name, name: sb.name, min: sb.min ?? 0, max: sb.max, unit: sb.unit || sc.unit || '점', hb: sc.higherIsBetter, get: r => subOf(r, sb.name) }));
+    const main = { key: q.id, name: q.short || q.name, min: sc.min, max: sc.max, unit: sc.unit || '점', hb: sc.higherIsBetter, get: r => r.s ?? null, main: true };
+    const extra = (sc.subscales || []).filter(sb => sb.measure).map(sb => ({ key: q.id + '#' + sb.name, name: sb.name, min: sb.min ?? 0, max: sb.max, unit: sb.unit || sc.unit || '점', hb: sb.higherIsBetter ?? sc.higherIsBetter, get: r => subOf(r, sb.name) }));
     return [main, ...extra];
   }
   function fmtM(m, v) { if (v === null || v === undefined) return '-'; return m.unit === '%' ? v + '%' : v + (m.max !== undefined ? ' / ' + m.max : ''); }
@@ -108,6 +111,69 @@ const OM = (() => {
   function encodeResult(obj) { return 'OMR1.' + b64e(JSON.stringify(obj)); }
   function findCodes(text) { return (String(text).match(/OMR1\.[A-Za-z0-9_-]+/g) || []); }
   function decodeResult(code) { return JSON.parse(b64d(code.slice(5))); }
+
+  // ----- 내 설문지(u_로 시작) 정의를 링크에 담기: 압축(z) 또는 그대로(j) -----
+  const isCustom = id => /^u_/.test(String(id || ''));
+  function bytesToB64u(bytes) { let bin = ''; for (let i = 0; i < bytes.length; i += 8192) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 8192)); return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+  function b64uToBytes(s) { s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; const bin = atob(s); const b = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) b[i] = bin.charCodeAt(i); return b; }
+  async function streamBytes(bytes, Stream) { const st = new Blob([bytes]).stream().pipeThrough(new Stream('deflate-raw')); return new Uint8Array(await new Response(st).arrayBuffer()); }
+  async function packDefs(defs) {
+    const raw = new TextEncoder().encode(JSON.stringify(defs));
+    if (typeof CompressionStream !== 'undefined') { try { return 'z' + bytesToB64u(await streamBytes(raw, CompressionStream)); } catch (e) {} }
+    return 'j' + bytesToB64u(raw);
+  }
+  async function unpackDefs(s) {
+    s = String(s || ''); let bytes = b64uToBytes(s.slice(1));
+    if (s[0] === 'z') {
+      if (typeof DecompressionStream === 'undefined') throw Object.assign(new Error('old'), { code: 'old' });
+      bytes = await streamBytes(bytes, DecompressionStream);
+    }
+    return JSON.parse(new TextDecoder().decode(bytes));
+  }
+
+  // ----- 설문지 정의 검사 (편집기·가져오기 공용) -----
+  function validateQ(q) {
+    const E = [], W = [];
+    if (!q || typeof q !== 'object') return { errors: ['설문지 형식이 아닙니다.'], warnings: [] };
+    if (!String(q.name || '').trim()) E.push('설문지 이름이 비어 있어요.');
+    if (!Array.isArray(q.sections) || !q.sections.length) { E.push('문항이 없어요.'); return { errors: E, warnings: W }; }
+    const ids = {}; let n = 0;
+    q.sections.forEach(sec => (sec.items || []).forEach(it => {
+      n++; const tag = `${n}번 문항`;
+      if (!it.id) E.push(`${tag}: id가 없어요.`); else if (ids[it.id]) E.push(`${tag}: id "${it.id}"가 겹쳐요.`); ids[it.id] = it;
+      if (!String(it.q || '').trim()) W.push(`${tag}: 질문 글이 비어 있어요.`);
+      const kinds = ['options', 'scale', 'input'].filter(k => it[k]);
+      if (kinds.length !== 1) E.push(`${tag}: 답 종류(보기·척도·입력) 중 하나만 있어야 해요.`);
+      if (it.options) {
+        if (!Array.isArray(it.options) || it.options.length < 2) E.push(`${tag}: 보기가 2개 이상 있어야 해요.`);
+        else if (it.scored !== false && q.scoring && it.options.every(o => o.score === null || o.score === undefined)) W.push(`${tag}: 보기에 점수가 하나도 없어요. 점수에서 빼려면 '점수에서 제외'를 켜세요.`);
+      }
+      if (it.scale) {
+        const a = it.scale.min, b = it.scale.max;
+        if (typeof a !== 'number' || typeof b !== 'number' || a >= b) E.push(`${tag}: 척도의 최소·최대 숫자를 확인해 주세요.`);
+        else if (b - a > 20) E.push(`${tag}: 척도 칸이 너무 많아요 (최대 21칸).`);
+      }
+      if (it.input && !['number', 'text'].includes(it.input.type)) E.push(`${tag}: 입력 종류는 number 또는 text여야 해요.`);
+    }));
+    if (!n) E.push('문항이 없어요.');
+    const sc = q.scoring;
+    if (sc) {
+      const methods = ['sum', 'mean', 'percent', 'weighted', 'subsum', 'subscales'];
+      if (!methods.includes(sc.method)) E.push('채점 방법을 골라 주세요.');
+      (sc.items || []).forEach(id => { if (!ids[id]) E.push(`채점 문항 "${id}"가 설문지에 없어요.`); });
+      (sc.subscales || []).forEach(sb => {
+        if (!String(sb.name || '').trim()) E.push('이름 없는 영역이 있어요.');
+        if (!(sb.items || []).length) E.push(`영역 "${sb.name}"에 문항이 없어요.`);
+        (sb.items || []).forEach(id => { if (!ids[id]) E.push(`영역 "${sb.name}"의 문항 "${id}"가 설문지에 없어요.`); });
+      });
+      if ((sc.method === 'subsum' || sc.method === 'subscales') && !(sc.subscales || []).length) E.push('이 채점 방법은 영역이 1개 이상 필요해요.');
+      if (sc.higherIsBetter === undefined || sc.higherIsBetter === null) W.push('"높을수록 좋음/나쁨"을 정해 주세요 (전후 비교에 필요).');
+      if (sc.method !== 'subscales' && (sc.min === undefined || sc.max === undefined)) W.push('점수 범위(최저·최고)를 넣으면 그래프와 표시가 정확해져요.');
+      const textItems = Object.values(ids).filter(it => it.input && it.input.type === 'text' && it.scored !== false);
+      if (textItems.length) W.push(`글 입력 문항 ${textItems.length}개가 점수에 들어가 있어요. '점수에서 제외'를 켜 주세요.`);
+    }
+    return { errors: E, warnings: W };
+  }
 
   function nowStr() { const d = new Date(), z = n => String(n).padStart(2, '0'); return `${d.getFullYear()}-${z(d.getMonth() + 1)}-${z(d.getDate())} ${z(d.getHours())}:${z(d.getMinutes())}`; }
   function esc(t) { return String(t ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
@@ -159,5 +225,5 @@ const OM = (() => {
   function qSourceHtml(q) {
     return `<div class="qsrc">출처: ${esc(q.source || '')}${(q.refs || []).length ? '<br>원저: ' + q.refs.map(esc).join('<br>') : ''}</div>`;
   }
-  return { measures, fmtM, itemScore, renderCredit, qSourceHtml, loadCatalog, loadQ, allItems, scoredItems, itemMax, score, fmt, encodeResult, decodeResult, findCodes, nowStr, esc, baseUrl, isKakao, dialog, alertBox, confirmBox, copyText, shareText };
+  return { isCustom, packDefs, unpackDefs, validateQ, measures, fmtM, itemScore, renderCredit, qSourceHtml, loadCatalog, loadQ, allItems, scoredItems, itemMax, score, fmt, encodeResult, decodeResult, findCodes, nowStr, esc, baseUrl, isKakao, dialog, alertBox, confirmBox, copyText, shareText };
 })();

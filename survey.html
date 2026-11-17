@@ -38,7 +38,7 @@
 <script src="common.js"></script>
 <script src="survey-engine.js"></script>
 <script>
-let P = null, QIDS = [], QS = [], answers = {}, resultCode = null;
+let SURL = '', TID = '', P = null, QIDS = [], QS = [], answers = {}, resultCode = null;
 const PREVIEW = () => P === 'PREVIEW';
 const draftKey = () => 'om_draft_' + P + '_' + QIDS.join(',');
 
@@ -47,14 +47,31 @@ function show(v){ document.querySelectorAll('.view').forEach(e => e.classList.to
 async function init(){
   const h = new URLSearchParams(location.hash.slice(1));
   P = h.get('p'); QIDS = (h.get('q') || '').split(',').filter(Boolean);
+  TID = h.get('t') || ''; const sp = h.get('s') || '';
+  SURL = !sp ? '' : /^https?:\/\//.test(sp) ? sp : 'https://script.google.com/macros/s/' + sp + '/exec';
   if (!P || !QIDS.length) { document.getElementById('errMsg').innerText = '링크가 잘못되었어요. 치료사에게 링크를 다시 받아 주세요.'; show('error'); return; }
   if (PREVIEW()) document.getElementById('previewBanner').style.display = '';
-  try { QS = await Promise.all(QIDS.map(OM.loadQ)); }
-  catch(e) { document.getElementById('errMsg').innerText = '설문지를 불러오지 못했어요. 인터넷 연결을 확인하고 다시 열어 주세요.'; show('error'); return; }
+  try { QS = await loadAll(h.get('d')); }
+  catch(e) { document.getElementById('errMsg').innerText = e.code === 'old' ? '휴대폰 브라우저가 오래되어 이 설문을 열 수 없어요. 크롬이나 사파리를 최신으로 업데이트한 뒤 다시 열어 주세요.' : '설문지를 불러오지 못했어요. 인터넷 연결을 확인하고 다시 열어 주세요.'; show('error'); return; }
   if (!PREVIEW()) { try { const d = JSON.parse(localStorage.getItem(draftKey()) || 'null'); if (d && Date.now() - d.at < 7*864e5) answers = d.answers || {}; } catch(e){} }
   document.getElementById('qCount').innerText = QS.length;
   document.getElementById('qList').innerHTML = QS.map((q,i) => `${i+1}. ${OM.esc(q.name)} (${OM.allItems(q).length}문항)`).join('<br>');
   show('start');
+}
+// 기본 설문은 q/*.json, 치료사가 만든 '내 설문지'(u_…)는 링크에 담긴 내용(d) 또는 치료사 시트에서 받아 옴
+async function loadAll(packed){
+  let embedded = [];
+  if (packed) embedded = await OM.unpackDefs(packed);
+  return Promise.all(QIDS.map(async tok => {
+    if (!OM.isCustom(tok)) return OM.loadQ(tok);
+    const [id, v] = tok.split('.');
+    const hit = embedded.find(q => q.id === id && String(q.ver) === String(v || q.ver));
+    if (hit) return hit;
+    if (!SURL || !TID) throw new Error('nodef');
+    const r = await fetch(SURL, { method: 'POST', body: JSON.stringify({ a: 'getq', t: TID, id, v: v || '' }) });
+    const j = await r.json(); if (!j.ok || !j.q) throw new Error('nodef');
+    return j.q;
+  }));
 }
 function begin(){
   OM.runSurvey({
@@ -76,11 +93,31 @@ function finish(results, date){
   resultCode = OM.encodeResult({ v: 1, p: P, d: date, r: results });
   try { localStorage.removeItem(draftKey()); localStorage.setItem('om_last_result', resultCode); } catch(e){}
   box.innerHTML = `<h2>설문을 마쳤어요 🎉</h2>
-    <p>아래 버튼을 눌러 카카오톡이나 문자로 <b>치료사에게 결과를 보내 주세요.</b></p>
-    <button class="btn btn-main" onclick="sendResult()">📤 치료사에게 보내기</button>
-    <button class="btn btn-line" onclick="copyResult()">📋 복사만 하기</button>`;
+    <div id="autoBox"></div>
+    <div id="manualBox" style="display:none">
+      <p>아래 버튼을 눌러 카카오톡이나 문자로 <b>치료사에게 결과를 보내 주세요.</b></p>
+      <button class="btn btn-main" onclick="sendResult()">📤 치료사에게 보내기</button>
+      <button class="btn btn-line" onclick="copyResult()">📋 복사만 하기</button>
+    </div>`;
   show('done');
+  if (SURL && TID) autoSend(); else document.getElementById('manualBox').style.display = '';
 }
+async function autoSend(){
+  const a = document.getElementById('autoBox'), man = document.getElementById('manualBox');
+  a.innerHTML = '<p>치료사에게 결과를 보내는 중이에요… ⏳</p>';
+  try {
+    const ctl = new AbortController(); const to = setTimeout(() => ctl.abort(), 30000);
+    const r = await fetch(SURL, { method: 'POST', body: JSON.stringify({ a: 'submit', t: TID, p: P, d: resultDate(), code: resultCode }), signal: ctl.signal });
+    clearTimeout(to); const j = await r.json();
+    if (!j.ok) throw new Error(j.error || 'fail');
+    a.innerHTML = '<p style="font-size:1.05rem"><b>✅ 치료사에게 전송됐어요.</b><br>이제 창을 닫으셔도 됩니다. 수고하셨어요!</p>';
+    man.style.display = 'none';
+  } catch(e) {
+    a.innerHTML = '<div class="note">자동 전송이 안 됐어요. 인터넷이 약한 곳이면 <b>다시 보내기</b>를 눌러 보시고, 계속 안 되면 아래 방법으로 보내 주세요.</div><button class="btn btn-main" onclick="autoSend()">🔄 다시 보내기</button>';
+    man.style.display = '';
+  }
+}
+function resultDate(){ try { return OM.decodeResult(resultCode).d || ''; } catch(e){ return ''; } }
 function message(){
   const link = OM.baseUrl() + 'index.html#r=' + resultCode;
   return `[물리치료 설문 결과] ${P}\n${QS.map(q => q.short || q.name).join(', ')} 작성 완료\n${link}`;
