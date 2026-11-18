@@ -6,6 +6,52 @@ const CH = (() => {
   const IMG = 'data:image/png;base64,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'; // 인체 도식(APPI 양식)을 코드에 직접 넣어 별도 파일 없이 표시
   const esc = s => OM.esc(String(s ?? ''));
   const nowDate = () => OM.nowStr().slice(0, 10);
+  // ---- 통증 표시 (점 / 칠하기 / 0 도장) ----
+  const TYPES = { N: { n: 'Nociceptive Pain', c: '#2563eb' }, U: { n: 'Neuropathic Pain', c: '#eab308' }, P: { n: 'Pain', c: '#dc2626' }, Z: { n: '0 (No pain)', c: '#16a34a' } };
+  const BRUSH = [3.5, 7, 12];            // 붓 굵기 (그림 너비의 %)
+  const BRUSH_L = ['작게', '보통', '크게'];
+  const ASPECT = (() => { try { const b = atob(IMG.split(',')[1].slice(0, 44)); const g = i => b.charCodeAt(i) * 16777216 + b.charCodeAt(i + 1) * 65536 + b.charCodeAt(i + 2) * 256 + b.charCodeAt(i + 3); const w = g(16), h = g(20); return w && h ? h / w * 100 : 150; } catch (e) { return 150; } })();
+  let tool = 'dot', ptype = 'N', bsz = 1, stroke = null, seq = Date.now();
+  const PAT = `<defs><pattern id="ptN" width="2" height="1.6" patternUnits="userSpaceOnUse"><rect width="2" height="1.6" fill="#2563eb" fill-opacity=".3"/><rect width="2" height=".4" fill="#1e3a8a"/></pattern>
+    <pattern id="ptU" width="2" height="2" patternUnits="userSpaceOnUse"><rect width="2" height="2" fill="#eab308" fill-opacity=".35"/><circle cx="1" cy="1" r=".4" fill="#713f12"/></pattern>
+    <pattern id="ptP" width="1.6" height="1.6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="1.6" height="1.6" fill="#dc2626" fill-opacity=".3"/><rect width=".4" height="1.6" fill="#7f1d1d"/></pattern></defs>`;
+  function mkSvg(t, style) {
+    const T = TYPES[t] || TYPES.P, a = `fill="${T.c}" stroke="#111" stroke-width="1"`;
+    const shape = t === 'U' ? `<polygon points="6,1 11.5,11 .5,11" ${a}/>` : t === 'P' ? `<rect x="1" y="1" width="10" height="10" ${a}/>` : `<circle cx="6" cy="6" r="5" ${a}/>`;
+    return `<svg class="mk" ${style ? `style="${style}"` : ''} viewBox="0 0 12 12">${shape}${t === 'Z' ? '<text x="6" y="9" text-anchor="middle" font-size="8" font-weight="700" fill="#fff" font-family="sans-serif">0</text>' : ''}</svg>`;
+  }
+  // 화면·비교는 색만, 인쇄(pr)는 색 + 모양/무늬
+  function layerHtml(d, pr) {
+    const lines = (d.paint || []).map(st => {
+      const T = TYPES[st.t] || TYPES.P, k = TYPES[st.t] ? st.t : 'P';
+      const pts = st.pts.map(q => q[0] + ',' + (q[1] * ASPECT / 100).toFixed(2)).join(' ');
+      return `<polyline points="${pts}" fill="none" stroke="${pr ? `url(#pt${k})` : T.c}" stroke-opacity="${pr ? 1 : .45}" stroke-width="${st.w}" stroke-linecap="round" stroke-linejoin="round"/>`;
+    }).join('');
+    const svg = (lines || pr) ? `<svg class="ch-svg" viewBox="0 0 100 ${ASPECT.toFixed(2)}" preserveAspectRatio="none">${pr ? PAT : ''}${lines}</svg>` : '';
+    const dots = (d.marks || []).map(m => { const k = TYPES[m.t] ? m.t : 'P'; return pr ? mkSvg(k, `left:${m.x}%;top:${m.y}%`) : `<div class="ch-dot t-${k}" style="left:${m.x}%;top:${m.y}%">${k === 'Z' ? '0' : ''}</div>`; }).join('');
+    return svg + dots;
+  }
+  function legendPrint() {
+    return ['N', 'U', 'P', 'Z'].map(k => `<span class="lg">${mkSvg(k)}${k === 'Z' ? '' : `<svg class="sw" width="26" height="10" viewBox="0 0 13 5"><rect width="13" height="5" fill="url(#pt${k})" stroke="#111" stroke-width=".2"/></svg>`}${esc(TYPES[k].n)}</span>`).join('');
+  }
+  function bodySum(d) {
+    const o = [];
+    ['N', 'U', 'P', 'Z'].forEach(k => {
+      const a = (d.marks || []).filter(m => (m.t || 'P') === k).length, b = (d.paint || []).filter(q => (q.t || 'P') === k).length;
+      if (a || b) o.push(`${TYPES[k].n} ${[a ? '점 ' + a : '', b ? '칠 ' + b : ''].filter(Boolean).join('·')}`);
+    });
+    return o.join(' / ');
+  }
+  const countText = d => `표시 ${(d.marks || []).length}곳 · 칠하기 ${(d.paint || []).length}개 · ${IMG_NOTE}`;
+  function toolsHtml() {
+    const tb = (t, l) => `<button type="button" class="chip${tool === t ? ' on' : ''}" onclick="CH.setTool('${t}')">${l}</button>`;
+    const sz = BRUSH_L.map((l, i) => `<button type="button" class="chip${bsz === i ? ' on' : ''}" onclick="CH.setSize(${i})">${l}</button>`).join('');
+    const ty = ['N', 'U', 'P', 'Z'].map(k => `<button type="button" class="chip${ptype === k && tool !== 'erase' ? ' on' : ''}" onclick="CH.setType('${k}')"><i class="ch-sw" style="background:${TYPES[k].c}"></i>${esc(TYPES[k].n)}</button>`).join('');
+    return `<div class="chips ch-wrap" style="margin:0 0 6px">${tb('dot', '● 점 찍기')}${tb('paint', '🖌 칠하기')}${tb('erase', '🧽 지우개')}</div>
+      <div class="chips ch-wrap" style="margin:0 0 6px">${ty}</div>
+      <div class="chips ch-wrap" style="margin:0 0 6px;${tool === 'paint' ? '' : 'visibility:hidden'}"><span class="sub" style="align-self:center">붓 굵기</span>${sz}</div>
+      <div class="sub" style="margin-bottom:6px;min-height:2.8em">${tool === 'erase' ? '지우개: 닿은 점·칠 하나가 통째로 지워져요.' : tool === 'paint' ? '손가락으로 문질러 넓게 퍼지는 통증을 칠해요.' : (ptype === 'Z' ? '통증이 없는 걸 확인한 곳에 0 도장을 찍어요.' : '터치한 곳에 점을 찍어요.')}</div>`;
+  }
 
   const ox = (k, l) => ({ k, l, t: 'ox' });
   const area = (k, l, h) => ({ k, l, t: 'area', h });
@@ -71,7 +117,7 @@ const CH = (() => {
   function valText(f, d) {
     const v = d[f.k];
     if (f.t === 'multi') return (v || []).join(', ');
-    if (f.t === 'body') return (v || []).length ? `${v.length}곳 표시` : '';
+    if (f.t === 'body') return bodySum(d);
     if (f.t === 'cross') return v ? CROSS.filter(([x]) => v[x]).map(([x, a]) => `${a} ${v[x]}`).join('   ') : '';
     return v || '';
   }
@@ -125,8 +171,9 @@ const CH = (() => {
     const head = f.g ? `<h3>${esc(f.g)}</h3>` : '';
     if (f.t === 'ox') return `<div class="ch-oxrow"><span>${esc(f.l)}</span><div class="chips ch-wrap" style="margin:0">${['O', 'X'].map(o => `<button type="button" class="chip${d[f.k] === o ? ' on' : ''}" data-k="${f.k}" data-v="${o}" data-t="ox" onclick="CH.pick(this)">${o}</button>`).join('')}</div></div>`;
     if (f.t === 'body') return `<label class="field">${esc(f.l)}</label>
-      <div class="ch-body" id="chBody" onclick="CH.mark(event)"><img src="${IMG}" alt="인체 도식">${(d.marks || []).map(m => `<div class="ch-dot" style="left:${m.x}%;top:${m.y}%"></div>`).join('')}</div>
-      <div class="row" style="margin-top:6px;align-items:center"><span class="sub" id="chMarkCount" style="flex:1">표시한 곳 ${(d.marks || []).length}곳 · ${esc(IMG_NOTE)}</span>
+      <div id="chTools">${toolsHtml()}</div>
+      <div class="ch-body${tool === 'dot' ? '' : ' ch-draw'}" id="chBody" onclick="CH.mark(event)" onpointerdown="CH.pd(event)" onpointermove="CH.pm(event)" onpointerup="CH.pu(event)" onpointercancel="CH.pu(event)"><img src="${IMG}" alt="인체 도식">${layerHtml(d)}</div>
+      <div class="row" style="margin-top:6px;align-items:center"><span class="sub" id="chMarkCount" style="flex:1">${esc(countText(d))}</span>
         <button class="btn btn-line btn-sm" onclick="CH.unmark(1)">↩ 하나 지우기</button><button class="btn btn-line btn-sm" onclick="CH.unmark(0)">모두 지우기</button></div>`;
     if (f.t === 'cross') {
       const v = d[f.k] || {}, inp = (x, a) => `<input type="text" placeholder="${a}" value="${esc(v[x] || '')}" oninput="CH.setX('${f.k}','${x}',this.value)">`;
@@ -162,17 +209,60 @@ const CH = (() => {
     else { const on = c.d[k] === v; c.d[k] = on ? '' : v; btn.parentNode.querySelectorAll('.chip').forEach(b => b.classList.remove('on')); if (!on) btn.classList.add('on'); }
     touched();
   }
+  function pt(ev) {
+    const r = document.getElementById('chBody').getBoundingClientRect();
+    return [Math.round(((ev.clientX - r.left) / r.width) * 1000) / 10, Math.round(((ev.clientY - r.top) / r.height) * 1000) / 10];
+  }
   function mark(ev) {
-    const c = byId(cur); if (!c) return; const r = document.getElementById('chBody').getBoundingClientRect();
-    const x = Math.round(((ev.clientX - r.left) / r.width) * 1000) / 10, y = Math.round(((ev.clientY - r.top) / r.height) * 1000) / 10;
-    c.d.marks = c.d.marks || []; c.d.marks.push({ x, y }); drawMarks(); touched();
+    if (tool !== 'dot') return;
+    const c = byId(cur); if (!c) return; const [x, y] = pt(ev);
+    c.d.marks = c.d.marks || []; c.d.marks.push({ x, y, t: ptype, o: ++seq }); drawMarks(); touched();
   }
-  function unmark(one) { const c = byId(cur); if (!c) return; c.d.marks = one ? (c.d.marks || []).slice(0, -1) : []; drawMarks(); touched(); }
+  function unmark(one) {
+    const c = byId(cur); if (!c) return;
+    if (!one) { c.d.marks = []; c.d.paint = []; }
+    else {
+      const m = c.d.marks || [], q = c.d.paint || [], lm = m.length ? (m[m.length - 1].o || 0) : -1, lq = q.length ? (q[q.length - 1].o || 0) : -1;
+      if (lq > lm) q.pop(); else m.pop();
+    }
+    drawMarks(); touched();
+  }
   function drawMarks() {
-    const c = byId(cur), box = document.getElementById('chBody'); box.querySelectorAll('.ch-dot').forEach(e => e.remove());
-    (c.d.marks || []).forEach(m => { const e = document.createElement('div'); e.className = 'ch-dot'; e.style.left = m.x + '%'; e.style.top = m.y + '%'; box.appendChild(e); });
-    document.getElementById('chMarkCount').innerText = `표시한 곳 ${(c.d.marks || []).length}곳 · ${IMG_NOTE}`;
+    const c = byId(cur), box = document.getElementById('chBody'); if (!c || !box) return;
+    box.querySelectorAll('.ch-dot,.ch-svg').forEach(e => e.remove());
+    box.insertAdjacentHTML('beforeend', layerHtml(c.d));
+    document.getElementById('chMarkCount').innerText = countText(c.d);
   }
+  function refreshTools() {
+    const e = document.getElementById('chTools'), b = document.getElementById('chBody');
+    if (e) e.innerHTML = toolsHtml(); if (b) b.classList.toggle('ch-draw', tool !== 'dot');
+  }
+  function setTool(t) { tool = t; if (t === 'paint' && ptype === 'Z') ptype = 'N'; refreshTools(); }
+  function setType(k) { ptype = k; if (tool === 'erase' || k === 'Z') tool = 'dot'; refreshTools(); }
+  function setSize(i) { bsz = i; refreshTools(); }
+  function eraseAt(x, y) {
+    const c = byId(cur); if (!c) return;
+    const near = (px, py, r) => Math.hypot(px - x, (py - y) * ASPECT / 100) <= r;
+    const m = c.d.marks || [], q = c.d.paint || [];
+    const m2 = m.filter(k => !near(k.x, k.y, 3.5)), q2 = q.filter(k => !k.pts.some(p => near(p[0], p[1], k.w / 2 + 2)));
+    if (m2.length !== m.length || q2.length !== q.length) { c.d.marks = m2; c.d.paint = q2; drawMarks(); touched(); }
+  }
+  function pd(ev) {
+    if (tool === 'dot') return;
+    const c = byId(cur); if (!c) return; ev.preventDefault();
+    try { document.getElementById('chBody').setPointerCapture(ev.pointerId); } catch (e) { }
+    const [x, y] = pt(ev);
+    if (tool === 'erase') { stroke = 'erase'; eraseAt(x, y); return; }
+    stroke = { t: ptype, w: BRUSH[bsz], pts: [[x, y], [x + 0.01, y]], o: ++seq };
+    (c.d.paint = c.d.paint || []).push(stroke); drawMarks();
+  }
+  function pm(ev) {
+    if (!stroke) return; const [x, y] = pt(ev);
+    if (stroke === 'erase') { eraseAt(x, y); return; }
+    const l = stroke.pts[stroke.pts.length - 1];
+    if (Math.hypot(x - l[0], (y - l[1]) * ASPECT / 100) >= 0.8) { if (stroke.pts.length === 2 && stroke.pts[1][0] === stroke.pts[0][0] + 0.01) stroke.pts[1] = [x, y]; else stroke.pts.push([x, y]); drawMarks(); }
+  }
+  function pu() { if (!stroke) return; const was = stroke; stroke = null; if (was !== 'erase') { drawMarks(); touched(); } }
   function back() { clearTimeout(timer); save(); cur = null; view = 'list'; renderList(); window.scrollTo(0, 0); }
   async function del(id) {
     if (!await OM.confirmBox('이 차트를 삭제할까요?\n되돌릴 수 없습니다.')) return;
@@ -180,7 +270,7 @@ const CH = (() => {
   }
 
   // ---------- 비교 ----------
-  function bodyDots(d) { return `<div class="ch-body" style="pointer-events:none"><img src="${IMG}" alt="인체 도식">${(d.marks || []).map(m => `<div class="ch-dot" style="left:${m.x}%;top:${m.y}%"></div>`).join('')}</div>`; }
+  function bodyDots(d) { return `<div class="ch-body" style="pointer-events:none"><img src="${IMG}" alt="인체 도식">${layerHtml(d)}</div>`; }
   function compare() { view = 'cmp'; renderCmp(); window.scrollTo(0, 0); }
   function renderCmp() {
     const [a, b] = [...sel].map(byId).sort((x, y) => (x.d.date || '').localeCompare(y.d.date || '')), p = patient();
@@ -191,7 +281,7 @@ const CH = (() => {
     root().innerHTML = `<div class="card">
         <button class="link-btn" onclick="CH.back()">← 차트 목록</button>
         <h2 style="margin-top:6px">↔ 차트 비교 · ${esc(p.name)}</h2>
-        <div class="sub">왼쪽이 이전, 오른쪽이 이후예요. 노란 칸은 서로 다른 항목입니다. ${esc(SRC)}</div>
+        <div class="sub">왼쪽이 이전, 오른쪽이 이후예요. 노란 칸은 서로 다른 항목입니다. ${esc(SRC)}<br>그림 색: 파랑 Nociceptive Pain · 노랑 Neuropathic Pain · 빨강 Pain · 초록 0</div>
         <div class="grid2" style="margin-top:10px"><div><b>${esc(a.d.date || '')}</b>${bodyDots(a.d)}</div><div><b>${esc(b.d.date || '')}</b>${bodyDots(b.d)}</div></div>
         <div class="sub" style="margin-top:4px">${esc(IMG_NOTE)}</div>
       </div>
@@ -201,7 +291,7 @@ const CH = (() => {
   // ---------- 인쇄 ----------
   function printHtml(c) {
     const p = S.patients[c.p] || {}, d = c.d, img = IMG;
-    const dots = (d.marks || []).map(m => `<i style="left:${m.x}%;top:${m.y}%"></i>`).join('');
+    const dots = layerHtml(d, true);
     const sec = s => {
       const body = s.f.filter(f => f.t !== 'body' && f.k !== 'date' && f.k !== 'birth' && f.k !== 'job').map(f => {
         const long = f.t === 'area' || f.t === 'cross';
@@ -214,11 +304,11 @@ const CH = (() => {
       h1{font-size:16px;margin:0 0 4px}h2{font-size:12px;margin:12px 0 4px;padding:3px 6px;background:#eee;border:1px solid #999}
       table{width:100%;border-collapse:collapse}th,td{border:1px solid #999;padding:4px 6px;vertical-align:top;text-align:left}th{width:34%;font-weight:600;background:#fafafa}
       td.long{min-height:36px;white-space:pre-wrap;height:36px}td{white-space:pre-wrap}.src{color:#555;font-size:10px;margin-top:2px}
-      .fig{position:relative;width:260px;border:1px solid #999;margin:6px 0}.fig img{width:100%;display:block}.fig i{position:absolute;width:10px;height:10px;border-radius:50%;background:#d00;border:1px solid #fff;transform:translate(-50%,-50%)}
+      .fig{position:relative;width:260px;border:1px solid #999;margin:6px 0}.fig img{width:100%;display:block}.fig .ch-svg{position:absolute;left:0;top:0;width:100%;height:100%}.mk{width:12px;height:12px;vertical-align:middle}.fig .mk{position:absolute;transform:translate(-50%,-50%)}.lg{display:inline-flex;align-items:center;gap:3px;margin-right:12px}.sw{vertical-align:middle}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
       h2,table{page-break-inside:avoid}</style></head><body>
       <h1>APPI 평가 차트</h1><div class="src">${esc(SRC)}</div>
       <table style="margin-top:6px"><tr><th>이름</th><td>${esc(p.name || '')}</td><th>일시</th><td>${esc(d.date || '')}</td></tr><tr><th>생년월일(나이)</th><td>${esc(d.birth || '')}</td><th>직업</th><td>${esc(d.job || '')}</td></tr></table>
-      <h2>통증 부위</h2><div class="fig"><img src="${img}">${dots}</div><div class="src">${esc(IMG_NOTE)}</div>
+      <h2>통증 부위</h2><div class="fig"><img src="${img}">${dots}</div><div style="margin:4px 0">${legendPrint()}</div><div class="src">${esc(IMG_NOTE)}</div>
       ${SECS.map(sec).join('')}
       <div class="src" style="margin-top:12px">${esc(SRC)} · ${esc(IMG_NOTE)}</div></body></html>`;
   }
@@ -239,10 +329,10 @@ const CH = (() => {
     const head = ['회원코드', ...(names ? ['이름'] : []), '치료회차', ...FIELDS.map(f => (f.g ? f.g + ' – ' : '') + f.l)];
     const rows = charts().slice().sort((a, b) => (a.p + (a.d.date || '')).localeCompare(b.p + (b.d.date || ''))).map(c => {
       const p = S.patients[c.p] || {};
-      return [c.p, ...(names ? [p.name] : []), c.ep, ...FIELDS.map(f => f.t === 'body' ? ((c.d.marks || []).length ? (c.d.marks || []).length + '곳' : '') : valText(f, c.d))].map(cell).join(',');
+      return [c.p, ...(names ? [p.name] : []), c.ep, ...FIELDS.map(f => f.t === 'body' ? bodySum(c.d) : valText(f, c.d))].map(cell).join(',');
     });
     download(`APPI_평가차트_${nowDate()}.csv`, '﻿' + [head.join(','), ...rows].join('\n'), 'text/csv;charset=utf-8');
   }
 
-  return { open, render, add, edit, set, setX, pick, mark, unmark, back, del, toggleSel, compare, print, exportCSV };
+  return { open, render, add, edit, set, setX, pick, mark, unmark, pd, pm, pu, setTool, setType, setSize, back, del, toggleSel, compare, print, exportCSV };
 })();
