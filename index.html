@@ -335,10 +335,16 @@ const lvOf = t => LV[[...String(t || '')][0]] || '';
 function interpDef(q, m){ const it = (q && q.interpretation) || {}; const sub = m.key.split('#')[1]; return (sub ? (it.subs || {})[sub] : it) || {}; }
 const critOf = (q, m) => interpDef(q, m).criteria || '';
 const shortName = n => String(n).replace(/\s*\([^)]*\)\s*$/, '') || n;
-function worstOf(ms, r){ let w = null, wb = null; ms.forEach(m => { const v = m.get(r); if (v === null || v === undefined || m.max == null) return; const mn = m.min ?? 0; const p = (v - mn) / ((m.max - mn) || 1) * 100; const good = m.hb ? p : 100 - p; if (wb === null || good < wb) { wb = good; w = m; } }); return w; }
+function worstOf(ms, r){ let w = null, wb = null; const subs = ms.filter(m => !m.main); if (subs.length < 2) return null; subs.forEach(m => { const v = m.get(r); if (v === null || v === undefined || m.max == null) return; const mn = m.min ?? 0; const p = (v - mn) / ((m.max - mn) || 1) * 100; const good = m.hb ? p : 100 - p; if (wb === null || good < wb) { wb = good; w = m; } }); return w; }
 function dayLbl(r, list){ const d = r.d.slice(0,10); const same = list.filter(x => x.d.slice(0,10) === d).length > 1; const yrs = new Set(list.map(x => x.d.slice(0,4))).size > 1; return (yrs ? d.slice(2) : d.slice(5)) + (same ? ' ' + r.d.slice(11,16) : ''); }
 const sigHtml = t => t ? `<span class="sig lv-${lvOf(t) || 'n'}">${esc(t)}</span>` : '';
 let recAll = {};
+const TERMS = {
+  MCID: ['MCID (최소 임상적 중요 차이)', '회원이 "좋아졌다(또는 나빠졌다)"고 느낄 만한 최소 변화량이에요.\n예: MCID가 11점이면, 11점 이상 좋아졌을 때 의미 있는 호전으로 봐요.'],
+  MDC: ['MDC (최소 검출 변화)', '측정 오차가 아니라 진짜 변했다고 볼 수 있는 최소 변화량이에요. SDC라고도 해요.\n같은 상태여도 설문을 두 번 하면 점수가 조금씩 달라지는데, 그 흔들림보다 크게 변해야 진짜 변화예요.\n예: MDC가 17점이면, 10점 변화는 측정 오차일 수 있어요.']
+};
+function termHelp(k){ const t = TERMS[k]; if (t) OM.alertBox(`${t[0]}\n\n${t[1]}`); }
+const termBtn = k => `<button type="button" class="term" onclick="event.stopPropagation();termHelp('${k}')" aria-label="${k} 설명">ⓘ</button>`;
 const labelOf = (q, m, r) => bandOf(m.key, m.get(r)) || (m.main ? (OM.score(q, r.v || {}).category || '') : '');
 const qHB = q => q.scoring ? q.scoring.higherIsBetter : (q.higherIsBetter ?? null);
 function scoreLine(q, r){ return OM.measures(q).map(m => `${OM.measures(q).length > 1 ? esc(m.name) + ' ' : ''}${OM.fmtM(m, m.get(r))}${labelOf(q, m, r) ? ' · ' + esc(labelOf(q, m, r)) : ''}`).join(' / '); }
@@ -376,7 +382,9 @@ function renderByQ(rs){
       const hbs = [...new Set(ms.map(m => m.hb))];
       let sm = `<div class="sumbox"><div class="dir">${hbs.length === 1 ? (hbs[0] ? '⬆️ 높을수록 좋음' : '⬇️ 낮을수록 좋음') : ms.map(m => esc(shortName(m.name)) + (m.hb ? ' ⬆️' : ' ⬇️')).join(' · ')}</div>`;
       ms.forEach(m => { const v = m.get(last); const lb = labelOf(q, m, last); const cr = critOf(q, m);
-        if (lb || cr) sm += `<div class="sumrow">${ms.length > 1 ? `<b>${esc(shortName(m.name))}</b> ` : ''}${v !== null ? `<b>${OM.fmtM(m, v)}</b> ` : ''}${sigHtml(lb)}${cr ? `<div class="sub">기준: ${esc(cr)}</div>` : ''}</div>`; });
+        const ex = (interpDef(q, m).extra || []).map(e => { if (v === null || v === undefined) return ''; const b = (e.bands || []).find(b => v >= b.min && v <= b.max); return b ? ` ${sigHtml(b.label)}` : ''; }).join('');
+        const exc = (interpDef(q, m).extra || []).map(e => e.criteria ? `<div class="sub">${esc(e.name)}: ${esc(e.criteria)}</div>` : '').join('');
+        if (lb || cr || ex) sm += `<div class="sumrow">${ms.length > 1 ? `<b>${esc(shortName(m.name))}</b> ` : ''}${v !== null ? `<b>${OM.fmtM(m, v)}</b> ` : ''}${sigHtml(lb)}${ex}${cr ? `<div class="sub">기준: ${esc(cr)}</div>` : ''}${exc}</div>`; });
       if (ms.length > 1) { const w = worstOf(ms, last); if (w) sm += `<div class="sumrow worst">가장 나쁜 영역: <b>${esc(shortName(w.name))} ${w.get(last)}점</b></div>`; }
       if (list.length === 1) sm += `<div class="sub">한 번 더 받으면 전후 비교가 나와요.</div>`;
       h += sm + `</div>`;
@@ -388,7 +396,7 @@ function renderByQ(rs){
       const b0 = valid[0], b1 = valid[valid.length - 1];
       const v = verdict(m, m.get(b0), m.get(b1));
       h += `<div class="pp"><div><div class="lbl">치료 전 · ${dayLbl(b0, list)}</div><div class="val">${OM.fmtM(m, m.get(b0))}</div><div class="lbl">${sigHtml(labelOf(q, m, b0))}</div></div><div class="arrow">→</div><div><div class="lbl">최근 · ${dayLbl(b1, list)}</div><div class="val">${OM.fmtM(m, m.get(b1))}</div><div class="lbl">${sigHtml(labelOf(q, m, b1))}</div></div></div>
-        <div class="verdict ${v.cls}">${v.txt}</div>`;
+        <div class="verdict ${v.cls}">${v.txt}</div><div class="sub" style="text-align:right">${termBtn('MCID')} MCID ${termBtn('MDC')} MDC 뜻 보기</div>`;
       h += chartHtml(q, m, valid);
     });
     if (q.scoring && q.scoring.method !== 'subscales' && q.scoring.subscales && q.scoring.subscales.some(sb => !sb.measure) && list.length >= 2) {
@@ -731,11 +739,11 @@ async function renderSettings(){
     const def = (sub ? ((q.interpretation || {}).subs || {})[sub] : q.interpretation) || {};
     const val = k => u[k] !== undefined ? u[k] : (def[k] ? def[k].value : '');
     const bandsTxt = u.bands !== undefined ? u.bands : (def.bands || []).map(b => `${b.min}-${b.max}: ${b.label}`).join('\n');
-    const src = ['mcid','mdc'].filter(k => def[k] && def[k].note).map(k => `<div class="sub">📄 ${esc(def[k].note)}</div>`).join('') + (def.bandsNote ? `<div class="sub">📄 ${esc(def.bandsNote)}</div>` : '') + (def.src ? `<div class="sub">📄 ${esc(def.src)}</div>` : '') + (def.criteria ? `<div class="sub">기준: ${esc(def.criteria)}</div>` : '');
+    const src = ['mcid','mdc'].filter(k => def[k] && def[k].note).map(k => `<div class="sub">📄 ${esc(def[k].note)}</div>`).join('') + (def.bandsNote ? `<div class="sub">📄 ${esc(def.bandsNote)}</div>` : '') + (def.src ? `<div class="sub">📄 ${esc(def.src)}</div>` : '') + (def.criteria ? `<div class="sub">기준: ${esc(def.criteria)}</div>` : '') + (def.extra || []).map(e => `<div class="sub">${esc(e.name)}: ${esc(e.criteria || '')} · 📄 ${esc(e.note || '')}</div>`).join('');
     return `<div style="border-top:1px solid var(--line);padding-top:12px;margin-top:12px"><b>${esc(q.name)}</b> <span class="tag">${esc(q.short)}</span>${sub ? ` · <b>${esc(sub)}</b>` : ''}
       <div class="sub">점수 범위 ${m.min ?? '?'}~${m.max ?? '?'}${m.unit === '%' ? '%' : '점'} · ${m.hb ? '높을수록 좋음' : '낮을수록 좋음'}</div>${src}
-      <div class="row"><div style="flex:1"><label class="field">MCID</label><input type="number" step="any" inputmode="decimal" value="${val('mcid')}" onchange="setInterp('${key}','mcid',this.value)" placeholder="미입력"></div>
-      <div style="flex:1"><label class="field">MDC</label><input type="number" step="any" inputmode="decimal" value="${val('mdc')}" onchange="setInterp('${key}','mdc',this.value)" placeholder="미입력"></div></div>
+      <div class="row"><div style="flex:1"><label class="field">MCID ${termBtn('MCID')}</label><input type="number" step="any" inputmode="decimal" value="${val('mcid')}" onchange="setInterp('${key}','mcid',this.value)" placeholder="미입력"></div>
+      <div style="flex:1"><label class="field">MDC ${termBtn('MDC')}</label><input type="number" step="any" inputmode="decimal" value="${val('mdc')}" onchange="setInterp('${key}','mdc',this.value)" placeholder="미입력"></div></div>
       <label class="field">점수 구간 해석 (한 줄에 하나, 예: 0-20: 🟢 정상 · 맨 앞 🔴🟡🟢가 신호등 색)</label><textarea style="min-height:70px" onchange="setInterp('${key}','bands',this.value)" placeholder="미입력">${esc(bandsTxt)}</textarea></div>`;
   }).join('');
 }
@@ -907,7 +915,7 @@ function teamInvite(id){
 }
 
 // ---------- 앱 업데이트 안내 ----------
-const APP_VER = 27;                       // 새 버전을 올릴 때 version.json 의 번호와 함께 올립니다
+const APP_VER = 29;                       // 새 버전을 올릴 때 version.json 의 번호와 함께 올립니다
 let newVer = 0, updTimer = null;
 async function checkUpdate(){
   try {

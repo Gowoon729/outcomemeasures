@@ -37,7 +37,7 @@
     },
     {
      "id": "quickdash",
-     "name": "QuickDASH",
+     "name": "팔·어깨·손 장애 평가 단축형 (QuickDASH)",
      "status": "ready"
     },
     {
@@ -139,7 +139,7 @@
     },
     {
      "id": "womac",
-     "name": "WOMAC",
+     "name": "서부 온타리오·맥마스터 관절염 지수 (WOMAC)",
      "status": "ready"
     },
     {
@@ -223,7 +223,7 @@
    "items": [
     {
      "id": "sf36",
-     "name": "SF-36",
+     "name": "건강 상태 설문 36문항 (SF-36)",
      "status": "answers",
      "note": "채점법 문서에 없음: 답변만 저장"
     },
@@ -317,17 +317,6 @@
      "id": "pfiq7",
      "name": "골반저근 영향 설문지 (PFIQ-7)",
      "status": "ready"
-    },
-    {
-     "id": "csi_a",
-     "name": "중추 감작 조사지 A (CSI)",
-     "status": "ready"
-    },
-    {
-     "id": "csi_b",
-     "name": "중추 감작 조사지 B (CSI)",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
     }
    ]
   }

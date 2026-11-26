@@ -182,3 +182,5 @@ details.adv[open]>summary{margin-bottom:10px}
 
 .updbar button.ghost{background:transparent;color:inherit;border:1px solid currentColor}
 .guide ol.steps{margin:8px 0 6px 18px;padding:0}.guide ol.steps li{margin:6px 0}
+
+.term{border:1px solid currentColor;background:transparent;color:#0e7490;border-radius:50%;width:20px;height:20px;font-size:.72rem;line-height:1;padding:0;cursor:pointer;vertical-align:middle;font-family:inherit}
