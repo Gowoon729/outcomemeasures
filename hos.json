@@ -948,24 +948,24 @@
     "mcid": {
      "value": 9,
      "unit": "점",
-     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 의미 있는 호전 약 9점 이상 향상."
+     "note": "출처: Martin & Philippon 2008, Arthroscopy 24(6) (HOS 신뢰도·반응성)"
     },
     "mdc": {
      "value": 3,
      "unit": "점",
-     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 최소감지변화 약 3~5점. 기본값은 아래쪽(3점)이며 바꿔도 돼요 (의견)."
+     "note": "출처: Martin & Philippon 2008, Arthroscopy 24(6)"
     }
    },
    "스포츠(Sports)": {
     "mcid": {
-     "value": 14,
+     "value": 6,
      "unit": "점",
-     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 약 14~15점 이상(관절경 수술 코호트에서 주로 14.5점 내외). 기본값은 14점이며 바꿔도 돼요 (의견)."
+     "note": "출처: Martin & Philippon 2008, Arthroscopy 24(6)"
     },
     "mdc": {
-     "value": 11,
+     "value": 3,
      "unit": "점",
-     "note": "선생님이 보낸 자료(원문 PDF에는 없음): 최소감지변화 약 11~13점. 기본값은 아래쪽(11점)이며 바꿔도 돼요 (의견)."
+     "note": "출처: Martin & Philippon 2008, Arthroscopy 24(6)"
     }
    }
   }

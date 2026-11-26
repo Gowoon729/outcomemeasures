@@ -237,24 +237,25 @@
   "text": "9문항 점수의 합 (0~30)"
  },
  "interpretation": {
+  "criteria": "27점 이하 FAI 의심 · 24점 미만 불안정성 뚜렷",
   "bands": [
    {
     "min": 28,
     "max": 30,
-    "label": "정상 또는 발목 안정성이 매우 좋음"
+    "label": "🟢 정상 또는 안정성 좋음"
    },
    {
     "min": 24,
     "max": 27,
-    "label": "기능적 발목 불안정성(FAI) 의심 (≤27)"
+    "label": "🟡 FAI 의심"
    },
    {
     "min": 0,
     "max": 23,
-    "label": "발목 불안정성이 심각할 수 있음, 추가 평가 권장 (<24)"
+    "label": "🔴 불안정성 심할 수 있음"
    }
   ],
-  "bandsNote": "원문 해석 기준: Cut-off 27점 (Hiller et al., Journal of Science and Medicine in Sport). ≥28~30 정상, ≤27 FAI 의심, <24 심각할 수 있음"
+  "bandsNote": "출처: Hiller 등 2006, Arch Phys Med Rehabil 87(9):1235-41 (27점) · Gribble 등 2014, J Athl Train 49(1) (24점 미만)"
  },
  "notes": [
   "원문은 한 장에 왼쪽·오른쪽 칸이 같이 있어, 앱에서는 왼쪽·오른쪽을 따로 고르게 나눴습니다.",

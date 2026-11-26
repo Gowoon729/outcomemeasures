@@ -13,23 +13,23 @@
      "options": [
       {
        "label": "어려움 없음",
-       "score": null
+       "score": 4
       },
       {
        "label": "약간의 어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "보통수준 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "극심한 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "활동 불가",
-       "score": null
+       "score": 0
       },
       {
        "label": "해당 없음",
@@ -43,23 +43,23 @@
      "options": [
       {
        "label": "어려움 없음",
-       "score": null
+       "score": 4
       },
       {
        "label": "약간의 어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "보통수준 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "극심한 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "활동 불가",
-       "score": null
+       "score": 0
       },
       {
        "label": "해당 없음",
@@ -73,23 +73,23 @@
      "options": [
       {
        "label": "어려움 없음",
-       "score": null
+       "score": 4
       },
       {
        "label": "약간의 어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "보통수준 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "극심한 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "활동 불가",
-       "score": null
+       "score": 0
       },
       {
        "label": "해당 없음",
@@ -103,23 +103,23 @@
      "options": [
       {
        "label": "어려움 없음",
-       "score": null
+       "score": 4
       },
       {
        "label": "약간의 어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "보통수준 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "극심한 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "활동 불가",
-       "score": null
+       "score": 0
       },
       {
        "label": "해당 없음",
@@ -133,23 +133,23 @@
      "options": [
       {
        "label": "어려움 없음",
-       "score": null
+       "score": 4
       },
       {
        "label": "약간의 어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "보통수준 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "극심한 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "활동 불가",
-       "score": null
+       "score": 0
       },
       {
        "label": "해당 없음",
@@ -163,23 +163,23 @@
      "options": [
       {
        "label": "어려움 없음",
-       "score": null
+       "score": 4
       },
       {
        "label": "약간의 어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "보통수준 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "극심한 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "활동 불가",
-       "score": null
+       "score": 0
       },
       {
        "label": "해당 없음",
@@ -193,23 +193,23 @@
      "options": [
       {
        "label": "어려움 없음",
-       "score": null
+       "score": 4
       },
       {
        "label": "약간의 어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "보통수준 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "극심한 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "활동 불가",
-       "score": null
+       "score": 0
       },
       {
        "label": "해당 없음",
@@ -223,23 +223,23 @@
      "options": [
       {
        "label": "어려움 없음",
-       "score": null
+       "score": 4
       },
       {
        "label": "약간의 어려움",
-       "score": null
+       "score": 3
       },
       {
        "label": "보통수준 어려움",
-       "score": null
+       "score": 2
       },
       {
        "label": "극심한 어려움",
-       "score": null
+       "score": 1
       },
       {
        "label": "활동 불가",
-       "score": null
+       "score": 0
       },
       {
        "label": "해당 없음",
@@ -250,9 +250,19 @@
    ]
   }
  ],
- "scoring": null,
- "higherIsBetter": null,
+ "scoring": {
+  "method": "percent",
+  "min": 0,
+  "max": 100,
+  "unit": "%",
+  "higherIsBetter": true,
+  "text": "8문항 점수 합 ÷ 만점(32) × 100. '해당 없음'은 빼고 계산"
+ },
+ "higherIsBetter": true,
  "notes": [
-  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다."
+  "채점: Hale & Hertel 2005 (문항별 0~4점, 백분율로 계산, 100%가 기능 이상 없음)."
+ ],
+ "refs": [
+  "Hale SA, Hertel J. Reliability and sensitivity of the Foot and Ankle Disability Index in subjects with chronic ankle instability. J Athl Train 2005;40(1):35-40."
  ]
 }

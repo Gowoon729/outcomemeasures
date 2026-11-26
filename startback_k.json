@@ -171,7 +171,7 @@
   ],
   "classify": [
    {
-    "label": "저위험 (Low risk)",
+    "label": "🟢 저위험 (Low risk)",
     "when": [
      [
       "total",
@@ -181,7 +181,7 @@
     ]
    },
    {
-    "label": "중위험 (Medium risk)",
+    "label": "🟡 중위험 (Medium risk)",
     "when": [
      [
       "total",
@@ -196,7 +196,7 @@
     ]
    },
    {
-    "label": "고위험 (High risk)",
+    "label": "🔴 고위험 (High risk)",
     "when": [
      [
       "total",
@@ -214,5 +214,9 @@
  },
  "notes": [
   "원문 채점: 전체 점수 3점 이하 → 저위험. 4점 이상이면 부분 점수(Q5-9)를 보고 3점 이하 → 중위험, 4점 이상 → 고위험."
- ]
+ ],
+ "interpretation": {
+  "criteria": "총점 3 이하 저위험 · 4 이상이면 5~9번 점수 4 이상 고위험",
+  "src": "출처: Hill 등 2008, Arthritis Rheum 59(5):632-641"
+ }
 }

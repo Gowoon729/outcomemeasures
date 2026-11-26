@@ -395,5 +395,21 @@
   "unit": "점",
   "higherIsBetter": false,
   "text": "17문항 합계. 4, 8, 12, 16번은 반대로 계산 (예: 4번에서 1점이면 4점)"
+ },
+ "interpretation": {
+  "criteria": "37점 이상이면 움직임 두려움 높음",
+  "bands": [
+   {
+    "min": 37,
+    "max": 68,
+    "label": "🔴 움직임 두려움 높음"
+   },
+   {
+    "min": 17,
+    "max": 36,
+    "label": "🟢 높지 않음"
+   }
+  ],
+  "bandsNote": "출처: Vlaeyen 등 1995, Pain 62:363-372 (TSK-17)"
  }
 }

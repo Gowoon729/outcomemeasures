@@ -231,23 +231,28 @@
   "mdc": {
    "value": 4.4,
    "unit": "점",
-   "note": "한국어판 논문 Table 4: 총점 MDC 4.4점(본문 글에는 4점으로 표기). 원 논문은 90% 신뢰수준 기준, 원위 요골 골절 수술 환자 63명 대상."
+   "note": "출처: Kim & Kang 2013, J Hand Ther (한국어판 PRWE, Table 4)"
   },
   "subs": {
    "통증 점수": {
     "mdc": {
      "value": 2.7,
      "unit": "점",
-     "note": "한국어판 논문 Table 4: 통증 MDC 2.7점."
+     "note": "출처: Kim & Kang 2013, J Hand Ther (한국어판 PRWE, Table 4)"
     }
    },
    "기능 점수": {
     "mdc": {
      "value": 2.5,
      "unit": "점",
-     "note": "한국어판 논문 Table 4: 기능 MDC 2.5점."
+     "note": "출처: Kim & Kang 2013, J Hand Ther (한국어판 PRWE, Table 4)"
     }
    }
+  },
+  "mcid": {
+   "value": 11.5,
+   "unit": "점",
+   "note": "출처: Walenkamp 등 2015, Clin Orthop Relat Res 473:3235-3241 (원위 요골 골절)"
   }
  }
 }

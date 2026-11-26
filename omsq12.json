@@ -234,5 +234,26 @@
  },
  "notes": [
   "의견: 원문 제목의 'Qrebro'는 'Örebro(외레브로)'의 오기로 보입니다. 이름만의 문제라 점수에는 영향이 없습니다."
- ]
+ ],
+ "interpretation": {
+  "criteria": "72점 이상 고위험 · 57점 이하 저위험",
+  "bands": [
+   {
+    "min": 72,
+    "max": 120,
+    "label": "🔴 만성화 고위험"
+   },
+   {
+    "min": 58,
+    "max": 71,
+    "label": "🟡 중간"
+   },
+   {
+    "min": 0,
+    "max": 57,
+    "label": "🟢 저위험"
+   }
+  ],
+  "bandsNote": "출처: Gabel 등 2013, Manual Therapy 18(5):378-385"
+ }
 }

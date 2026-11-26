@@ -359,5 +359,26 @@
  },
  "notes": [
   "원문 p22: 심각도 구간은 제시하지 않으며, 이전·이후 점수를 비교해 변화율을 봅니다 (예: 12→2점이면 10/12×100 = 83% 향상)."
- ]
+ ],
+ "interpretation": {
+  "mcid": {
+   "value": 5,
+   "unit": "점",
+   "note": "출처: Ostelo 등 2008, Spine 33(1):90-94"
+  },
+  "bands": [
+   {
+    "min": 0,
+    "max": 4,
+    "label": "🟢 기능적 상태"
+   },
+   {
+    "min": 5,
+    "max": 24,
+    "label": "🔴 기능 제한"
+   }
+  ],
+  "bandsNote": "출처: Stratford & Riddle 2016, Physiother Can 68(1):29-35",
+  "criteria": "4점 이하면 기능적 상태"
+ }
 }

@@ -145,9 +145,33 @@
    ]
   }
  ],
- "scoring": null,
+ "scoring": {
+  "method": "mean",
+  "multiplier": 33.333333333333336,
+  "min": 0,
+  "max": 100,
+  "unit": "점",
+  "higherIsBetter": false,
+  "text": "6문항 평균(0~3) × 33⅓ = 0~100점"
+ },
  "higherIsBetter": false,
  "notes": [
-  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다. (p58 단독 양식 기준. PFDI-20 안의 UDI-6 척도는 0~4점 방식으로 따로 계산됩니다.)"
- ]
+  "채점: Uebersax 등 1995, Neurourol Urodyn 14:131 (문항별 0~3점, 평균 × 33⅓)."
+ ],
+ "interpretation": {
+  "criteria": "33.33점 초과면 배뇨 증상 고통 높음",
+  "bands": [
+   {
+    "min": 33.4,
+    "max": 100,
+    "label": "🔴 배뇨 증상 고통 높음"
+   },
+   {
+    "min": 0,
+    "max": 33.3,
+    "label": "🟢 고통 낮음"
+   }
+  ],
+  "bandsNote": "출처: Skorupska 등 2021, Health Qual Life Outcomes 19:87"
+ }
 }

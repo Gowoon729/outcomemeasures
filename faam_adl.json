@@ -675,7 +675,13 @@
  "interpretation": {
   "mcid": {
    "value": 8,
-   "note": "orca 자료: ADL 약 8점 이상의 변화 → 임상적으로 유의미"
+   "unit": "점",
+   "note": "출처: Martin 등 2005, Foot Ankle Int 26(11):968-983"
+  },
+  "mdc": {
+   "value": 5.7,
+   "unit": "점",
+   "note": "출처: Martin 등 2005, Foot Ankle Int 26(11):968-983"
   }
  }
 }

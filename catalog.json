@@ -145,8 +145,7 @@
     {
      "id": "kujala",
      "name": "쿠잘라 점수 설문",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready"
     },
     {
      "id": "koos",
@@ -199,20 +198,17 @@
     {
      "id": "aii",
      "name": "발목 불안정성 조사지 (AII)",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready"
     },
     {
      "id": "fadi_adl",
      "name": "FADI 일상생활",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready"
     },
     {
      "id": "fadi_sports",
      "name": "FADI 스포츠",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready"
     },
     {
      "id": "visa_a",
@@ -266,8 +262,7 @@
     {
      "id": "pds",
      "name": "외상 후 스트레스 진단 척도 (PDS)",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready"
     }
    ]
   },
@@ -300,8 +295,7 @@
     {
      "id": "udi6",
      "name": "배뇨 기능 관련 스트레스 설문지 (UDI-6)",
-     "status": "answers",
-     "note": "채점법 문서에 없음: 답변만 저장"
+     "status": "ready"
     },
     {
      "id": "iiq7",

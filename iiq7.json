@@ -179,5 +179,21 @@
  },
  "notes": [
   "원문 p59: 1, 2번 = 신체활동 / 3, 4번 = 여가활동 / 5번 = 사회, 관계 / 6, 7번 = 감정상태"
- ]
+ ],
+ "interpretation": {
+  "bands": [
+   {
+    "min": 9.5,
+    "max": 100,
+    "label": "🔴 삶의 질 영향 있음"
+   },
+   {
+    "min": 0,
+    "max": 9.4,
+    "label": "🟢 영향 낮음"
+   }
+  ],
+  "bandsNote": "출처: Skorupska 등 2021, Health Qual Life Outcomes 19:87",
+  "criteria": "9.52점 이상이면 삶의 질 영향"
+ }
 }
