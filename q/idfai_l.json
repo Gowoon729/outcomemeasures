@@ -275,15 +275,21 @@
    {
     "min": 11,
     "max": 37,
-    "label": "기능적 발목 불안정성(FAI) 있음"
+    "label": "🔴 FAI 있음"
    },
    {
     "min": 0,
     "max": 10,
-    "label": "FAI 없음 (정상 또는 단순 염좌 이력)"
+    "label": "🟢 FAI 없음"
    }
   ],
-  "bandsNote": "원문: ≥11점 FAI-positive, <11점 FAI-negative (Donovan et al. 2012)"
+  "bandsNote": "출처: Donovan 등 2012, J Athl Train 47(4):458-462 · Ko, Rosen, Brown 2017 (한국어판, 절단점 10점)",
+  "mdc": {
+   "value": 3.91,
+   "unit": "점",
+   "note": "출처: Ko, Rosen, Brown 2017 (한국어판 IdFAI)"
+  },
+  "criteria": "11점 이상이면 FAI"
  },
  "notes": [
   "원문 지침대로 오른쪽과 왼쪽 발목을 따로 작성하도록 나눴습니다."

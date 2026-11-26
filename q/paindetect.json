@@ -337,20 +337,21 @@
    {
     "min": -1,
     "max": 12,
-    "label": "침해성 통증 (neuropathic component 가능성 적음, <15%)"
+    "label": "🟢 침해성 통증"
    },
    {
     "min": 13,
     "max": 18,
-    "label": "불분명 (결과 모호, neuropathic component 존재할 가능성 있음)"
+    "label": "🟡 불분명"
    },
    {
     "min": 19,
     "max": 38,
-    "label": "신경병성 통증 (neuropathic component 가능성 높음, >90%)"
+    "label": "🔴 신경병성 통증"
    }
   ],
-  "bandsNote": "원문 선별검사 결과: 0~12 침해성 통증, 13~18 불분명, 19~38 신경병성 통증"
+  "bandsNote": "출처: Freynhagen 등 2006, Curr Med Res Opin 22(10):1911-1920",
+  "criteria": "12점 이하 침해성 · 13~18 불분명 · 19점 이상 신경병성"
  },
  "notes": [
   "원문의 사람 그림에 부위를 표시하는 칸은 휴대폰에서 그리기 어려워 글로 적는 칸으로 바꿨습니다.",

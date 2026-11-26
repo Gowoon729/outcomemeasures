@@ -21,7 +21,8 @@
        "label": "아니요",
        "score": null
       }
-     ]
+     ],
+     "scored": false
     },
     {
      "id": "pe2",
@@ -35,7 +36,8 @@
        "label": "아니요",
        "score": null
       }
-     ]
+     ],
+     "scored": false
     },
     {
      "id": "pe3",
@@ -49,7 +51,8 @@
        "label": "아니요",
        "score": null
       }
-     ]
+     ],
+     "scored": false
     },
     {
      "id": "pe4",
@@ -63,7 +66,8 @@
        "label": "아니요",
        "score": null
       }
-     ]
+     ],
+     "scored": false
     },
     {
      "id": "pe5",
@@ -77,7 +81,8 @@
        "label": "아니요",
        "score": null
       }
-     ]
+     ],
+     "scored": false
     },
     {
      "id": "pe6",
@@ -91,7 +96,8 @@
        "label": "아니요",
        "score": null
       }
-     ]
+     ],
+     "scored": false
     },
     {
      "id": "pe7",
@@ -105,7 +111,8 @@
        "label": "아니요",
        "score": null
       }
-     ]
+     ],
+     "scored": false
     },
     {
      "id": "pe8",
@@ -119,7 +126,8 @@
        "label": "아니요",
        "score": null
       }
-     ]
+     ],
+     "scored": false
     },
     {
      "id": "pe9",
@@ -133,7 +141,8 @@
        "label": "아니요",
        "score": null
       }
-     ]
+     ],
+     "scored": false
     },
     {
      "id": "pe10",
@@ -147,7 +156,8 @@
        "label": "아니요",
        "score": null
       }
-     ]
+     ],
+     "scored": false
     },
     {
      "id": "pe11",
@@ -161,7 +171,8 @@
        "label": "아니요",
        "score": null
       }
-     ]
+     ],
+     "scored": false
     },
     {
      "id": "pe12",
@@ -175,7 +186,8 @@
        "label": "아니요",
        "score": null
       }
-     ]
+     ],
+     "scored": false
     },
     {
      "id": "pe13",
@@ -246,7 +258,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p14t",
@@ -283,7 +296,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p16",
@@ -298,7 +312,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p17",
@@ -313,7 +328,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p18",
@@ -328,7 +344,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p19",
@@ -343,7 +360,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p20",
@@ -358,7 +376,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p21",
@@ -373,7 +392,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     }
    ]
   },
@@ -789,7 +809,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p40",
@@ -804,7 +825,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     }
    ]
   },
@@ -825,7 +847,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p42",
@@ -840,7 +863,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p43",
@@ -855,7 +879,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p44",
@@ -870,7 +895,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p45",
@@ -885,7 +911,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p46",
@@ -900,7 +927,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p47",
@@ -915,7 +943,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p48",
@@ -930,7 +959,8 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     },
     {
      "id": "p49",
@@ -945,18 +975,70 @@
        "score": null
       }
      ],
-     "optional": true
+     "optional": true,
+     "scored": false
     }
    ]
   }
  ],
- "scoring": null,
+ "scoring": {
+  "method": "sum",
+  "items": [
+   "p22",
+   "p23",
+   "p24",
+   "p25",
+   "p26",
+   "p27",
+   "p28",
+   "p29",
+   "p30",
+   "p31",
+   "p32",
+   "p33",
+   "p34",
+   "p35",
+   "p36",
+   "p37",
+   "p38"
+  ],
+  "min": 0,
+  "max": 51,
+  "unit": "점",
+  "higherIsBetter": false,
+  "text": "증상 심각도 = 22~38번(17문항) 점수의 합 (0~51점)"
+ },
  "higherIsBetter": false,
  "notes": [
-  "원문에 채점법이 없습니다(문서에 없음). 답변만 저장하고 점수는 계산하지 않습니다.",
-  "원문 1장은 해당 사건에 모두 v표 하는 형식이라, 앱에서는 사건마다 예/아니요로 바꿨습니다.",
-  "의견: 원문 4장 번호가 (41)~(47) 다음 (45), (46)으로 다시 이어져 번호 오류로 보여, 앱에서는 (41)~(49)로 이어 붙였습니다.",
-  "원문 3장 34~38번 문항에 빨간 표시가 있으나 의미 설명이 없어 반영하지 않았습니다.",
-  "3장 문항은 0~3점으로 저장되어 문항별 비교에서 증감이 보입니다."
- ]
+  "채점: Foa 등 1997 (증상 심각도 점수 = 22~38번 합). 1·2·4장 문항은 답만 저장해요."
+ ],
+ "refs": [
+  "Foa EB, Cashman L, Jaycox L, Perry K. The validation of a self-report measure of posttraumatic stress disorder: the Posttraumatic Diagnostic Scale. Psychol Assess 1997;9(4):445-451."
+ ],
+ "interpretation": {
+  "criteria": "0~10 경도 · 11~20 중등도 · 21~35 중등도~중증 · 36 이상 중증",
+  "bands": [
+   {
+    "min": 0,
+    "max": 10,
+    "label": "🟢 경도"
+   },
+   {
+    "min": 11,
+    "max": 20,
+    "label": "🟡 중등도"
+   },
+   {
+    "min": 21,
+    "max": 35,
+    "label": "🔴 중등도~중증"
+   },
+   {
+    "min": 36,
+    "max": 51,
+    "label": "🔴 중증"
+   }
+  ],
+  "bandsNote": "출처: Foa 등 1997, Psychol Assess 9(4):445-451"
+ }
 }
